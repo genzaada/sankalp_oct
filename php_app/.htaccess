@@ -2,10 +2,9 @@
 # Compatible with Apache 2.4+
 
 # Prevent directory browsing
-Options -Indexes
-
-# Follow symlinks
-Options +FollowSymLinks
+<IfModule mod_autoindex.c>
+    Options -Indexes
+</IfModule>
 
 # Default Charset
 AddDefaultCharset UTF-8
@@ -38,7 +37,7 @@ AddDefaultCharset UTF-8
 # URL Rewriting for clean page routing
 <IfModule mod_rewrite.c>
     RewriteEngine On
-    RewriteBase /
+    # RewriteBase is omitted so rules resolve relative to this directory (works in root or subdirectory)
 
     # Block access to private directories & sensitive files
     RewriteRule ^(config|database)/ - [F,L]

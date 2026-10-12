@@ -19,11 +19,11 @@ return [
 
     // Database settings
     'database' => [
-        'host'    => getenv('DB_HOST') ?: 'localhost',
-        'port'    => (int)(getenv('DB_PORT') ?: 3306),
+        'host'    => getenv('DB_HOST') ?: (file_exists('/Applications/MAMP') ? '127.0.0.1' : 'localhost'),
+        'port'    => (int)(getenv('DB_PORT') ?: (file_exists('/Applications/MAMP') ? 8889 : 3306)),
         'name'    => getenv('DB_NAME') ?: 'sankalp2027_db',
         'user'    => getenv('DB_USER') ?: 'root',
-        'pass'    => getenv('DB_PASS') ?: '',
+        'pass'    => getenv('DB_PASS') !== false ? getenv('DB_PASS') : (file_exists('/Applications/MAMP') ? 'root' : ''),
         'charset' => 'utf8mb4'
     ],
 

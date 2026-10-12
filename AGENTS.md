@@ -1,23 +1,27 @@
-# figma-make-app
+# SANKALP 2027 Conference Application
 
-React + Vite + Tailwind CSS project running inside Figma Make.
+HTML5 + CSS3 + Vanilla JavaScript (ES6+) + PHP 8.x + MySQL application for MGM University.
 
-## Development Server
+## Production Application
 
-A Vite development server is **always running** on `$PORT` (default 8443). You don't need to start it manually.
+The production application is located in `php_app/`:
+- Entry point: `php_app/index.php`
+- Apache config: `php_app/.htaccess`
+- Master styling: `php_app/assets/css/style.css`
+- Scripts: `php_app/assets/js/main.js`
+- Database: `php_app/database/schema.sql`
 
-- Preview URL: The user can access the running app through the preview panel
-- Hot reload: Changes to source files are reflected immediately
+## Local PHP Testing
 
-## Key Files
+Run the local PHP server:
+```bash
+php -S 0.0.0.0:8080 -t php_app
+```
+Preview at: `http://localhost:8080`
 
-- `src/App.tsx` - Main application component
-- `src/main.tsx` - React entry point
-- `src/index.css` - Global styles and Tailwind CSS import
-- `package.json` - Dependencies and scripts
-- `vite.config.ts` - Vite configuration
-- `.mise.toml` - Toolchain versions (Node.js, pnpm)
+## Technology Stack
 
-## Styling
-
-This project uses **Tailwind CSS v4** for styling. Use Tailwind utility classes directly in JSX. Tailwind is loaded via the Vite plugin — no PostCSS config needed.
+- **Frontend:** Semantic HTML5, Native CSS3 (Design Tokens & Keyframe Animations), Vanilla JavaScript (ES6+)
+- **Backend:** PHP 8.x (Apache compatible)
+- **Database:** MySQL 8.x via PDO prepared statements
+- **Dependencies:** Zero production dependencies on Node.js, React, TypeScript, or Vite.

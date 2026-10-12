@@ -1,0 +1,56 @@
+# Apache configuration for MGMU hosting environment
+# Compatible with Apache 2.4+
+
+# Prevent directory browsing
+Options -Indexes
+
+# Follow symlinks
+Options +FollowSymLinks
+
+# Default Charset
+AddDefaultCharset UTF-8
+
+# MIME Types
+<IfModule mod_mime.c>
+    AddType text/css .css
+    AddType application/javascript .js
+    AddType image/svg+xml .svg
+    AddType image/webp .webp
+    AddType image/png .png
+    AddType image/jpeg .jpg .jpeg
+    AddType font/woff2 .woff2
+    AddType font/woff .woff
+</IfModule>
+
+# Compression
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css application/javascript application/json image/svg+xml
+</IfModule>
+
+# Security Headers
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set X-XSS-Protection "1; mode=block"
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+# URL Rewriting for clean page routing
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+
+    # Block access to private directories & sensitive files
+    RewriteRule ^(config|database)/ - [F,L]
+    RewriteRule ^\.(git|env|htaccess|htpasswd) - [F,L]
+    RewriteRule ^.*\.sql$ - [F,L]
+
+    # Don't rewrite real files or directories
+    RewriteCond %{REQUEST_FILENAME} -f [OR]
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteRule ^ - [L]
+
+    # Clean URLs for /about -> index.php?page=about
+    RewriteRule ^about/?$ index.php?page=about [L,QSA]
+    RewriteRule ^home/?$ index.php?page=home [L,QSA]
+</IfModule>

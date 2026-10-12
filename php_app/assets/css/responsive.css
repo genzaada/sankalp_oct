@@ -1,0 +1,56 @@
+/* ── SANKALP 2027 Responsive Breakpoint Overrides ─────────── */
+
+/* ── Mobile Small (<= 375px) ──────────────────────────────── */
+@media (max-width: 375px) {
+  :root {
+    --fs-h1: 1.85rem;
+    --fs-h2: 1.5rem;
+  }
+  .countdown-num { font-size: 1.35rem; }
+  .countdown-sep { font-size: 1.15rem; margin-top: -0.15rem; }
+  .hero-meta-item { padding: 0.5rem 0.75rem; }
+  .stats-grid { grid-template-columns: 1fr; }
+  .mobile-nav-grid { grid-template-columns: 1fr; }
+}
+
+/* ── Mobile Standard (376px to 639px) ─────────────────────── */
+@media (min-width: 376px) and (max-width: 639px) {
+  :root {
+    --fs-h1: 2.15rem;
+    --fs-h2: 1.65rem;
+  }
+}
+
+/* ── Tablet (640px to 1023px) ─────────────────────────────── */
+@media (min-width: 640px) and (max-width: 1023px) {
+  .hero-meta-grid {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+
+/* ── Desktop Standard (1024px to 1279px) ──────────────────── */
+@media (min-width: 1024px) {
+  .nav-desktop-links {
+    display: flex;
+  }
+  .mobile-drawer {
+    display: none !important;
+  }
+}
+
+/* ── Large Desktop (1280px to 1440px) ─────────────────────── */
+@media (min-width: 1280px) {
+  :root {
+    --fs-h1: 2.85rem;
+    --fs-h2: 1.875rem;
+  }
+}
+
+/* ── Extra-wide Desktop (>= 1920px) ────────────────────────── */
+@media (min-width: 1920px) {
+  .container {
+    max-width: 1440px;
+  }
+}

@@ -1,0 +1,33 @@
+<?php
+/**
+ * Application Configuration
+ * SANKALP 2027 / ICAEITSF Conference
+ */
+
+return [
+    'app_name' => 'SANKALP 2027',
+    'app_full_title' => 'International Conference on Sustainable Advances in eNgineering, Knowledge Systems, AI and InteLligent Technologies for Progress',
+    'app_subtitle' => 'Organized by School Of Engineering and Technology MGM University, Chhatrapati Sambhajinagar',
+    'app_dates' => '15–16 February 2027',
+    'app_venue' => 'School of Engineering & Technology, MGM University, Chhatrapati Sambhajinagar, Maharashtra 431003',
+    'app_base_url' => '', // Leave empty for automatic relative path detection
+    'contact_email' => 'sankalp@mgmu.ac.in',
+    'contact_phone' => '+91 1234 567890',
+    
+    // Target countdown date (ISO 8601)
+    'countdown_target' => '2027-02-15T00:00:00Z',
+
+    // Database settings
+    'database' => [
+        'host'    => getenv('DB_HOST') ?: 'localhost',
+        'port'    => (int)(getenv('DB_PORT') ?: 3306),
+        'name'    => getenv('DB_NAME') ?: 'sankalp2027_db',
+        'user'    => getenv('DB_USER') ?: 'root',
+        'pass'    => getenv('DB_PASS') ?: '',
+        'charset' => 'utf8mb4'
+    ],
+
+    // Security & Environment
+    'environment' => getenv('APP_ENV') ?: 'production', // 'development' or 'production'
+    'csrf_token_name' => 'csrf_token'
+];

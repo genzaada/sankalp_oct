@@ -189,14 +189,14 @@ return [
 
     'nav_links' => [
         ['label' => 'Home',            'target' => 'top',             'page' => 'home'],
-        ['label' => 'About',           'target' => 'top',             'page' => 'about'],
+        ['label' => 'About',           'target' => 'about',           'page' => 'home'],
         ['label' => 'Tracks',          'target' => 'tracks',          'page' => 'home'],
         ['label' => 'Call for Papers', 'target' => 'cfp',             'page' => 'home'],
         ['label' => 'Speakers',        'target' => 'speakers',        'page' => 'home'],
-        ['label' => 'Committee',       'target' => 'committee',       'page' => 'about'],
+        ['label' => 'Committee',       'target' => 'committee',       'page' => 'home'],
         ['label' => 'Schedule',        'target' => 'dates',           'page' => 'home'],
         ['label' => 'Registration',    'target' => 'fees',            'page' => 'home'],
-        ['label' => 'Venue',           'target' => 'venue-section',   'page' => 'about'],
+        ['label' => 'Venue',           'target' => 'venue',           'page' => 'home'],
         ['label' => 'Contact',         'target' => 'contact-section', 'page' => 'home'],
     ]
 ];

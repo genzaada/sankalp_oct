@@ -6,7 +6,7 @@ $conferenceData = require __DIR__ . '/../../config/conference_data.php';
 $scopes = $conferenceData['scopes'];
 $objectives = $conferenceData['objectives'];
 ?>
-<section id="overview" class="section-light" style="padding-top: 6rem; padding-bottom: 6rem;">
+<section id="overview" class="section-light sankalp-overview" style="padding-top: 6rem; padding-bottom: 6rem;">
   <div class="container">
 
     <!-- Section Header -->

@@ -5,7 +5,7 @@
 $conferenceData = require __DIR__ . '/../../config/conference_data.php';
 $stats = $conferenceData['stats'];
 ?>
-<section class="stats-section section-white">
+<section class="stats-section section-white sankalp-stats">
   <div class="container">
     <div class="float-card" style="border-radius: 1rem; padding: 1.25rem 1.5rem;">
       <div class="stats-grid">

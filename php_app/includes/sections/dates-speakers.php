@@ -6,11 +6,11 @@ $conferenceData = require __DIR__ . '/../../config/conference_data.php';
 $dates = $conferenceData['dates'];
 $speakers = $conferenceData['speakers'];
 ?>
-<section id="speakers" class="section-white" style="padding-top: 6rem; padding-bottom: 6rem; scroll-margin-top: 5rem; overflow: hidden;">
+<section id="speakers" class="section-white sankalp-speakers" style="padding-top: 6rem; padding-bottom: 6rem; scroll-margin-top: 5rem; overflow: hidden;">
   <div class="container split-grid">
 
     <!-- Left: Important Dates (~35%) -->
-    <div id="dates" class="reveal-up" style="scroll-margin-top: 6rem;">
+    <div id="dates" class="reveal-up sankalp-dates" style="scroll-margin-top: 6rem;">
       <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.25rem;">
         <div style="width: 4px; height: 1.25rem; border-radius: 9999px; background: var(--color-primary-700);"></div>
         <span class="font-mono uppercase tracking-widest font-bold" style="font-size: 11px; color: var(--color-primary-700);">

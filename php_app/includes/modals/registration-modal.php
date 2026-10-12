@@ -5,76 +5,29 @@
       <?= render_icon('x') ?>
     </button>
 
-    <div style="margin-bottom: 1.5rem;">
-      <span class="eyebrow" style="margin-bottom: 0.25rem;">Conference Registration</span>
-      <h3 class="font-display font-bold text-xl" style="color: var(--color-primary-700); font-size: 1.35rem;">
-        Register for SANKALP 2027
+    <div style="text-align: center; padding: 2rem 1rem 1rem 1rem;">
+      <div style="width: 4rem; height: 4rem; border-radius: 50%; margin: 0 auto 1.5rem auto; background: rgba(242, 183, 5, 0.15); border: 2px solid var(--color-accent-amber); display: flex; align-items: center; justify-content: center; font-size: 1.75rem; color: var(--color-primary-700);">
+        ⏳
+      </div>
+
+      <span class="eyebrow" style="margin-bottom: 0.5rem;">SANKALP 2027</span>
+      <h3 class="font-display font-bold text-2xl" style="color: var(--color-primary-700); font-size: 1.75rem; margin-bottom: 0.75rem;">
+        Registration Coming Soon!
       </h3>
-      <p style="font-size: 0.8125rem; color: var(--color-text-body); margin-top: 0.25rem;">
-        Fill in your details below to secure your seat. Early bird discounts applied automatically.
+      <p style="font-size: 0.9375rem; color: var(--color-text-body); max-width: 26rem; margin: 0 auto 1.75rem auto; line-height: 1.6;">
+        Online delegate registrations and payment gateway will open shortly. Stay tuned for early bird registration announcements!
       </p>
+
+      <div style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1.25rem; border-radius: 9999px; background: rgba(18, 124, 111, 0.08); border: 1px solid rgba(18, 124, 111, 0.2); font-family: var(--font-mono); font-size: 0.8125rem; font-weight: 600; color: var(--color-primary-700); margin-bottom: 2rem;">
+        <span style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--color-accent-amber);"></span>
+        Phase: Early Bird Opening Soon
+      </div>
+
+      <div>
+        <button type="button" class="btn-primary" style="padding: 0.75rem 2rem; font-size: 0.8125rem; text-transform: uppercase; letter-spacing: 0.05em;" onclick="closeModal('modal-registration')">
+          Got It
+        </button>
+      </div>
     </div>
-
-    <div id="reg-feedback" class="form-feedback"></div>
-
-    <form id="registration-form">
-      <input type="hidden" name="csrf_token" value="<?= e(csrf_token()) ?>">
-
-      <div class="form-group">
-        <label class="form-label" for="reg-name">Full Name *</label>
-        <input type="text" id="reg-name" name="full_name" class="form-input" placeholder="e.g. Dr. Jane Doe" required>
-      </div>
-
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
-        <div class="form-group">
-          <label class="form-label" for="reg-email">Email Address *</label>
-          <input type="email" id="reg-email" name="email" class="form-input" placeholder="jane.doe@university.edu" required>
-        </div>
-        <div class="form-group">
-          <label class="form-label" for="reg-phone">Phone / WhatsApp *</label>
-          <input type="tel" id="reg-phone" name="phone" class="form-input" placeholder="+91 9876543210" required>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label class="form-label" for="reg-institution">Institution / University / Company *</label>
-        <input type="text" id="reg-institution" name="institution" class="form-input" placeholder="e.g. MGM University" required>
-      </div>
-
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
-        <div class="form-group">
-          <label class="form-label" for="reg-category">Delegate Category *</label>
-          <select id="reg-category" name="category" class="form-select" required>
-            <option value="Students">Students (₹1,500)</option>
-            <option value="Research Scholars">Research Scholars (₹2,000)</option>
-            <option value="Academicians">Academicians (₹2,500)</option>
-            <option value="Industry / Others">Industry / Others (₹3,000)</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label class="form-label" for="reg-type">Registration Phase</label>
-          <select id="reg-type" name="registration_type" class="form-select">
-            <option value="early_bird">Early Bird (Best Value - Till 15 Nov)</option>
-            <option value="regular">Regular (Till 31 Dec)</option>
-            <option value="spot">On Spot Registration</option>
-          </select>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label class="form-label" for="reg-paper">Paper Submission ID (Optional)</label>
-        <input type="text" id="reg-paper" name="paper_id" class="form-input" placeholder="e.g. SANKALP-T1-1024">
-        <span class="form-help">If you are an author presenting an accepted paper, provide your submission code.</span>
-      </div>
-
-      <div style="margin-top: 1.5rem; display: flex; justify-content: flex-end; gap: 0.75rem;">
-        <button type="button" class="btn-outline-teal" style="padding: 0.625rem 1.25rem; font-size: 0.8125rem;" onclick="closeModal('modal-registration')">
-          Cancel
-        </button>
-        <button type="submit" class="btn-primary" style="padding: 0.625rem 1.75rem; font-size: 0.8125rem;">
-          Complete Registration <?= render_icon('arrow-right') ?>
-        </button>
-      </div>
-    </form>
   </div>
 </div>

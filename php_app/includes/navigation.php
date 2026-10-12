@@ -33,7 +33,7 @@ $navLinks = $conferenceData['nav_links'];
       <!-- Register Now Button -->
       <button type="button" class="btn-primary"
         style="padding: 0.625rem 1.25rem; font-size: 0.75rem; letter-spacing: 0.05em; text-transform: uppercase;"
-        onclick="goToSection('fees', 'home', 'Registration')">
+        onclick="openRegistrationModal()">
         Register Now <?= render_icon('arrow-right') ?>
       </button>
 

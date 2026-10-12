@@ -5,7 +5,7 @@
 $config = require __DIR__ . '/../../config/app.php';
 $countdownTarget = $config['countdown_target'];
 ?>
-<header class="hero-section">
+<header class="hero-section sankalp-hero">
   <!-- Subtle ambient glow background -->
   <div class="ambient-glow" style="position: absolute; right: 0; top: 0; width: 600px; height: 600px; border-radius: 50%; pointer-events: none; background: rgba(18, 124, 111, 0.18); filter: blur(120px);"></div>
 
@@ -61,7 +61,7 @@ $countdownTarget = $config['countdown_target'];
 
       <!-- Action Buttons -->
       <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
-        <button type="button" onclick="goToSection('fees', 'home', 'Registration')"
+        <button type="button" onclick="openRegistrationModal()"
           style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.875rem 1.75rem; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; border-radius: 9999px; background: #ffffff; color: var(--color-primary-900); box-shadow: 0 10px 25px rgba(0,0,0,0.15); transition: transform 0.15s;">
           Register Now <?= render_icon('arrow-right') ?>
         </button>

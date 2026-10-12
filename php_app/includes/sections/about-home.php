@@ -3,7 +3,7 @@
  * About Highlight Section (Homepage)
  */
 ?>
-<section class="section-white" style="padding-top: 6rem; padding-bottom: 6rem; overflow: hidden;">
+<section id="about" class="section-white sankalp-about" style="padding-top: 6rem; padding-bottom: 6rem; scroll-margin-top: 5rem; overflow: hidden;">
   <div class="container" style="display: grid; grid-template-columns: 1fr; gap: 3rem; align-items: center;">
     <div style="display: grid; grid-template-columns: 1fr; gap: 3rem; align-items: center;" class="lg:grid-cols-2">
 
@@ -44,8 +44,8 @@
           <?php endforeach; ?>
         </div>
 
-        <button type="button" onclick="navigateTo('about')" class="btn-primary" style="padding: 0.875rem 1.75rem; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;">
-          Know More <?= render_icon('arrow-right') ?>
+        <button type="button" onclick="goToSection('committee', 'home', 'Committee')" class="btn-primary" style="padding: 0.875rem 1.75rem; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;">
+          Organizing Committee <?= render_icon('arrow-right') ?>
         </button>
       </div>
 

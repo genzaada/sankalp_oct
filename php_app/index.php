@@ -21,9 +21,8 @@ require __DIR__ . '/includes/head.php';
 // 2. Navigation Header
 require __DIR__ . '/includes/navigation.php';
 
-// 3. Page Views (both rendered to allow instant client-side switching without screen flicker)
+// 3. Page View: Unified single-page layout
 require __DIR__ . '/includes/pages/home.php';
-require __DIR__ . '/includes/pages/about.php';
 
 // 4. Global Footer, Modals & Client Scripts
 require __DIR__ . '/includes/footer.php';

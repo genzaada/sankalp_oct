@@ -65,52 +65,30 @@ function scrollToTarget(targetId) {
 }
 
 /**
- * Switch page view (between 'home' and 'about')
+ * Switch page view (supports legacy navigateTo calls as in-page scroll)
  */
 function navigateTo(page) {
   closeMobileMenu();
-  const homeView = document.getElementById('view-home');
-  const aboutView = document.getElementById('view-about');
-
-  if (page === 'home') {
-    if (homeView) homeView.style.display = 'block';
-    if (aboutView) aboutView.style.display = 'none';
+  if (page === 'home' || page === 'top') {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
     setActiveNav('Home');
-    history.pushState(null, '', 'index.php?page=home');
   } else if (page === 'about') {
-    if (homeView) homeView.style.display = 'none';
-    if (aboutView) aboutView.style.display = 'block';
+    scrollToTarget('about');
     setActiveNav('About');
-    history.pushState(null, '', 'index.php?page=about');
+  } else {
+    scrollToTarget(page);
   }
-
-  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 /**
- * Navigate to a specific section on a specific page
+ * Navigate directly to any section on the single-page layout
  */
 function goToSection(targetId, targetPage, navLabel) {
   closeMobileMenu();
   if (navLabel) setActiveNav(navLabel);
 
-  const homeView = document.getElementById('view-home');
-  const aboutView = document.getElementById('view-about');
-  const isCurrentHome = homeView && homeView.style.display !== 'none';
-  const currentPage = isCurrentHome ? 'home' : 'about';
-
-  if (currentPage !== targetPage) {
-    // Switch view first
-    if (targetPage === 'home') {
-      if (homeView) homeView.style.display = 'block';
-      if (aboutView) aboutView.style.display = 'none';
-    } else {
-      if (homeView) homeView.style.display = 'none';
-      if (aboutView) aboutView.style.display = 'block';
-    }
-    setTimeout(() => {
-      scrollToTarget(targetId);
-    }, 60);
+  if (targetId === 'top') {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   } else {
     scrollToTarget(targetId);
   }
@@ -141,7 +119,7 @@ function closeMobileMenu() {
 }
 
 function initScrollSpy() {
-  const sections = ['tracks', 'dates', 'speakers', 'cfp', 'fees', 'contact-section', 'venue-section', 'committee'];
+  const sections = ['tracks', 'dates', 'speakers', 'cfp', 'fees', 'contact-section', 'venue', 'committee', 'about'];
   window.addEventListener('scroll', () => {
     const scrollPos = window.scrollY + NAVBAR_HEIGHT + 100;
     for (const id of sections) {
@@ -151,13 +129,14 @@ function initScrollSpy() {
         const height = el.offsetHeight;
         if (scrollPos >= top && scrollPos < top + height) {
           const map = {
+            'about': 'About',
             'tracks': 'Tracks',
             'dates': 'Schedule',
             'speakers': 'Speakers',
             'cfp': 'Call for Papers',
             'fees': 'Registration',
             'contact-section': 'Contact',
-            'venue-section': 'Venue',
+            'venue': 'Venue',
             'committee': 'Committee'
           };
           if (map[id]) setActiveNav(map[id]);

@@ -5,7 +5,7 @@
 $conferenceData = require __DIR__ . '/../../config/conference_data.php';
 $tracks = $conferenceData['tracks'];
 ?>
-<section id="tracks" class="section-light" style="padding-top: 6rem; padding-bottom: 6rem; scroll-margin-top: 5rem; overflow: hidden;">
+<section id="tracks" class="section-light sankalp-tracks" style="padding-top: 6rem; padding-bottom: 6rem; scroll-margin-top: 5rem; overflow: hidden;">
   <div class="container">
 
     <!-- Section Heading -->

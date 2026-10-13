@@ -18,19 +18,19 @@ $pageTitle = $pageTitle ?? ($config['app_name'] . ' — ' . $config['app_full_ti
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <!-- Master Stylesheets -->
-  <link rel="stylesheet" href="<?= asset_url('assets/css/style.css') ?>">
-  <link rel="stylesheet" href="<?= asset_url('assets/css/responsive.css') ?>">
+  <link rel="stylesheet" href="<?= asset_url('assets/css/style.css') ?>?v=<?= time() ?>">
+  <link rel="stylesheet" href="<?= asset_url('assets/css/responsive.css') ?>?v=<?= time() ?>">
 
   <!-- Section-Specific Redesign Stylesheets -->
-  <link rel="stylesheet" href="<?= asset_url('assets/css/tracks.css') ?>">
-  <link rel="stylesheet" href="<?= asset_url('assets/css/speakers.css') ?>">
-  <link rel="stylesheet" href="<?= asset_url('assets/css/dates.css') ?>">
-  <link rel="stylesheet" href="<?= asset_url('assets/css/hero.css') ?>">
-  <link rel="stylesheet" href="<?= asset_url('assets/css/stats.css') ?>">
-  <link rel="stylesheet" href="<?= asset_url('assets/css/overview.css') ?>">
-  <link rel="stylesheet" href="<?= asset_url('assets/css/about.css') ?>">
-  <link rel="stylesheet" href="<?= asset_url('assets/css/committee.css') ?>">
-  <link rel="stylesheet" href="<?= asset_url('assets/css/venue.css') ?>">
+  <link rel="stylesheet" href="<?= asset_url('assets/css/tracks.css') ?>?v=<?= time() ?>">
+  <link rel="stylesheet" href="<?= asset_url('assets/css/speakers.css') ?>?v=<?= time() ?>">
+  <link rel="stylesheet" href="<?= asset_url('assets/css/dates.css') ?>?v=<?= time() ?>">
+  <link rel="stylesheet" href="<?= asset_url('assets/css/hero.css') ?>?v=<?= time() ?>">
+  <link rel="stylesheet" href="<?= asset_url('assets/css/stats.css') ?>?v=<?= time() ?>">
+  <link rel="stylesheet" href="<?= asset_url('assets/css/overview.css') ?>?v=<?= time() ?>">
+  <link rel="stylesheet" href="<?= asset_url('assets/css/about.css') ?>?v=<?= time() ?>">
+  <link rel="stylesheet" href="<?= asset_url('assets/css/committee.css') ?>?v=<?= time() ?>">
+  <link rel="stylesheet" href="<?= asset_url('assets/css/venue.css') ?>?v=<?= time() ?>">
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><path d='M50 5L88.9711 27.5V72.5L50 95L11.0289 72.5V27.5L50 5Z' fill='%230E5A56' stroke='%23F2B705' stroke-width='4'/><text x='50' y='60' fill='white' font-size='30' font-weight='bold' font-family='sans-serif' text-anchor='middle'>S</text></svg>">

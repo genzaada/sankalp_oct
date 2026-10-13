@@ -17,7 +17,7 @@ $stats = $conferenceData['stats'];
             <span class="font-display font-bold text-2xl counter-value" data-value="<?= e($st['value']) ?>" style="font-size: 1.5rem; color: var(--color-text-heading);">
               <?= e($st['value']) ?>
             </span>
-            <span class="font-mono uppercase tracking-wider" style="font-size: 11px; color: var(--color-text-body);">
+            <span class="stat-label">
               <?= e($st['label']) ?>
             </span>
           </div>

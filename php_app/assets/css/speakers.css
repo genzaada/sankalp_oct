@@ -1,4 +1,96 @@
 /* ── SANKALP 2027: Keynote Speakers Stylesheet ─────────────────────────── */
-/* Ownership: Developer 2 (feature/speakers-dates-redesign) */
 /* Scoped root class: .sankalp-speakers */
 
+.sankalp-speakers .speakers-desktop-grid {
+  display: none;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .sankalp-speakers .speakers-desktop-grid {
+    display: grid !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .sankalp-speakers .speakers-desktop-grid {
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 1rem;
+  }
+}
+
+.sankalp-speakers .speaker-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 1.25rem 0.75rem;
+  border-radius: 1rem;
+  border: 1px solid var(--color-border);
+  background: var(--color-bg-light);
+  height: 100%;
+  justify-content: space-between;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.sankalp-speakers .speaker-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(18, 124, 111, 0.3);
+  box-shadow: 0 14px 28px rgba(10, 74, 71, 0.08);
+}
+
+.sankalp-speakers .speaker-avatar {
+  width: 5.25rem;
+  height: 5.25rem;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 0.75rem;
+  border: 3px solid rgba(14, 90, 86, 0.15);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.sankalp-speakers .speaker-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.sankalp-speakers .speaker-name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.8125rem;
+  line-height: 1.25;
+  color: var(--color-text-heading);
+  margin-bottom: 0.25rem;
+}
+
+.sankalp-speakers .speaker-role {
+  font-size: 11px;
+  color: var(--color-text-body);
+  margin-bottom: 0.125rem;
+}
+
+.sankalp-speakers .speaker-org {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--color-primary-700);
+  margin-bottom: 0.75rem;
+}
+
+.sankalp-speakers .speaker-social-btn {
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-primary-700);
+  color: #ffffff;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+.sankalp-speakers .speaker-social-btn:hover {
+  opacity: 0.85;
+  transform: scale(1.08);
+}

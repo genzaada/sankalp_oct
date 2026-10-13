@@ -21,10 +21,10 @@ $countdownTarget = $config['countdown_target'];
       </div>
 
       <!-- Main Conference H1 -->
-      <h1 class="font-display font-bold leading-tight" style="font-size: clamp(1.85rem, 4vw, 2.75rem); letter-spacing: -0.02em; margin-bottom: 1.25rem; text-align: left; line-height: 1.18;">
+      <h1 class="font-display font-bold leading-tight" style="font-size: clamp(1.85rem, 3.8vw, 2.75rem); letter-spacing: -0.02em; margin-bottom: 1.25rem; text-align: left; line-height: 1.2;">
         International Conference on<br>
-        Sustainable Advances in eNgineering, Knowledge Systems,<br>
-        AI and InteLligent Technologies for Progress
+        <span class="acronym-highlight">S</span>ustainable <span class="acronym-highlight">A</span>dvances in e<span class="acronym-highlight">N</span>gineering, <span class="acronym-highlight">K</span>nowledge Systems,<br>
+        <span class="acronym-highlight">A</span>I and Inte<span class="acronym-highlight">L</span>ligent Technologies for <span class="acronym-highlight">P</span>rogress
       </h1>
 
       <!-- Subtitle -->
@@ -76,7 +76,7 @@ $countdownTarget = $config['countdown_target'];
     </div>
 
     <!-- Right Column (5 cols): Globe + Countdown Widget -->
-    <div class="reveal-up delay-2" style="display: flex; flex-direction: column; align-items: center; gap: 2rem;">
+    <div class="reveal-up delay-2 hero-right-col">
 
       <!-- Interactive Rotating Wireframe Globe -->
       <div style="position: relative; width: 280px; height: 280px; display: flex; align-items: center; justify-content: center;">

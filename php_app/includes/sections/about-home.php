@@ -4,8 +4,8 @@
  */
 ?>
 <section id="about" class="section-white sankalp-about" style="padding-top: 6rem; padding-bottom: 6rem; scroll-margin-top: 5rem; overflow: hidden;">
-  <div class="container" style="display: grid; grid-template-columns: 1fr; gap: 3rem; align-items: center;">
-    <div style="display: grid; grid-template-columns: 1fr; gap: 3rem; align-items: center;" class="lg:grid-cols-2">
+  <div class="container">
+    <div class="about-grid">
 
       <!-- Left Column -->
       <div class="reveal-up" style="text-align: left;">
@@ -61,10 +61,8 @@
           </svg>
         </div>
 
-        <div style="position: relative; border-radius: 1rem; overflow: hidden; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15); width: 100%; min-height: 350px; border: 1px solid var(--color-border); z-index: 10;">
-          <img src="<?= asset_url('assets/images/AdminBulding.jpeg') ?>" alt="Admin Building MGM University"
-            style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.7s ease;"
-            onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+        <div class="about-image-card">
+          <img src="<?= asset_url('assets/images/AdminBulding.jpeg') ?>" alt="Admin Building MGM University" loading="lazy">
         </div>
       </div>
 

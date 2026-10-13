@@ -1,3 +1,37 @@
 /* ── SANKALP 2027: About Section Stylesheet ────────────────────────────── */
 /* Scoped root class: .sankalp-about */
 
+.sankalp-about .about-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .sankalp-about .about-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4rem;
+  }
+}
+
+.sankalp-about .about-image-card {
+  position: relative;
+  border-radius: 1.25rem;
+  overflow: hidden;
+  box-shadow: 0 20px 45px -10px rgba(10, 74, 71, 0.2);
+  width: 100%;
+  aspect-ratio: 4/3;
+  border: 1px solid var(--color-border);
+}
+
+.sankalp-about .about-image-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.sankalp-about .about-image-card:hover img {
+  transform: scale(1.04);
+}

@@ -16,7 +16,7 @@
     </div>
 
     <!-- Venue & Tourism Grid -->
-    <div style="display: grid; grid-template-columns: 1fr; gap: 2rem;" class="lg:grid-cols-2">
+    <div class="venue-grid">
 
       <!-- Left Card: Venue Coordinates & How to Reach -->
       <div class="reveal-up" style="border-radius: 1rem; padding: 2.25rem; color: #fff; background: linear-gradient(150deg, var(--color-primary-700) 0%, var(--color-primary-900) 100%); display: flex; flex-direction: column; justify-content: space-between;">

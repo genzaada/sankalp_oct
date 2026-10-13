@@ -1,3 +1,45 @@
 /* ── SANKALP 2027: Venue and Tourism Stylesheet ─────────────────────────── */
 /* Scoped root class: .sankalp-venue */
 
+.sankalp-venue .venue-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  align-items: stretch;
+}
+
+@media (min-width: 1024px) {
+  .sankalp-venue .venue-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+  }
+}
+
+.sankalp-venue .venue-card {
+  border-radius: 1.25rem;
+  padding: 2.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.sankalp-venue .tourism-image-wrapper {
+  border-radius: 1rem;
+  overflow: hidden;
+  aspect-ratio: 16/9;
+  border: 1px solid var(--color-border);
+  background: #000;
+  margin-bottom: 1rem;
+}
+
+.sankalp-venue .tourism-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.sankalp-venue .tourism-image-wrapper:hover img {
+  transform: scale(1.05);
+}

@@ -35,10 +35,10 @@ $objectives = $conferenceData['objectives'];
           SANKALP-2027 provides a multidisciplinary platform covering emerging trends, scientific breakthroughs, and industrial innovations in sustainability-focused engineering and technology domains. The conference welcomes original research contributions, case studies, industrial applications, and innovative practices related to:
         </p>
 
-        <!-- 10 Scopes Grid (2 columns) -->
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 0.875rem; margin-bottom: 1.5rem;">
+        <!-- 10 Scopes Grid (Balanced 2 columns) -->
+        <div class="scopes-grid">
           <?php foreach ($scopes as $scope): ?>
-            <div style="display: flex; align-items: center; gap: 0.875rem; padding: 0.875rem; border-radius: 0.75rem; border: 1px solid var(--color-border); background: var(--color-bg-light); transition: transform 0.15s;">
+            <div class="scope-item">
               <div style="width: 1.5rem; height: 1.5rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; background: rgba(18, 124, 111, 0.14); color: var(--color-primary-700);">
                 <?= render_icon('check') ?>
               </div>
@@ -73,7 +73,7 @@ $objectives = $conferenceData['objectives'];
           </span>
         </div>
 
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem;">
+        <div class="objectives-grid">
           <?php foreach ($objectives as $idx => $obj): ?>
             <div style="display: flex; align-items: flex-start; gap: 0.75rem;">
               <div style="width: 1.5rem; height: 1.5rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 0.125rem; background: rgba(242, 183, 5, 0.18); border: 1px solid rgba(242, 183, 5, 0.35); color: var(--color-accent-amber);">

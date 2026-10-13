@@ -65,16 +65,15 @@ $speakers = $conferenceData['speakers'];
         <div class="speakers-desktop-grid">
           <?php foreach ($speakers as $sp): ?>
             <div class="speaker-card">
-              <div style="width: 5rem; height: 5rem; border-radius: 50%; overflow: hidden; margin-bottom: 0.75rem; border: 2px solid rgba(14,90,86,0.2); box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
-                <img src="<?= e($sp['image']) ?>" alt="<?= e($sp['name']) ?>" style="width: 100%; height: 100%; object-fit: cover;">
+              <div class="speaker-avatar">
+                <img src="<?= e($sp['image']) ?>" alt="<?= e($sp['name']) ?>" loading="lazy">
               </div>
-              <h4 class="font-display font-bold" style="font-size: 0.75rem; line-height: 1.2; margin-bottom: 0.25rem; color: var(--color-text-heading);">
+              <h4 class="speaker-name">
                 <?= e($sp['name']) ?>
               </h4>
-              <p style="font-size: 10px; margin-bottom: 0.125rem; color: var(--color-text-body);"><?= e($sp['role']) ?></p>
-              <p class="font-mono" style="font-size: 10px; margin-bottom: 0.75rem; color: var(--color-text-body);"><?= e($sp['org']) ?></p>
-              <a href="#" onclick="event.stopPropagation();" aria-label="LinkedIn profile"
-                style="width: 1.75rem; height: 1.75rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: var(--color-primary-700); color: #fff; transition: opacity 0.15s;">
+              <p class="speaker-role"><?= e($sp['role']) ?></p>
+              <p class="speaker-org"><?= e($sp['org']) ?></p>
+              <a href="#" onclick="event.stopPropagation();" aria-label="LinkedIn profile" class="speaker-social-btn">
                 <?= render_icon('linkedin') ?>
               </a>
             </div>

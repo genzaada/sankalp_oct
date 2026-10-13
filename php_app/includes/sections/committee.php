@@ -26,13 +26,13 @@ $committee = $conferenceData['committee'];
               <span style="display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--color-accent-amber);"></span>
               <?= e($categoryName) ?>
             </h3>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem;">
+            <div class="committee-tier-grid">
               <?php foreach ($members as $m): ?>
-                <div style="padding: 1rem; border-radius: 0.75rem; border: 1px solid var(--color-border); background: var(--color-bg-light); transition: transform 0.15s, box-shadow 0.15s;"
-                     onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';"
-                     onmouseout="this.style.transform='none'; this.style.boxShadow='none';">
-                  <p class="font-mono uppercase tracking-wide font-semibold" style="font-size: 10px; color: var(--color-primary-500); margin-bottom: 0.25rem;"><?= e($m['role']) ?></p>
-                  <p class="font-bold" style="font-size: 0.875rem; color: var(--color-text-heading); margin-bottom: 0.25rem;"><?= e($m['name']) ?></p>
+                <div class="member-card">
+                  <div>
+                    <p class="font-mono uppercase tracking-wide font-semibold" style="font-size: 10px; color: var(--color-primary-500); margin-bottom: 0.25rem;"><?= e($m['role']) ?></p>
+                    <p class="font-bold" style="font-size: 0.9375rem; color: var(--color-text-heading); margin-bottom: 0.25rem;"><?= e($m['name']) ?></p>
+                  </div>
                   <p style="font-size: 11px; line-height: 1.4; color: var(--color-text-body); margin: 0;"><?= e($m['org']) ?></p>
                 </div>
               <?php endforeach; ?>

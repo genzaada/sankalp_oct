@@ -1,4 +1,24 @@
 /* ── SANKALP 2027: Important Dates Stylesheet ──────────────────────────── */
-/* Ownership: Developer 2 (feature/speakers-dates-redesign) */
 /* Scoped root class: .sankalp-dates */
 
+.sankalp-dates .card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 1.25rem;
+  padding: 1.5rem;
+}
+
+.sankalp-dates .date-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.875rem 1rem;
+  border-radius: 0.75rem;
+  transition: transform 0.15s ease;
+}
+
+.sankalp-dates .date-row:hover {
+  transform: translateX(3px);
+}

@@ -32,15 +32,15 @@ $tracks = $conferenceData['tracks'];
             </div>
 
             <!-- Title -->
-            <h3 class="font-display font-bold text-base leading-snug" style="font-size: 1rem; color: var(--color-text-heading); margin-bottom: 1rem;">
+            <h3 class="track-title">
               <?= e($track['title']) ?>
             </h3>
 
             <!-- Sub-topics List -->
-            <ul style="list-style: none; border-top: 1px solid var(--color-border); padding-top: 1rem; display: flex; flex-direction: column; gap: 0.625rem;">
+            <ul class="track-topics-list">
               <?php foreach ($track['topics'] as $topic): ?>
-                <li style="display: flex; align-items: flex-start; gap: 0.625rem; font-size: 0.875rem; line-height: 1.5; color: var(--color-text-body);">
-                  <span style="width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; margin-top: 0.5rem; background: var(--color-primary-500);"></span>
+                <li>
+                  <span></span>
                   <span><?= e($topic) ?></span>
                 </li>
               <?php endforeach; ?>
@@ -48,10 +48,9 @@ $tracks = $conferenceData['tracks'];
           </div>
 
           <!-- Card Footer -->
-          <div style="margin-top: 1.25rem; padding-top: 0.75rem; border-top: 1px solid var(--color-border); display: flex; align-items: center; justify-content: space-between; font-size: 0.75rem;">
-            <span class="font-mono text-gray-400" style="font-size: 11px; color: #9ca3af;">6 Sub-themes</span>
-            <button type="button" onclick="openSubmissionModal(<?= $i + 1 ?>)"
-              style="font-weight: 600; display: inline-flex; align-items: center; gap: 0.25rem; color: var(--color-primary-700);">
+          <div class="track-card-footer">
+            <span class="font-mono" style="font-size: 11px; color: #9ca3af;">6 Sub-themes</span>
+            <button type="button" onclick="openSubmissionModal(<?= $i + 1 ?>)" class="track-cta-btn">
               Submit to Track <?= render_icon('arrow-right') ?>
             </button>
           </div>

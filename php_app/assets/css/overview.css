@@ -1,4 +1,49 @@
 /* ── SANKALP 2027: Overview Section Stylesheet ─────────────────────────── */
-/* Ownership: Developer 3 (feature/hero-overview-redesign) */
 /* Scoped root class: .sankalp-overview */
 
+.sankalp-overview .scopes-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.875rem;
+  margin-bottom: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .sankalp-overview .scopes-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.sankalp-overview .scope-item {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  padding: 0.875rem 1.125rem;
+  border-radius: 0.75rem;
+  border: 1px solid var(--color-border);
+  background: var(--color-bg-light);
+  transition: transform 0.15s ease, border-color 0.15s ease;
+}
+
+.sankalp-overview .scope-item:hover {
+  transform: translateX(4px);
+  border-color: var(--color-primary-500);
+}
+
+.sankalp-overview .objectives-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .sankalp-overview .objectives-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .sankalp-overview .objectives-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

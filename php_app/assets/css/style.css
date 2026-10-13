@@ -438,12 +438,86 @@ button {
 .nav-brand {
   display: flex;
   align-items: center;
-  gap: 0.625rem;
+  gap: 0.75rem;
   cursor: pointer;
-  transition: transform 0.15s;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  user-select: none;
 }
 .nav-brand:hover {
-  transform: scale(1.03);
+  transform: translateY(-1px);
+}
+
+.brand-logo-icon {
+  width: 48px;
+  height: 48px;
+  display: block;
+  flex-shrink: 0;
+  filter: drop-shadow(0 2px 8px rgba(14, 90, 86, 0.25));
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), filter 0.25s ease;
+}
+.nav-brand:hover .brand-logo-icon {
+  transform: scale(1.05) rotate(3deg);
+  filter: drop-shadow(0 4px 12px rgba(14, 90, 86, 0.35));
+}
+
+.brand-text-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.brand-title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.55rem;
+  line-height: 1;
+  letter-spacing: 0.03em;
+  color: var(--color-primary-800);
+  transition: color 0.2s ease;
+}
+.nav-brand:hover .brand-title {
+  color: var(--color-primary-900);
+}
+
+.brand-subtitle {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  color: var(--color-primary-600);
+  line-height: 1;
+  margin-top: 3px;
+  transition: color 0.2s ease;
+}
+.nav-brand:hover .brand-subtitle {
+  color: var(--color-accent-amber);
+}
+
+/* Footer brand sizing */
+.site-footer .brand-logo-icon {
+  width: 48px;
+  height: 48px;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.4));
+}
+.site-footer .brand-title {
+  color: #ffffff !important;
+}
+.site-footer .brand-subtitle {
+  color: var(--color-accent-amber) !important;
+}
+
+@media (max-width: 640px) {
+  .brand-logo-icon {
+    width: 40px;
+    height: 40px;
+  }
+  .brand-title {
+    font-size: 1.25rem;
+  }
+  .brand-subtitle {
+    font-size: 0.75rem;
+    letter-spacing: 0.16em;
+  }
 }
 
 .nav-desktop-links {

@@ -25,6 +25,42 @@
   }
 }
 
+/* Hero Main Conference Brand Title: SANKALP 2027 */
+.sankalp-hero .hero-brand-heading {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.65rem 0.85rem;
+  font-size: clamp(3rem, 6.8vw, 4.85rem);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.15rem;
+  text-transform: uppercase;
+}
+
+.sankalp-hero .hero-brand-name {
+  color: #ffffff;
+  text-shadow: 0 4px 28px rgba(0, 0, 0, 0.45), 0 0 45px rgba(18, 124, 111, 0.55);
+}
+
+.sankalp-hero .hero-brand-year {
+  background: linear-gradient(135deg, #F2B705 0%, #FFD54F 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 2px 14px rgba(242, 183, 5, 0.55));
+}
+
+.sankalp-hero .hero-theme-title {
+  font-size: clamp(1.15rem, 2.2vw, 1.55rem);
+  font-weight: 600;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+  margin-bottom: 1.25rem;
+  color: rgba(255, 255, 255, 0.92);
+  text-align: left;
+}
+
 .sankalp-hero .acronym-highlight {
   color: var(--color-accent-amber);
   font-weight: 800;
@@ -81,13 +117,193 @@
   width: 100%;
 }
 
+/* Enlarged Globe Container */
 .sankalp-hero .globe-container {
   position: relative;
-  width: 280px;
-  height: 280px;
+  width: 360px;
+  height: 360px;
+  max-width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin: 0 auto;
+  --orbit-radius: 175px;
+}
+
+/* 6 Orbiting Track Symbols System */
+.sankalp-hero .globe-orbit-system {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sankalp-hero .globe-orbit-ring {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  animation: orbitRevolve 28s linear infinite;
+  transform-origin: center center;
+  pointer-events: none;
+}
+
+/* Pause revolution on hover for easy inspection/clicking */
+.sankalp-hero .globe-container:hover .globe-orbit-ring,
+.sankalp-hero .globe-container:hover .orbit-symbol {
+  animation-play-state: paused;
+}
+
+/* Individual Orbit Slots (60-deg increments) */
+.sankalp-hero .orbit-slot {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 44px;
+  height: 44px;
+  margin-top: -22px;
+  margin-left: -22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  transform-origin: center center;
+}
+
+.sankalp-hero .orbit-slot-1 { transform: rotate(0deg) translate(var(--orbit-radius)) rotate(0deg); }
+.sankalp-hero .orbit-slot-2 { transform: rotate(60deg) translate(var(--orbit-radius)) rotate(-60deg); }
+.sankalp-hero .orbit-slot-3 { transform: rotate(120deg) translate(var(--orbit-radius)) rotate(-120deg); }
+.sankalp-hero .orbit-slot-4 { transform: rotate(180deg) translate(var(--orbit-radius)) rotate(-180deg); }
+.sankalp-hero .orbit-slot-5 { transform: rotate(240deg) translate(var(--orbit-radius)) rotate(-240deg); }
+.sankalp-hero .orbit-slot-6 { transform: rotate(300deg) translate(var(--orbit-radius)) rotate(-300deg); }
+
+/* Glassmorphic Circular Track Orb */
+.sankalp-hero .globe-track-orb {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at 35% 35%, rgba(18, 124, 111, 0.85) 0%, rgba(7, 43, 41, 0.95) 100%);
+  border: 2px solid rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4), 0 0 16px rgba(18, 124, 111, 0.5), inset 0 1.5px 2px rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  pointer-events: auto;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s, box-shadow 0.25s;
+  padding: 0;
+  outline: none;
+}
+
+.sankalp-hero .globe-track-orb:hover {
+  transform: scale(1.28) !important;
+  border-color: var(--color-accent-amber);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5), 0 0 24px rgba(242, 183, 5, 0.7), inset 0 2px 3px rgba(255, 255, 255, 0.8);
+  z-index: 20;
+}
+
+/* Counter-rotating symbol to maintain upright orientation */
+.sankalp-hero .orbit-symbol {
+  font-size: 20px;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4));
+  animation: orbitCounterRotate 28s linear infinite;
+  transform-origin: center center;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* Tooltip pill on hover */
+.sankalp-hero .globe-track-orb::after {
+  content: attr(data-label);
+  position: absolute;
+  bottom: -28px;
+  left: 50%;
+  transform: translateX(-50%) scale(0.85);
+  background: rgba(4, 30, 29, 0.95);
+  color: #ffffff;
+  padding: 0.2rem 0.55rem;
+  border-radius: 9999px;
+  font-size: 10px;
+  font-weight: 600;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  z-index: 30;
+}
+
+.sankalp-hero .globe-track-orb:hover::after {
+  opacity: 1;
+  transform: translateX(-50%) scale(1);
+}
+
+/* Orbital Revolution Keyframes */
+@keyframes orbitRevolve {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes orbitCounterRotate {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(-360deg); }
+}
+
+@media (max-width: 640px) {
+  .sankalp-hero .globe-container {
+    width: 300px;
+    height: 300px;
+    --orbit-radius: 145px;
+  }
+  .sankalp-hero .orbit-slot {
+    width: 38px;
+    height: 38px;
+    margin-top: -19px;
+    margin-left: -19px;
+  }
+  .sankalp-hero .globe-track-orb {
+    width: 38px;
+    height: 38px;
+  }
+  .sankalp-hero .orbit-symbol {
+    font-size: 17px;
+  }
+}
+
+@media (max-width: 420px) {
+  .sankalp-hero .globe-container {
+    width: 260px;
+    height: 260px;
+    --orbit-radius: 125px;
+  }
+  .sankalp-hero .orbit-slot {
+    width: 34px;
+    height: 34px;
+    margin-top: -17px;
+    margin-left: -17px;
+  }
+  .sankalp-hero .globe-track-orb {
+    width: 34px;
+    height: 34px;
+  }
+  .sankalp-hero .orbit-symbol {
+    font-size: 15px;
+  }
 }
 
 .sankalp-hero #countdown-widget {
@@ -97,3 +313,4 @@
   border: 1px solid rgba(255, 255, 255, 0.5);
   backdrop-filter: blur(12px);
 }
+

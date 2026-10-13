@@ -2,6 +2,7 @@
 /**
  * Venue & Host City Tourism Section Component
  */
+$config = $config ?? require __DIR__ . '/../../config/app.php';
 ?>
 <section id="venue" class="section-white sankalp-venue" style="padding-top: 6rem; padding-bottom: 6rem; scroll-margin-top: 5rem;">
   <div class="container">
@@ -35,23 +36,22 @@
             <div>
               <p class="font-mono uppercase tracking-wider font-bold" style="font-size: 10px; color: var(--color-accent-amber); margin-bottom: 0.25rem;">Location</p>
               <p class="font-semibold text-white" style="margin: 0; line-height: 1.5;">
-                School of Engineering and Technology (SOET), MGM University<br>
-                Chhatrapati Sambhajinagar, Maharashtra 431003, India
+                <?= nl2br(e($config['app_venue'])) ?>
               </p>
             </div>
 
             <div>
               <p class="font-mono uppercase tracking-wider font-bold" style="font-size: 10px; color: var(--color-accent-amber); margin-bottom: 0.25rem;">How to Reach</p>
               <p style="margin: 0; line-height: 1.6;">
-                Connected by air via Chhatrapati Sambhajinagar Airport (IXU), central railway junction, and national expressways with direct connections from Mumbai, Pune, Hyderabad, and Delhi.
+                <?= e($config['location_how_to_reach'] ?? 'Connected by air via Chhatrapati Sambhajinagar Airport (IXU), central railway junction, and national expressways with direct connections from Mumbai, Pune, Hyderabad, and Delhi.') ?>
               </p>
             </div>
           </div>
         </div>
 
         <div style="margin-top: 2rem; padding-top: 1.25rem; border-top: 1px solid rgba(255,255,255,0.15); display: flex; align-items: center; justify-content: space-between;">
-          <span style="font-size: 0.75rem; color: rgba(255,255,255,0.7);">MGM University Campus</span>
-          <a href="https://maps.google.com/?q=MGM+University+Chhatrapati+Sambhajinagar" target="_blank" rel="noopener noreferrer" class="btn-amber" style="padding: 0.5rem 1rem; font-size: 0.75rem; font-weight: 700;">
+          <span style="font-size: 0.75rem; color: rgba(255,255,255,0.7);"><?= e($config['app_venue_label'] ?? $config['app_name'] . ' Venue') ?></span>
+          <a href="https://maps.google.com/?q=<?= urlencode($config['app_venue']) ?>" target="_blank" rel="noopener noreferrer" class="btn-amber" style="padding: 0.5rem 1rem; font-size: 0.75rem; font-weight: 700;">
             Open in Google Maps <?= render_icon('arrow-right') ?>
           </a>
         </div>

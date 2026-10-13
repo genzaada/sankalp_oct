@@ -2,7 +2,7 @@
 /**
  * Call for Papers & Registration Fees Component
  */
-$conferenceData = require __DIR__ . '/../../config/conference_data.php';
+$conferenceData = $conferenceData ?? require __DIR__ . '/../../config/conference_data.php';
 $regFees = $conferenceData['reg_fees'];
 ?>
 <section id="fees" class="section-light" style="padding-top: 6rem; padding-bottom: 6rem; scroll-margin-top: 5rem; overflow: hidden;">

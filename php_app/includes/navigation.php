@@ -2,18 +2,23 @@
 /**
  * Navigation Bar Component
  */
-$conferenceData = require __DIR__ . '/../config/conference_data.php';
+$config = $config ?? require __DIR__ . '/../config/app.php';
+$conferenceData = $conferenceData ?? require __DIR__ . '/../config/conference_data.php';
 $navLinks = $conferenceData['nav_links'];
+
+$nameParts = explode(' ', $config['app_name'], 2);
+$brandTitle = $nameParts[0] ?? 'SANKALP';
+$brandSub = $nameParts[1] ?? '2027';
 ?>
 <nav class="site-nav">
   <div class="container nav-inner">
 
     <!-- Brand Logo -->
-    <div class="nav-brand" onclick="navigateTo('home')" role="button" tabindex="0" aria-label="SANKALP 2027 Homepage">
+    <div class="nav-brand" onclick="navigateTo('home')" role="button" tabindex="0" aria-label="<?= e($config['app_name']) ?> Homepage">
       <?= render_icon('logo') ?>
-      <div>
-        <div class="font-display font-bold text-base leading-none" style="color: var(--color-primary-700); font-size: 1rem; line-height: 1;">SANKALP</div>
-        <div class="font-mono text-[10px] font-medium tracking-widest" style="color: var(--color-primary-500); font-size: 10px; letter-spacing: 0.15em;">2027</div>
+      <div class="brand-text-block">
+        <span class="brand-title"><?= e($brandTitle) ?></span>
+        <span class="brand-subtitle"><?= e($brandSub) ?></span>
       </div>
     </div>
 

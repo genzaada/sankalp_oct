@@ -2,8 +2,24 @@
 /**
  * Hero Section Component
  */
-$config = require __DIR__ . '/../../config/app.php';
+$config = $config ?? require __DIR__ . '/../../config/app.php';
+$conferenceData = $conferenceData ?? require __DIR__ . '/../../config/conference_data.php';
 $countdownTarget = $config['countdown_target'];
+
+$nameParts = explode(' ', $config['app_name'], 2);
+$brandTitle = $nameParts[0] ?? 'SANKALP';
+$brandSub = $nameParts[1] ?? '2027';
+
+// Resolve early bird date from conference data
+$earlyBirdDate = '15 Nov, 2026';
+if (!empty($conferenceData['dates'])) {
+    foreach ($conferenceData['dates'] as $d) {
+        if (stripos($d['label'], 'early bird') !== false) {
+            $earlyBirdDate = $d['date'];
+            break;
+        }
+    }
+}
 ?>
 <header class="hero-section sankalp-hero">
   <!-- Subtle ambient glow background -->
@@ -15,21 +31,27 @@ $countdownTarget = $config['countdown_target'];
     <div class="reveal-up" style="display: flex; flex-direction: column; align-items: flex-start; text-align: left;">
 
       <!-- Status Pill Badge -->
-      <div class="pill-badge" style="margin-bottom: 1.5rem;">
+      <div class="pill-badge" style="margin-bottom: 1.25rem;">
         <span class="pulse-dot" style="width: 8px; height: 8px; border-radius: 50%; background: var(--color-accent-amber); display: inline-block;"></span>
-        International Conference — SANKALP 2027
+        International Academic Conference
       </div>
 
-      <!-- Main Conference H1 -->
-      <h1 class="font-display font-bold leading-tight" style="font-size: clamp(1.85rem, 3.8vw, 2.75rem); letter-spacing: -0.02em; margin-bottom: 1.25rem; text-align: left; line-height: 1.2;">
+      <!-- Main Conference Brand Title: SANKALP 2027 -->
+      <h1 class="hero-brand-heading font-display font-black">
+        <span class="hero-brand-name"><?= e($brandTitle) ?></span>
+        <span class="hero-brand-year"><?= e($brandSub) ?></span>
+      </h1>
+
+      <!-- Full Conference Academic Sub-title & Acronym -->
+      <h2 class="hero-theme-title font-display font-bold">
         International Conference on<br>
         <span class="acronym-highlight">S</span>ustainable <span class="acronym-highlight">A</span>dvances in e<span class="acronym-highlight">N</span>gineering, <span class="acronym-highlight">K</span>nowledge Systems,<br>
         <span class="acronym-highlight">A</span>I and Inte<span class="acronym-highlight">L</span>ligent Technologies for <span class="acronym-highlight">P</span>rogress
-      </h1>
+      </h2>
 
       <!-- Subtitle -->
       <p style="font-size: clamp(0.875rem, 1.5vw, 1rem); line-height: 1.6; max-width: 32rem; margin-bottom: 2rem; color: rgba(255, 255, 255, 0.75);">
-        Organized by School Of Engineering and Technology MGM University, Chhatrapati Sambhajinagar
+        <?= e($config['app_subtitle']) ?>
       </p>
 
       <!-- Meta Row (Dates, Venue, Deadline) -->
@@ -38,7 +60,7 @@ $countdownTarget = $config['countdown_target'];
           <?= render_icon('calendar') ?>
           <div>
             <p class="font-mono text-[10px] uppercase tracking-wider" style="color: rgba(255, 255, 255, 0.6); font-size: 10px;">Conference Dates</p>
-            <p class="font-semibold text-white" style="font-size: 12px; margin: 0;">15-16 February 2027</p>
+            <p class="font-semibold text-white" style="font-size: 12px; margin: 0;"><?= e($config['app_dates']) ?></p>
           </div>
         </div>
 
@@ -46,7 +68,7 @@ $countdownTarget = $config['countdown_target'];
           <?= render_icon('map-pin') ?>
           <div>
             <p class="font-mono text-[10px] uppercase tracking-wider" style="color: rgba(255, 255, 255, 0.6); font-size: 10px;">Venue</p>
-            <p class="font-semibold text-white" style="font-size: 12px; margin: 0;">School of Engineering &amp; Technology, MGM University</p>
+            <p class="font-semibold text-white" style="font-size: 12px; margin: 0;"><?= e($config['app_venue']) ?></p>
           </div>
         </div>
 
@@ -54,7 +76,7 @@ $countdownTarget = $config['countdown_target'];
           <?= render_icon('clock') ?>
           <div>
             <p class="font-mono text-[10px] uppercase tracking-wider" style="color: rgba(255, 255, 255, 0.6); font-size: 10px;">Early Bird Deadline</p>
-            <p class="font-semibold text-white" style="font-size: 12px; margin: 0;">15 Nov, 2026</p>
+            <p class="font-semibold text-white" style="font-size: 12px; margin: 0;"><?= e($earlyBirdDate) ?></p>
           </div>
         </div>
       </div>
@@ -79,15 +101,15 @@ $countdownTarget = $config['countdown_target'];
     <div class="reveal-up delay-2 hero-right-col">
 
       <!-- Interactive Rotating Wireframe Globe -->
-      <div style="position: relative; width: 280px; height: 280px; display: flex; align-items: center; justify-content: center;">
+      <div class="globe-container">
         <!-- Core glow -->
-        <div class="globe-glow" style="position: absolute; inset: 0; border-radius: 50%; background: rgba(18,124,111,0.2); filter: blur(60px);"></div>
+        <div class="globe-glow" style="position: absolute; inset: 0; border-radius: 50%; background: rgba(18,124,111,0.22); filter: blur(65px);"></div>
 
         <!-- Outer Dashed Ring -->
-        <div class="globe-dashed-ring" style="position: absolute; width: 100%; height: 100%; border-radius: 50%; border: 1px dashed rgba(255,255,255,0.15);"></div>
+        <div class="globe-dashed-ring" style="position: absolute; width: 100%; height: 100%; border-radius: 50%; border: 1px dashed rgba(255,255,255,0.18);"></div>
 
         <!-- Wireframe Coordinate Mesh SVG -->
-        <svg class="globe-mesh" style="position: absolute; width: 88%; height: 88%; color: rgba(255,255,255,0.25);" viewBox="0 0 200 200" fill="none" stroke="currentColor">
+        <svg class="globe-mesh" style="position: absolute; width: 86%; height: 86%; color: rgba(255,255,255,0.28);" viewBox="0 0 200 200" fill="none" stroke="currentColor">
           <circle cx="100" cy="100" r="88" stroke-width="0.8" stroke-dasharray="4 4" />
           <ellipse cx="100" cy="100" rx="88" ry="32" stroke-width="0.7" />
           <ellipse cx="100" cy="100" rx="88" ry="62" stroke-width="0.7" />
@@ -104,17 +126,34 @@ $countdownTarget = $config['countdown_target'];
           <circle cx="62" cy="138" r="2" fill="#127C6F" />
         </svg>
 
-        <!-- Floating Tech Tags (IoT, Cloud, Cybersecurity) -->
-        <div class="tech-tag-iot" style="position: absolute; top: 14%; right: 6%; display: flex; align-items: center; gap: 0.375rem; padding: 0.375rem 0.75rem; border-radius: 9999px; font-size: 10px; font-weight: 600; color: #fff; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); backdrop-filter: blur(8px);">
-          <span style="width: 6px; height: 6px; border-radius: 50%; background: #10B981;"></span> IoT
-        </div>
-
-        <div class="tech-tag-cloud" style="position: absolute; bottom: 22%; left: 2%; display: flex; align-items: center; gap: 0.375rem; padding: 0.375rem 0.75rem; border-radius: 9999px; font-size: 10px; font-weight: 600; color: #fff; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); backdrop-filter: blur(8px);">
-          <span style="width: 6px; height: 6px; border-radius: 50%; background: #38BDF8;"></span> Cloud
-        </div>
-
-        <div class="tech-tag-cyber" style="position: absolute; top: 38%; left: 5%; display: flex; align-items: center; gap: 0.375rem; padding: 0.375rem 0.75rem; border-radius: 9999px; font-size: 10px; font-weight: 600; color: #fff; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); backdrop-filter: blur(8px);">
-          <span style="width: 6px; height: 6px; border-radius: 50%; background: #F2B705;"></span> Cybersecurity
+        <!-- 6 Orbiting Conference Track Symbols (Continuous Planetary Revolution) -->
+        <?php
+        $globeTracks = [
+            ['icon' => '⚡', 'label' => 'Energy Systems', 'title' => 'Track 1: Sustainable Energy Systems and Decarbonization Technologies'],
+            ['icon' => '🏙️', 'label' => 'Built Environments', 'title' => 'Track 2: Smart and Sustainable Built Environments'],
+            ['icon' => '♻️', 'label' => 'Circular Economy', 'title' => 'Track 3: Sustainable Manufacturing and Circular Economy'],
+            ['icon' => '🤖', 'label' => 'AI & Intelligent Tech', 'title' => 'Track 4: Artificial Intelligence and Digital Technologies for Sustainability'],
+            ['icon' => '🌿', 'label' => 'Climate & Ecology', 'title' => 'Track 5: Climate Change, Environmental Management and Resource Sustainability'],
+            ['icon' => '🚆', 'label' => 'Transportation', 'title' => 'Track 6: Sustainable Transportation and Resilient Infrastructure Systems'],
+        ];
+        if (!empty($conferenceData['tracks'])) {
+            foreach ($conferenceData['tracks'] as $idx => $t) {
+                if (isset($globeTracks[$idx])) {
+                    $globeTracks[$idx]['icon'] = $t['icon'];
+                }
+            }
+        }
+        ?>
+        <div class="globe-orbit-system">
+          <div class="globe-orbit-ring">
+            <?php foreach ($globeTracks as $idx => $orb): ?>
+              <div class="orbit-slot orbit-slot-<?= $idx + 1 ?>">
+                <button type="button" class="globe-track-orb" onclick="goToSection('tracks', 'home', 'Tracks')" title="<?= e($orb['title']) ?>" aria-label="<?= e($orb['title']) ?>" data-label="<?= e($orb['label']) ?>">
+                  <span class="orbit-symbol"><?= $orb['icon'] ?></span>
+                </button>
+              </div>
+            <?php endforeach; ?>
+          </div>
         </div>
       </div>
 

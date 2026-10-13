@@ -2,7 +2,8 @@
 /**
  * Conference Overview Component: Scope, Objectives & Host Institution
  */
-$conferenceData = require __DIR__ . '/../../config/conference_data.php';
+$config = $config ?? require __DIR__ . '/../../config/app.php';
+$conferenceData = $conferenceData ?? require __DIR__ . '/../../config/conference_data.php';
 $scopes = $conferenceData['scopes'];
 $objectives = $conferenceData['objectives'];
 ?>
@@ -18,12 +19,12 @@ $objectives = $conferenceData['objectives'];
       <div style="margin: 0.75rem auto 0 auto; width: 3.5rem; height: 4px; border-radius: 9999px; background: var(--color-primary-500);"></div>
     </div>
 
-    <!-- 1. SANKALP-2027 Scope -->
+    <!-- 1. Conference Scope -->
     <div style="margin-bottom: 3.5rem;">
       <div class="reveal-up" style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.5rem;">
         <div style="width: 4px; height: 1.25rem; border-radius: 9999px; background: var(--color-primary-700); flex-shrink: 0;"></div>
         <span class="font-mono text-[11px] uppercase tracking-widest font-bold" style="font-size: 11px; color: var(--color-primary-700);">
-          SANKALP-2027 Scope
+          <?= e($config['app_name']) ?> Scope
         </span>
       </div>
 
@@ -32,7 +33,7 @@ $objectives = $conferenceData['objectives'];
           Multidisciplinary Research &amp; Innovation Domains
         </h3>
         <p style="font-size: 0.875rem; line-height: 1.6; color: var(--color-text-body); margin-bottom: 1.5rem; max-width: 56rem;">
-          SANKALP-2027 provides a multidisciplinary platform covering emerging trends, scientific breakthroughs, and industrial innovations in sustainability-focused engineering and technology domains. The conference welcomes original research contributions, case studies, industrial applications, and innovative practices related to:
+          <?= e($config['app_name']) ?> provides a multidisciplinary platform covering emerging trends, scientific breakthroughs, and industrial innovations in sustainability-focused engineering and technology domains. The conference welcomes original research contributions, case studies, industrial applications, and innovative practices related to:
         </p>
 
         <!-- 10 Scopes Grid (Balanced 2 columns) -->
@@ -104,8 +105,7 @@ $objectives = $conferenceData['objectives'];
               <div>
                 <span class="font-mono text-[10px] uppercase tracking-widest" style="font-size: 10px; color: rgba(255,255,255,0.5);">Host Institution</span>
                 <h3 class="font-display font-bold text-lg leading-tight" style="font-size: 1.15rem; color: #fff; margin: 0;">
-                  School of Engineering &amp; Technology<br>
-                  <span style="font-size: 0.875rem; font-weight: normal; color: rgba(255,255,255,0.8);">MGM University, Chhatrapati Sambhajinagar</span>
+                  <?= e($config['app_subtitle']) ?>
                 </h3>
               </div>
             </div>

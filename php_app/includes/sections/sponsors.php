@@ -2,7 +2,7 @@
 /**
  * Publication Partners & Sponsors Component
  */
-$conferenceData = require __DIR__ . '/../../config/conference_data.php';
+$conferenceData = $conferenceData ?? require __DIR__ . '/../../config/conference_data.php';
 $sponsors = $conferenceData['sponsors'];
 ?>
 <section class="section-white" style="padding-top: 4rem; padding-bottom: 4rem; overflow: hidden;">

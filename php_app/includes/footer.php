@@ -2,8 +2,13 @@
 /**
  * Global Footer Component
  */
-$conferenceData = require __DIR__ . '/../config/conference_data.php';
+$config = $config ?? require __DIR__ . '/../config/app.php';
+$conferenceData = $conferenceData ?? require __DIR__ . '/../config/conference_data.php';
 $navLinks = $conferenceData['nav_links'];
+
+$nameParts = explode(' ', $config['app_name'], 2);
+$brandTitle = $nameParts[0] ?? 'SANKALP';
+$brandSub = $nameParts[1] ?? '2027';
 ?>
 <footer id="contact-section" class="site-footer">
   <!-- Ambient footer glow -->
@@ -14,15 +19,15 @@ $navLinks = $conferenceData['nav_links'];
 
       <!-- Col 1: Brand & Social -->
       <div style="display: flex; flex-direction: column; gap: 1rem; text-align: left;">
-        <div style="display: flex; align-items: center; gap: 0.625rem;">
+        <div style="display: flex; align-items: center; gap: 0.75rem;">
           <?= render_icon('logo') ?>
-          <div>
-            <div class="font-display font-bold text-white text-base leading-none" style="font-size: 1rem; line-height: 1; color: #fff;">SANKALP</div>
-            <div class="font-mono text-[10px] tracking-widest" style="font-size: 10px; color: rgba(255,255,255,0.5);">2027</div>
+          <div class="brand-text-block">
+            <span class="brand-title" style="color: #ffffff;"><?= e($brandTitle) ?></span>
+            <span class="brand-subtitle" style="color: var(--color-accent-amber);"><?= e($brandSub) ?></span>
           </div>
         </div>
         <p style="font-size: 0.75rem; line-height: 1.6; color: rgba(255,255,255,0.6);">
-          International Conference on Sustainable Advances in eNgineering, Knowledge Systems, AI and InteLligent Technologies for Progress. Uniting researchers, academicians, and industry experts globally.
+          <?= e($config['app_full_title']) ?>. Uniting researchers, academicians, and industry experts globally.
         </p>
 
         <!-- Social Icons -->
@@ -63,15 +68,15 @@ $navLinks = $conferenceData['nav_links'];
         <div style="display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.75rem;">
           <div style="display: flex; gap: 0.625rem; color: rgba(255,255,255,0.6);">
             <span style="flex-shrink: 0; margin-top: 0.125rem;"><?= render_icon('map-pin') ?></span>
-            <span>School of Engineering and Technology, MGM University, Chhatrapati Sambhajinagar, Maharashtra 431003</span>
+            <span><?= e($config['app_venue']) ?></span>
           </div>
           <div style="display: flex; align-items: center; gap: 0.625rem; color: rgba(255,255,255,0.6);">
             <?= render_icon('mail') ?>
-            <a href="mailto:sankalp@mgmu.ac.in" style="color: inherit; transition: color 0.15s;" onmouseover="this.style.color='#fff';" onmouseout="this.style.color='rgba(255,255,255,0.6)';">sankalp@mgmu.ac.in</a>
+            <a href="mailto:<?= e($config['contact_email']) ?>" style="color: inherit; transition: color 0.15s;" onmouseover="this.style.color='#fff';" onmouseout="this.style.color='rgba(255,255,255,0.6)';"><?= e($config['contact_email']) ?></a>
           </div>
           <div style="display: flex; align-items: center; gap: 0.625rem; color: rgba(255,255,255,0.6);">
             <?= render_icon('phone') ?>
-            <a href="tel:+911234567890" style="color: inherit; transition: color 0.15s;" onmouseover="this.style.color='#fff';" onmouseout="this.style.color='rgba(255,255,255,0.6)';">+91 1234 567890</a>
+            <a href="tel:<?= e(preg_replace('/[^0-9+]/', '', $config['contact_phone'])) ?>" style="color: inherit; transition: color 0.15s;" onmouseover="this.style.color='#fff';" onmouseout="this.style.color='rgba(255,255,255,0.6)';"><?= e($config['contact_phone']) ?></a>
           </div>
         </div>
       </div>
@@ -102,7 +107,7 @@ $navLinks = $conferenceData['nav_links'];
 
     <!-- Bottom Copyright Bar -->
     <div style="padding-top: 1.5rem; display: flex; flex-direction: column; justify-content: space-between; align-items: center; gap: 0.75rem; font-size: 0.75rem; color: rgba(255,255,255,0.4); border-top: 1px solid rgba(255,255,255,0.08);" class="sm:flex-row">
-      <span>&copy; 2027 SANKALP. All rights reserved. School of Engineering and Technology, MGM University, Chhatrapati Sambhajinagar.</span>
+      <span>&copy; <?= date('Y') ?> <?= e($config['app_name']) ?>. All rights reserved. <?= e($config['app_subtitle']) ?>.</span>
       <div style="display: flex; gap: 1.25rem;">
         <a href="#" style="color: inherit;" onmouseover="this.style.color='#fff';" onmouseout="this.style.color='rgba(255,255,255,0.4)';">Privacy Policy</a>
         <span>·</span>

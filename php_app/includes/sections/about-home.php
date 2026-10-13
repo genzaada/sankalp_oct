@@ -2,6 +2,13 @@
 /**
  * About Highlight Section (Homepage)
  */
+$conferenceData = $conferenceData ?? require __DIR__ . '/../../config/conference_data.php';
+$highlights = $conferenceData['highlights'] ?? [
+    'High-quality paper presentations',
+    'Keynote talks from global experts',
+    'Workshops & technical sessions',
+    'Peer-reviewed conference proceedings'
+];
 ?>
 <section id="about" class="section-white sankalp-about" style="padding-top: 6rem; padding-bottom: 6rem; scroll-margin-top: 5rem; overflow: hidden;">
   <div class="container">
@@ -24,15 +31,7 @@
         </p>
 
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0.75rem; margin-bottom: 2rem;">
-          <?php
-          $highlights = [
-              'High-quality paper presentations',
-              'Keynote talks from global experts',
-              'Workshops & technical sessions',
-              'Peer-reviewed conference proceedings'
-          ];
-          foreach ($highlights as $hl):
-          ?>
+          <?php foreach ($highlights as $hl): ?>
             <div style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem; border-radius: 1rem; border: 1px solid var(--color-border); background: var(--color-bg-light); transition: transform 0.15s;">
               <div style="width: 1.5rem; height: 1.5rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; background: rgba(18, 124, 111, 0.12); color: var(--color-primary-700);">
                 <?= render_icon('check') ?>

@@ -70,7 +70,7 @@ function render_icon(string $name, string $extraClass = ''): string {
             return '<svg class="w-5 h-5 ' . e($extraClass) . '" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.1a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" /></svg>';
 
         case 'logo':
-            return '<svg class="w-9 h-9 text-white shadow-sm shrink-0 ' . e($extraClass) . '" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M50 5L88.9711 27.5V72.5L50 95L11.0289 72.5V27.5L50 5Z" fill="#0E5A56" stroke="#F2B705" stroke-width="4" /><text x="50" y="60" fill="white" font-size="30" font-weight="bold" font-family="Poppins, sans-serif" text-anchor="middle">S</text></svg>';
+            return '<svg class="brand-logo-icon shadow-sm shrink-0 ' . e($extraClass) . '" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M50 5L88.9711 27.5V72.5L50 95L11.0289 72.5V27.5L50 5Z" fill="#0E5A56" stroke="#F2B705" stroke-width="4.5" /><text x="50" y="61" fill="white" font-size="32" font-weight="bold" font-family="Poppins, sans-serif" text-anchor="middle">S</text></svg>';
 
         default:
             return '';

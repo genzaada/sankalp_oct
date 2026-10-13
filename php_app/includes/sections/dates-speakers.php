@@ -2,7 +2,7 @@
 /**
  * Important Dates & Keynote Speakers Split Component
  */
-$conferenceData = require __DIR__ . '/../../config/conference_data.php';
+$conferenceData = $conferenceData ?? require __DIR__ . '/../../config/conference_data.php';
 $dates = $conferenceData['dates'];
 $speakers = $conferenceData['speakers'];
 ?>

@@ -13,6 +13,12 @@ return [
         ['icon' => 'file-text','value' => '150+', 'label' => 'Research Papers'],
         ['icon' => 'award',    'value' => '10+',  'label' => 'Keynote Sessions'],
     ],
+    'highlights' => [
+        'High-quality paper presentations',
+        'Keynote talks from global experts',
+        'Workshops & technical sessions',
+        'Peer-reviewed conference proceedings',
+    ],
 
     'tracks' => [
         [
@@ -169,23 +175,7 @@ return [
         'Strengthen global research networks and foster international partnerships for sustainable technological advancement and societal progress.',
     ],
 
-    'committee' => [
-        'Patrons' => [
-            ['role' => 'Chief Patron', 'name' => 'Dr. Vilas S. Sapkal', 'org' => 'Hon’ble Vice-Chancellor, MGM University'],
-            ['role' => 'Patron',       'name' => 'Dr. H. H. Shinde',     'org' => 'Dean, School of Engineering & Technology, MGM University'],
-            ['role' => 'Co-Patron',    'name' => 'Dr. Ashish Gadekar',   'org' => 'Registrar, MGM University'],
-        ],
-        'Steering' => [
-            ['role' => 'General Chair',          'name' => 'Dr. S. C. Tamane',   'org' => 'School of Engineering & Technology, MGM University'],
-            ['role' => 'Technical Program Chair','name' => 'Dr. V. B. Musande',  'org' => 'School of Engineering & Technology, MGM University'],
-            ['role' => 'Finance Chair',          'name' => 'Dr. B. M. Patil',    'org' => 'School of Engineering & Technology, MGM University'],
-        ],
-        'Advisory' => [
-            ['role' => 'International Advisor', 'name' => 'Dr. Albert Y. Zomaya','org' => 'University of Sydney, Australia'],
-            ['role' => 'National Advisor',      'name' => 'Dr. S. R. Sathe',     'org' => 'VNIT Nagpur, India'],
-            ['role' => 'Industry Advisor',      'name' => 'Mr. Amit Kundal',     'org' => 'Principal Designer, Samsung R&D'],
-        ],
-    ],
+    'committee' => require __DIR__ . '/committee_members.php',
 
     'nav_links' => [
         ['label' => 'Home',            'target' => 'top',             'page' => 'home'],

@@ -2,7 +2,7 @@
 /**
  * Stats Bar Component (Overlapping Hero with -mt-10)
  */
-$conferenceData = require __DIR__ . '/../../config/conference_data.php';
+$conferenceData = $conferenceData ?? require __DIR__ . '/../../config/conference_data.php';
 $stats = $conferenceData['stats'];
 ?>
 <section class="stats-section section-white sankalp-stats">

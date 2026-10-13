@@ -1,3 +1,7 @@
+<?php
+$conferenceData = $conferenceData ?? require __DIR__ . '/../../config/conference_data.php';
+$subTracks = $conferenceData['tracks'] ?? [];
+?>
 <!-- Paper / Abstract Submission Modal Component -->
 <div id="modal-submission" class="modal-overlay">
   <div class="modal-window">
@@ -23,12 +27,9 @@
       <div class="form-group">
         <label class="form-label" for="sub-track">Conference Track *</label>
         <select id="sub-track" name="track_id" class="form-select" required>
-          <option value="1">Track 1: Sustainable Energy Systems and Decarbonization Technologies</option>
-          <option value="2">Track 2: Smart and Sustainable Built Environments</option>
-          <option value="3">Track 3: Sustainable Manufacturing and Circular Economy</option>
-          <option value="4">Track 4: Artificial Intelligence and Digital Technologies for Sustainability</option>
-          <option value="5">Track 5: Climate Change, Environmental Management and Resource Sustainability</option>
-          <option value="6">Track 6: Sustainable Transportation and Resilient Infrastructure Systems</option>
+          <?php foreach ($subTracks as $i => $track): ?>
+            <option value="<?= $i + 1 ?>"><?= e($track['trackNum']) ?>: <?= e($track['title']) ?></option>
+          <?php endforeach; ?>
         </select>
       </div>
 

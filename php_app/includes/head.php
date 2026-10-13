@@ -2,7 +2,7 @@
 /**
  * Head Partial: Meta tags, stylesheets, fonts
  */
-$config = require __DIR__ . '/../config/app.php';
+$config = $config ?? require __DIR__ . '/../config/app.php';
 $pageTitle = $pageTitle ?? ($config['app_name'] . ' — ' . $config['app_full_title']);
 ?>
 <!DOCTYPE html>
@@ -11,7 +11,7 @@ $pageTitle = $pageTitle ?? ($config['app_name'] . ' — ' . $config['app_full_ti
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><?= e($pageTitle) ?></title>
-  <meta name="description" content="SANKALP 2027 — International Conference on Sustainable Advances in eNgineering, Knowledge Systems, AI and Intelligent Technologies for Progress. Organized by School of Engineering & Technology, MGM University.">
+  <meta name="description" content="<?= e($config['app_name']) ?> — <?= e($config['app_full_title']) ?>. <?= e($config['app_subtitle']) ?>.">
   
   <!-- Preconnect for Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">

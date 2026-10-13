@@ -2,7 +2,7 @@
 /**
  * Organizing Committee Directory Section
  */
-$conferenceData = require __DIR__ . '/../../config/conference_data.php';
+$conferenceData = $conferenceData ?? require __DIR__ . '/../../config/conference_data.php';
 $committee = $conferenceData['committee'];
 ?>
 <section id="committee" class="section-light sankalp-committee" style="padding-top: 6rem; padding-bottom: 6rem; scroll-margin-top: 5rem;">
@@ -29,11 +29,20 @@ $committee = $conferenceData['committee'];
             <div class="committee-tier-grid">
               <?php foreach ($members as $m): ?>
                 <div class="member-card">
-                  <div>
-                    <p class="font-mono uppercase tracking-wide font-semibold" style="font-size: 10px; color: var(--color-primary-500); margin-bottom: 0.25rem;"><?= e($m['role']) ?></p>
-                    <p class="font-bold" style="font-size: 0.9375rem; color: var(--color-text-heading); margin-bottom: 0.25rem;"><?= e($m['name']) ?></p>
+                  <?php if (!empty($m['image'])): 
+                    $photoSrc = (str_starts_with($m['image'], 'http://') || str_starts_with($m['image'], 'https://')) 
+                        ? $m['image'] 
+                        : asset_url($m['image']);
+                  ?>
+                    <div class="member-photo-frame">
+                      <img src="<?= e($photoSrc) ?>" alt="<?= e($m['name']) ?>" class="member-photo" loading="lazy">
+                    </div>
+                  <?php endif; ?>
+                  <div class="member-info">
+                    <p class="member-role"><?= e($m['role']) ?></p>
+                    <h4 class="member-name"><?= e($m['name']) ?></h4>
+                    <p class="member-org"><?= e($m['org']) ?></p>
                   </div>
-                  <p style="font-size: 11px; line-height: 1.4; color: var(--color-text-body); margin: 0;"><?= e($m['org']) ?></p>
                 </div>
               <?php endforeach; ?>
             </div>

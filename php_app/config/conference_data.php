@@ -102,7 +102,7 @@ return [
     ],
 
     'dates' => [
-        ['label' => 'Paper Submission Deadline', 'date' => '30 Sept, 2026', 'type' => 'deadline'],
+        ['label' => 'Paper Submission Deadline', 'date' => '30 Oct, 2026', 'type' => 'deadline'],
         ['label' => 'Notification of Acceptance', 'date' => '31 Oct, 2026',  'type' => 'info'],
         ['label' => 'Camera Ready Submission',   'date' => '20 Nov, 2026',  'type' => 'info'],
         ['label' => 'Early Bird Registration',   'date' => '15 Nov, 2026',  'type' => 'special'],

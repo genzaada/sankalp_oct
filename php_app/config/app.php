@@ -6,7 +6,7 @@
 
 return [
     'app_name' => 'SANKALP 2027',
-    'app_full_title' => 'International Conference on Sustainable Advances in eNgineering, Knowledge Systems, AI and InteLligent Technologies for Progress',
+    'app_full_title' => 'International Conference on Sustainable Advances in ENgineering, Knowledge Systems, AI and InteLligent Technologies for Progress',
     'app_subtitle' => 'Organized by MGM University, Chhatrapati Sambhajinagar',
     'app_dates' => '15–16 February 2027',
     'app_venue' => 'MGM University, Chhatrapati Sambhajinagar, Maharashtra 431003',

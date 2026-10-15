@@ -10,16 +10,6 @@ $nameParts = explode(' ', $config['app_name'], 2);
 $brandTitle = $nameParts[0] ?? 'SANKALP';
 $brandSub = $nameParts[1] ?? '2027';
 
-// Resolve early bird date from conference data
-$earlyBirdDate = '15 Nov, 2026';
-if (!empty($conferenceData['dates'])) {
-    foreach ($conferenceData['dates'] as $d) {
-        if (stripos($d['label'], 'early bird') !== false) {
-            $earlyBirdDate = $d['date'];
-            break;
-        }
-    }
-}
 ?>
 <header class="hero-section sankalp-hero">
   <!-- Subtle ambient glow background -->
@@ -30,11 +20,6 @@ if (!empty($conferenceData['dates'])) {
     <!-- Left Column (7 cols) -->
     <div class="reveal-up" style="display: flex; flex-direction: column; align-items: flex-start; text-align: left;">
 
-      <!-- Status Pill Badge -->
-      <div class="pill-badge" style="margin-bottom: 1.25rem;">
-        <span class="pulse-dot" style="width: 8px; height: 8px; border-radius: 50%; background: var(--color-accent-amber); display: inline-block;"></span>
-        International Academic Conference
-      </div>
 
       <!-- Main Conference Brand Title: SANKALP 2027 -->
       <h1 class="hero-brand-heading font-display font-black">
@@ -42,11 +27,9 @@ if (!empty($conferenceData['dates'])) {
         <span class="hero-brand-year"><?= e($brandSub) ?></span>
       </h1>
 
-      <!-- Full Conference Academic Sub-title & Acronym -->
+      <!-- Full Conference Academic Sub-title & Acronym (Dynamically bound to config/app.php) -->
       <h2 class="hero-theme-title font-display font-bold">
-        International Conference on<br>
-        <span class="acronym-highlight">S</span>ustainable <span class="acronym-highlight">A</span>dvances in e<span class="acronym-highlight">N</span>gineering, <span class="acronym-highlight">K</span>nowledge Systems,<br>
-        <span class="acronym-highlight">A</span>I and Inte<span class="acronym-highlight">L</span>ligent Technologies for <span class="acronym-highlight">P</span>rogress
+        <?= render_conference_theme_title($config['app_full_title'] ?? '') ?>
       </h2>
 
       <!-- Subtitle -->
@@ -72,13 +55,6 @@ if (!empty($conferenceData['dates'])) {
           </div>
         </div>
 
-        <div class="hero-meta-item">
-          <?= render_icon('clock') ?>
-          <div>
-            <p class="font-mono text-[10px] uppercase tracking-wider" style="color: rgba(255, 255, 255, 0.6); font-size: 10px;">Early Bird Deadline</p>
-            <p class="font-semibold text-white" style="font-size: 12px; margin: 0;"><?= e($earlyBirdDate) ?></p>
-          </div>
-        </div>
       </div>
 
       <!-- Action Buttons -->
@@ -86,12 +62,6 @@ if (!empty($conferenceData['dates'])) {
         <button type="button" onclick="openRegistrationModal()"
           style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.875rem 1.75rem; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; border-radius: 9999px; background: #ffffff; color: var(--color-primary-900); box-shadow: 0 10px 25px rgba(0,0,0,0.15); transition: transform 0.15s;">
           Register Now <?= render_icon('arrow-right') ?>
-        </button>
-
-        <button type="button" onclick="downloadFile('SANKALP_Brochure.pdf')"
-          class="btn-outline-white"
-          style="padding: 0.875rem 1.75rem; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;">
-          Download Brochure <?= render_icon('download') ?>
         </button>
       </div>
 
@@ -148,7 +118,7 @@ if (!empty($conferenceData['dates'])) {
           <div class="globe-orbit-ring">
             <?php foreach ($globeTracks as $idx => $orb): ?>
               <div class="orbit-slot orbit-slot-<?= $idx + 1 ?>">
-                <button type="button" class="globe-track-orb" onclick="goToSection('tracks', 'home', 'Tracks')" title="<?= e($orb['title']) ?>" aria-label="<?= e($orb['title']) ?>" data-label="<?= e($orb['label']) ?>">
+                <button type="button" class="globe-track-orb" onclick="goToSection('tracks', 'home', 'Tracks')" title="<?= e($orb['title']) ?>" aria-label="<?= e($orb['title']) ?>">
                   <span class="orbit-symbol"><?= $orb['icon'] ?></span>
                 </button>
               </div>

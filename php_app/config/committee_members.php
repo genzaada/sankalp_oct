@@ -18,7 +18,7 @@ return [
             'role'  => 'Patron',
             'name'  => 'Dr. H. H. Shinde',
             'org'   => 'Dean, School of Engineering & Technology, MGM University',
-            'image' => null,
+            'image' => 'assets/images/committee/dr_hh_shinde.png',
         ],
         [
             'role'  => 'Co-Patron',

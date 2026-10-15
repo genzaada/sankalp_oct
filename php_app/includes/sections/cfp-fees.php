@@ -42,7 +42,7 @@ $regFees = $conferenceData['reg_fees'];
             Submit Your Paper <?= render_icon('arrow-right') ?>
           </button>
 
-          <button type="button" onclick="downloadFile('Paper_Guidelines.pdf')" class="btn-outline-white"
+          <button type="button" class="btn-outline-white"
             style="padding: 0.875rem 1.5rem; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; justify-content: center;">
             <?= render_icon('download') ?> Paper Guidelines
           </button>

@@ -1,83 +1,69 @@
 <?php
+$config = $config ?? require __DIR__ . '/../../config/app.php';
 $conferenceData = $conferenceData ?? require __DIR__ . '/../../config/conference_data.php';
-$subTracks = $conferenceData['tracks'] ?? [];
+
+// Find deadline from conference data if available
+$subDeadline = '30 Sept, 2026';
+if (!empty($conferenceData['dates'])) {
+    foreach ($conferenceData['dates'] as $d) {
+        if (stripos($d['label'], 'submission') !== false) {
+            $subDeadline = $d['date'];
+            break;
+        }
+    }
+}
 ?>
-<!-- Paper / Abstract Submission Modal Component -->
+<!-- Call for Papers / Abstract Submission Modal (To Be Announced State) -->
 <div id="modal-submission" class="modal-overlay">
-  <div class="modal-window">
-    <button type="button" class="modal-close-btn" onclick="closeModal('modal-submission')" aria-label="Close Submission Dialog">
+  <div class="modal-window" style="max-width: 520px; text-align: center; padding: 2.75rem 2.25rem;">
+    <button type="button" class="modal-close-btn" onclick="closeModal('modal-submission')" aria-label="Close Announcement Dialog">
       <?= render_icon('x') ?>
     </button>
 
-    <div style="margin-bottom: 1.5rem;">
-      <span class="eyebrow" style="margin-bottom: 0.25rem;">Call for Papers</span>
-      <h3 class="font-display font-bold text-xl" style="color: var(--color-primary-700); font-size: 1.35rem;">
-        Submit Research Abstract
-      </h3>
-      <p style="font-size: 0.8125rem; color: var(--color-text-body); margin-top: 0.25rem;">
-        Submit your original research abstract for double-blind peer review. Accepted papers will be published in Scopus Indexed Proceedings.
-      </p>
+    <!-- Top Badge / Announcement Icon -->
+    <div style="width: 4.5rem; height: 4.5rem; margin: 0 auto 1.25rem; border-radius: 50%; background: rgba(242, 183, 5, 0.15); border: 2px solid rgba(242, 183, 5, 0.4); display: flex; align-items: center; justify-content: center; font-size: 2rem; box-shadow: 0 10px 25px rgba(242, 183, 5, 0.15);">
+      📢
     </div>
 
-    <div id="sub-feedback" class="form-feedback"></div>
+    <!-- Eyebrow Tag -->
+    <div style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.35rem 0.85rem; border-radius: 9999px; background: rgba(18, 124, 111, 0.1); border: 1px solid rgba(18, 124, 111, 0.2); margin-bottom: 0.85rem;">
+      <span style="width: 8px; height: 8px; border-radius: 50%; background: var(--color-accent-amber); display: inline-block;"></span>
+      <span class="font-mono uppercase font-bold text-xs" style="font-size: 11px; letter-spacing: 0.08em; color: var(--color-primary-700);">
+        Call for Papers
+      </span>
+    </div>
 
-    <form id="submission-form">
-      <input type="hidden" name="csrf_token" value="<?= e(csrf_token()) ?>">
+    <!-- Main Heading -->
+    <h3 class="font-display font-bold" style="font-size: 2rem; color: var(--color-primary-900); margin-bottom: 0.75rem; letter-spacing: -0.01em;">
+      To Be Announced
+    </h3>
 
-      <div class="form-group">
-        <label class="form-label" for="sub-track">Conference Track *</label>
-        <select id="sub-track" name="track_id" class="form-select" required>
-          <?php foreach ($subTracks as $i => $track): ?>
-            <option value="<?= $i + 1 ?>"><?= e($track['trackNum']) ?>: <?= e($track['title']) ?></option>
-          <?php endforeach; ?>
-        </select>
+    <!-- Description -->
+    <p style="font-size: 0.9375rem; line-height: 1.6; color: var(--color-text-body); margin-bottom: 1.75rem; max-width: 26rem; margin-left: auto; margin-right: auto;">
+      The official paper submission portal, manuscript formatting guidelines, and review timeline for <strong><?= e($config['app_name']) ?></strong> will be announced shortly.
+    </p>
+
+    <!-- Key Milestone Highlight Box -->
+    <div style="background: var(--color-bg-light); border: 1px solid var(--color-border); border-radius: 12px; padding: 1.25rem; margin-bottom: 1.75rem; text-align: left;">
+      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem; padding-bottom: 0.75rem; border-bottom: 1px solid rgba(0,0,0,0.06);">
+        <span style="font-size: 0.8125rem; color: var(--color-text-body); font-weight: 500;">Expected Submission Deadline</span>
+        <span class="font-mono font-bold" style="font-size: 0.8125rem; color: var(--color-primary-700);"><?= e($subDeadline) ?></span>
       </div>
-
-      <div class="form-group">
-        <label class="form-label" for="sub-title">Paper Title *</label>
-        <input type="text" id="sub-title" name="paper_title" class="form-input" placeholder="Full title of your manuscript" required>
+      <div style="display: flex; align-items: center; justify-content: space-between;">
+        <span style="font-size: 0.8125rem; color: var(--color-text-body); font-weight: 500;">Conference Presentation Dates</span>
+        <span class="font-mono font-bold" style="font-size: 0.8125rem; color: var(--color-primary-700);"><?= e($config['app_dates']) ?></span>
       </div>
+    </div>
 
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
-        <div class="form-group">
-          <label class="form-label" for="sub-author">Primary Author Name *</label>
-          <input type="text" id="sub-author" name="author_name" class="form-input" placeholder="e.g. Dr. Rajesh Sharma" required>
-        </div>
-        <div class="form-group">
-          <label class="form-label" for="sub-email">Author Email *</label>
-          <input type="email" id="sub-email" name="email" class="form-input" placeholder="author@institution.org" required>
-        </div>
-      </div>
+    <!-- Action Buttons -->
+    <div style="display: flex; flex-direction: column; gap: 0.75rem; max-width: 18rem; margin: 0 auto;">
+      <button type="button" class="btn-primary" style="padding: 0.75rem 1.75rem; font-size: 0.8125rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; justify-content: center; width: 100%;" onclick="closeModal('modal-submission')">
+        Close Window
+      </button>
+      <a href="mailto:<?= e($config['contact_email']) ?>" style="font-size: 0.75rem; color: var(--color-primary-500); text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; justify-content: center; gap: 0.35rem;">
+        Questions? Contact <?= e($config['contact_email']) ?>
+      </a>
+    </div>
 
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
-        <div class="form-group">
-          <label class="form-label" for="sub-phone">Contact Phone *</label>
-          <input type="tel" id="sub-phone" name="phone" class="form-input" placeholder="+91 9123456780" required>
-        </div>
-        <div class="form-group">
-          <label class="form-label" for="sub-affil">Affiliation / University *</label>
-          <input type="text" id="sub-affil" name="affiliation" class="form-input" placeholder="Department & Institution" required>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label class="form-label" for="sub-abstract">Abstract Text (min 30 characters) *</label>
-        <textarea id="sub-abstract" name="abstract_text" class="form-textarea" rows="4" placeholder="Summarize your methodology, key findings, and contributions..." required></textarea>
-      </div>
-
-      <div class="form-group">
-        <label class="form-label" for="sub-keywords">Keywords *</label>
-        <input type="text" id="sub-keywords" name="keywords" class="form-input" placeholder="e.g. Deep Learning, Microgrids, Net-Zero" required>
-      </div>
-
-      <div style="margin-top: 1.5rem; display: flex; justify-content: flex-end; gap: 0.75rem;">
-        <button type="button" class="btn-outline-teal" style="padding: 0.625rem 1.25rem; font-size: 0.8125rem;" onclick="closeModal('modal-submission')">
-          Cancel
-        </button>
-        <button type="submit" class="btn-amber" style="padding: 0.625rem 1.75rem; font-size: 0.8125rem;">
-          Submit Abstract <?= render_icon('arrow-right') ?>
-        </button>
-      </div>
-    </form>
   </div>
 </div>

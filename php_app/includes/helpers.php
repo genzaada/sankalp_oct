@@ -57,3 +57,48 @@ function json_response(array $data, int $statusCode = 200): void {
     echo json_encode($data, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
     exit;
 }
+
+/**
+ * Render conference academic full title with dynamic acronym highlights and balanced typography.
+ * Directly reads and reflects $config['app_full_title'] so edits in config/app.php
+ * are immediately visible across the website without touching template files.
+ */
+function render_conference_theme_title(?string $title): string {
+    if (empty($title)) {
+        return '';
+    }
+
+    $hasTags = (strip_tags($title) !== $title);
+    $output = $hasTags ? $title : htmlspecialchars($title, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
+
+    // Add balanced visual line-breaks if they aren't already present (BEFORE tag insertion)
+    if (stripos($output, '<br') === false) {
+        $output = preg_replace('/(International Conference on)\s+/i', "$1<br>\n", $output);
+        $output = preg_replace('/(Knowledge Systems,)\s+/i', "$1<br>\n", $output);
+    }
+
+    // 1. S in Sustainable
+    $output = preg_replace('/(\b)(S)(ustainable\b)/i', '$1<span class="acronym-highlight">$2</span>$3', $output);
+
+    // 2. A in Advances
+    $output = preg_replace('/(\b)(A)(dvances\b)/i', '$1<span class="acronym-highlight">$2</span>$3', $output);
+
+    // 3. N in ENgineering / eNgineering / Engineering
+    $output = preg_replace('/(\b[eE])(N)(gineering\b)/', '$1<span class="acronym-highlight">$2</span>$3', $output);
+    $output = preg_replace('/(\b[eE])(n)(gineering\b)/', '$1<span class="acronym-highlight">N</span>$3', $output);
+
+    // 4. K in Knowledge
+    $output = preg_replace('/(\b)(K)(nowledge\b)/i', '$1<span class="acronym-highlight">$2</span>$3', $output);
+
+    // 5. A in AI
+    $output = preg_replace('/(\b)(A)(I\b)/', '$1<span class="acronym-highlight">$2</span>I', $output);
+
+    // 6. L in InteLligent / Intelligent
+    $output = preg_replace('/(\bInte)(L)(l?igent\b)/', '$1<span class="acronym-highlight">$2</span>$3', $output);
+    $output = preg_replace('/(\bInte)(l)(l?igent\b)/i', '$1<span class="acronym-highlight">L</span>$3', $output);
+
+    // 7. P in Progress
+    $output = preg_replace('/(\b)(P)(rogress\b)/i', '$1<span class="acronym-highlight">$2</span>$3', $output);
+
+    return $output;
+}

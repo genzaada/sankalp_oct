@@ -77,7 +77,7 @@
 
 @media (min-width: 640px) {
   .sankalp-hero .hero-meta-grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   }
 }
 
@@ -226,32 +226,6 @@
   pointer-events: none;
 }
 
-/* Tooltip pill on hover */
-.sankalp-hero .globe-track-orb::after {
-  content: attr(data-label);
-  position: absolute;
-  bottom: -28px;
-  left: 50%;
-  transform: translateX(-50%) scale(0.85);
-  background: rgba(4, 30, 29, 0.95);
-  color: #ffffff;
-  padding: 0.2rem 0.55rem;
-  border-radius: 9999px;
-  font-size: 10px;
-  font-weight: 600;
-  white-space: nowrap;
-  pointer-events: none;
-  opacity: 0;
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
-  transition: opacity 0.2s ease, transform 0.2s ease;
-  z-index: 30;
-}
-
-.sankalp-hero .globe-track-orb:hover::after {
-  opacity: 1;
-  transform: translateX(-50%) scale(1);
-}
 
 /* Orbital Revolution Keyframes */
 @keyframes orbitRevolve {

@@ -31,7 +31,7 @@ Edit this file to modify all repeating data structures and conference content:
 
 | Section Key | Description | Where it reflects |
 | :--- | :--- | :--- |
-| `'tracks'` | Conference tracks, numbers, icons, and sub-themes | Track grid & Abstract Submission modal track dropdown |
+| `'tracks'` | Conference tracks, numbers, icons, and sub-themes | Track grid & Abstract Submission modal track dropdown. See full research scopes in [TRACKS_README.md](file:///d:/New%20folder/xampp/htdocs/Conference_Sankalp/sankalp_oct/TRACKS_README.md) |
 | `'dates'` | Important submission deadlines and acceptance dates | Important dates timeline card & Hero deadline indicator |
 | `'speakers'` | Keynote speakers, titles, affiliations, and headshots | Keynote speakers grid & mobile touch slider |
 | `'reg_fees'` | Early bird, regular, and on-spot fees by category | Fee table & mobile responsive cards |
@@ -103,7 +103,16 @@ In previous iterations, elements such as the host venue address, organizing inst
 - **White Background**: Ensured all committee member cards feature an explicit `#ffffff` background with subtle borders and hover depth.
 - **Member Portraits Added**:
   - **Dr. Vilas S. Sapkal** (Chief Patron, Hon'ble Vice-Chancellor): `assets/images/committee/dr_vilas_sapkal.png`
-  - **Dr. Ashish Gadekar** (Co-Patron, Registrar): `assets/images/committee/dr_ashish_gadekar.jpg`
+  - **Dr. H. H. Shinde** (Patron, Dean SOET): `assets/images/committee/dr_hh_shinde.png`
+  - **Dr. Ashish Gadekar** (Co-Patron, Registrar): `assets/images/committee/dr_ashish_gadekar.png`
+- **Hero Action Buttons**: Removed the unattached "Download Brochure" button so the interface focuses cleanly on "Register Now" until the official PDF brochure is attached.
+- **Hero Pill Badge Removed**: Removed the "International Academic Conference" status pill badge from the top of the hero section for a cleaner visual flow leading directly with the prominent SANKALP 2027 title.
+- **Dynamic Conference Title Rendering**: Bound the hero academic subtitle `<h2>` directly to `$config['app_full_title']` using a new helper `render_conference_theme_title()` in `includes/helpers.php`. Edits made in `config/app.php` (such as casing, title revisions, or words) now immediately reflect on the live website while automatically preserving the golden acronym letter highlighting.
+- **Call for Papers Announcement State**: Replaced the paper submission input form in `includes/modals/submission-modal.php` with a dedicated "To Be Announced" announcement modal. Clicking "Call for Papers" / "Submit Your Paper" now opens an announcement dialog with expected timeline dates and organizer contact details instead of opening an active submission input form.
+- **Hero Meta Grid Streamlined**: Removed the "Early Bird Deadline" glass card from the hero section meta row, centering and balancing the grid on the two core items: "Conference Dates" and "Venue".
+- **Pure Icon Globe Logo Nodes**: Removed the text label pills (`Climate & Ecology`, `Energy Systems`, etc.) from the revolving track logo orbs on the hero wireframe globe, leaving clean, minimalist floating planetary emblems.
+- **Paper Guidelines Button Retained as Dummy**: Removed the unattached PDF file download trigger from the "Paper Guidelines" button in `includes/sections/cfp-fees.php`, retaining the button styling in the UI without initiating an unattached file download.
+
 
 
 ---

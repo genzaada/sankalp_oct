@@ -5,21 +5,13 @@
 $config = $config ?? require __DIR__ . '/../config/app.php';
 $conferenceData = $conferenceData ?? require __DIR__ . '/../config/conference_data.php';
 $navLinks = $conferenceData['nav_links'];
-
-$nameParts = explode(' ', $config['app_name'], 2);
-$brandTitle = $nameParts[0] ?? 'ICAIESF';
-$brandSub = $nameParts[1] ?? '2027';
 ?>
 <nav class="site-nav">
   <div class="container nav-inner">
 
     <!-- Brand Logo -->
     <div class="nav-brand" onclick="navigateTo('home')" role="button" tabindex="0" aria-label="<?= e($config['app_name']) ?> Homepage">
-      <?= render_icon('logo') ?>
-      <div class="brand-text-block">
-        <span class="brand-title"><?= e($brandTitle) ?></span>
-        <span class="brand-subtitle"><?= e($brandSub) ?></span>
-      </div>
+      <img src="<?= asset_url('assets/images/logo%202%20.png') ?>" alt="<?= e($config['app_name']) ?>" class="brand-logo-img">
     </div>
 
     <!-- Desktop Navigation Links -->

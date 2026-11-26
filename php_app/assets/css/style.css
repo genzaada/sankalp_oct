@@ -460,6 +460,18 @@ button {
   filter: drop-shadow(0 4px 12px rgba(14, 90, 86, 0.35));
 }
 
+.brand-logo-img {
+  height: 48px;
+  width: auto;
+  display: block;
+  flex-shrink: 0;
+  object-fit: contain;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.nav-brand:hover .brand-logo-img {
+  transform: scale(1.03);
+}
+
 .brand-text-block {
   display: flex;
   flex-direction: column;
@@ -509,6 +521,9 @@ button {
 @media (max-width: 640px) {
   .brand-logo-icon {
     width: 40px;
+    height: 40px;
+  }
+  .brand-logo-img {
     height: 40px;
   }
   .brand-title {

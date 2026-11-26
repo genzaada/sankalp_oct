@@ -53,10 +53,10 @@ $objectives = $conferenceData['objectives'];
         <!-- Concluding Callout Banner -->
         <div style="padding: 1.25rem; border-radius: 0.75rem; border: 1px solid rgba(18, 124, 111, 0.18); background: rgba(18, 124, 111, 0.05); display: flex; align-items: flex-start; gap: 0.875rem;">
           <div style="width: 1.75rem; height: 1.75rem; border-radius: 0.5rem; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 0.125rem; background: rgba(18, 124, 111, 0.15); color: var(--color-primary-700);">
-            <span style="font-size: 0.875rem;">🌍</span>
+            <span style="font-size: 0.875rem;">🚗</span>
           </div>
           <p style="font-size: 0.875rem; line-height: 1.6; color: var(--color-text-body); margin: 0;">
-            The conference encourages interdisciplinary contributions that bridge engineering, technology, environmental sciences, data science, policy, and industrial practices to accelerate sustainable development worldwide.
+            <strong>Special Emphasis:</strong> The conference bridges academic research and industrial reality with special focus on <em>Sustainable Automotive Mobility, Electric Vehicles, Intelligent Transportation Systems, and Industry 5.0</em>, driving transformative engineering solutions in partnership with leading professional societies and manufacturing sectors.
           </p>
         </div>
       </div>

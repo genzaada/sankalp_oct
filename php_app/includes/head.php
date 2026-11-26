@@ -1,9 +1,15 @@
 <?php
 /**
- * Head Partial: Meta tags, stylesheets, fonts
+ * Head Partial: Meta tags, stylesheets, fonts, SEO & Social Graph
  */
 $config = $config ?? require __DIR__ . '/../config/app.php';
 $pageTitle = $pageTitle ?? ($config['app_name'] . ' — ' . $config['app_full_title']);
+$pageDescription = $config['app_name'] . ' — ' . $config['app_full_title'] . '. ' . $config['app_subtitle'] . ' (' . $config['app_dates'] . ').';
+
+// Canonical base domain
+$productionDomain = 'https://soet.sankalp.mgmu.ac.in';
+$canonicalUrl = rtrim($productionDomain, '/') . '/';
+$ogImageUrl = rtrim($productionDomain, '/') . '/assets/images/mgm_university.png';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,7 +17,27 @@ $pageTitle = $pageTitle ?? ($config['app_name'] . ' — ' . $config['app_full_ti
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><?= e($pageTitle) ?></title>
-  <meta name="description" content="<?= e($config['app_name']) ?> — <?= e($config['app_full_title']) ?>. <?= e($config['app_subtitle']) ?>.">
+  <meta name="description" content="<?= e($pageDescription) ?>">
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="<?= e($canonicalUrl) ?>">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="<?= e($canonicalUrl) ?>">
+  <meta property="og:title" content="<?= e($pageTitle) ?>">
+  <meta property="og:description" content="<?= e($pageDescription) ?>">
+  <meta property="og:image" content="<?= e($ogImageUrl) ?>">
+  <meta property="og:image:alt" content="MGM University Campus - <?= e($config['app_name']) ?>">
+  <meta property="og:site_name" content="<?= e($config['app_name']) ?>">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="<?= e($canonicalUrl) ?>">
+  <meta name="twitter:title" content="<?= e($pageTitle) ?>">
+  <meta name="twitter:description" content="<?= e($pageDescription) ?>">
+  <meta name="twitter:image" content="<?= e($ogImageUrl) ?>">
+  <meta name="twitter:image:alt" content="MGM University Campus - <?= e($config['app_name']) ?>">
   
   <!-- Preconnect for Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">

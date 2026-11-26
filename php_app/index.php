@@ -1,6 +1,6 @@
 <?php
 /**
- * SANKALP 2027 — International Conference Website
+ * ICAIESF 2027 — International Conference Website
  * School of Engineering & Technology, MGM University
  * 
  * Technology: PHP 8.x, Semantic HTML5, CSS3, Vanilla JavaScript (ES6+), MySQL PDO

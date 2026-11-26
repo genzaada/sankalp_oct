@@ -34,5 +34,5 @@ if ($pdo !== null) {
 
 json_response([
     'success' => true,
-    'message' => 'Thank you! You have subscribed to SANKALP 2027 conference updates.'
+    'message' => 'Thank you! You have subscribed to conference updates.'
 ], 200);

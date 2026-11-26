@@ -119,32 +119,68 @@ function closeMobileMenu() {
 }
 
 function initScrollSpy() {
-  const sections = ['tracks', 'dates', 'speakers', 'cfp', 'fees', 'contact-section', 'venue', 'committee', 'about'];
-  window.addEventListener('scroll', () => {
-    const scrollPos = window.scrollY + NAVBAR_HEIGHT + 100;
-    for (const id of sections) {
-      const el = document.getElementById(id);
-      if (el) {
-        const top = el.offsetTop;
-        const height = el.offsetHeight;
-        if (scrollPos >= top && scrollPos < top + height) {
-          const map = {
-            'about': 'About',
-            'tracks': 'Tracks',
-            'dates': 'Schedule',
-            'speakers': 'Speakers',
-            'cfp': 'Call for Papers',
-            'fees': 'Registration',
-            'contact-section': 'Contact',
-            'venue': 'Venue',
-            'committee': 'Committee'
-          };
-          if (map[id]) setActiveNav(map[id]);
-          break;
-        }
+  const sections = [
+    { id: 'about', label: 'About' },
+    { id: 'overview', label: 'About' },
+    { id: 'committee', label: 'Committee' },
+    { id: 'tracks', label: 'Tracks' },
+    { id: 'dates', label: 'Schedule' },
+    { id: 'speakers', label: 'Speakers' },
+    { id: 'cfp', label: 'Call for Papers' },
+    { id: 'fees', label: 'Registration' },
+    { id: 'venue', label: 'Venue' },
+    { id: 'contact-section', label: 'Contact' }
+  ];
+
+  let ticking = false;
+
+  function updateActiveNav() {
+    // 1. If at or near top of page, highlight Home
+    if (window.scrollY < 200) {
+      setActiveNav('Home');
+      return;
+    }
+
+    // 2. If near bottom of document, highlight Contact
+    if ((window.innerHeight + window.scrollY) >= (document.documentElement.scrollHeight - 80)) {
+      setActiveNav('Contact');
+      return;
+    }
+
+    // 3. Inspect sections in reading line zone (85px navbar + 35px threshold)
+    const readLine = NAVBAR_HEIGHT + 35;
+    const intersecting = [];
+
+    for (const s of sections) {
+      const el = document.getElementById(s.id);
+      if (!el) continue;
+      const r = el.getBoundingClientRect();
+      if (r.top <= readLine && r.bottom >= readLine) {
+        intersecting.push({ s, r });
       }
     }
+
+    if (!intersecting.length) return;
+
+    // Disambiguate nested/sibling elements (e.g. child #cfp inside parent #fees):
+    // Prioritize the more specific child container (smaller height)
+    intersecting.sort((a, b) => a.r.height - b.r.height);
+    setActiveNav(intersecting[0].s.label);
+  }
+
+  // Throttle scroll events via requestAnimationFrame for smooth 60fps tracking
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        updateActiveNav();
+        ticking = false;
+      });
+      ticking = true;
+    }
   }, { passive: true });
+
+  // Initial synchronization
+  updateActiveNav();
 }
 
 window.initNavigation = initNavigation;

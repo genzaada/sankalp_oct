@@ -1,6 +1,6 @@
 <?php $config = $config ?? require __DIR__ . '/../../config/app.php'; ?>
 <!-- Registration Modal Component -->
-<div id="modal-registration" class="modal-overlay">
+<div id="modal-registration" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-registration-title">
   <div class="modal-window">
     <button type="button" class="modal-close-btn" onclick="closeModal('modal-registration')" aria-label="Close Registration Dialog">
       <?= render_icon('x') ?>
@@ -12,7 +12,7 @@
       </div>
 
       <span class="eyebrow" style="margin-bottom: 0.5rem;"><?= e($config['app_name']) ?></span>
-      <h3 class="font-display font-bold text-2xl" style="color: var(--color-primary-700); font-size: 1.75rem; margin-bottom: 0.75rem;">
+      <h3 id="modal-registration-title" class="font-display font-bold text-2xl" style="color: var(--color-primary-700); font-size: 1.75rem; margin-bottom: 0.75rem;">
         Registration Coming Soon!
       </h3>
       <p style="font-size: 0.9375rem; color: var(--color-text-body); max-width: 26rem; margin: 0 auto 1.75rem auto; line-height: 1.6;">

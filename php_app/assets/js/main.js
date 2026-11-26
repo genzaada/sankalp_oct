@@ -1,5 +1,5 @@
 /**
- * SANKALP 2027 Main Orchestration Script
+ * ICAIESF 2027 Main Orchestration Script
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -82,7 +82,8 @@ function initSpeakerCarousel() {
   if (slider && dots.length) {
     slider.addEventListener('scroll', () => {
       const scrollPos = slider.scrollLeft;
-      const cardWidth = slider.querySelector('.speaker-mobile-card')?.offsetWidth || 220;
+      const firstCard = slider.querySelector('.speaker-mobile-card');
+      const cardWidth = firstCard ? (firstCard.offsetWidth + 16) : 224;
       const activeIndex = Math.min(Math.round(scrollPos / cardWidth), dots.length - 1);
       
       dots.forEach((dot, idx) => {
@@ -100,7 +101,7 @@ function initSpeakerCarousel() {
       dot.addEventListener('click', () => {
         const cards = slider.querySelectorAll('.speaker-mobile-card');
         if (cards[idx]) {
-          cards[idx].scrollIntoView({ behavior: 'smooth', inline: 'center' });
+          cards[idx].scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
         }
       });
     });
@@ -108,14 +109,30 @@ function initSpeakerCarousel() {
 }
 
 /**
- * Simulated PDF download helper
+ * Authoritative document download & notice helper
  */
 function downloadFile(filename) {
-  const link = document.createElement('a');
-  link.href = '#';
-  link.setAttribute('download', filename);
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
+  if (filename === 'Paper_Guidelines.pdf') {
+    const link = document.createElement('a');
+    link.href = 'assets/docs/Paper_Guidelines.pdf';
+    link.setAttribute('download', 'ICAIESF_2027_Paper_Guidelines.pdf');
+    link.setAttribute('target', '_blank');
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    return;
+  }
+
+  if (filename === 'SANKALP_Brochure.pdf') {
+    if (typeof showBrochureNotice === 'function') {
+      showBrochureNotice();
+    }
+    return;
+  }
+
+  // Fallback for valid resource paths
+  if (filename && filename !== '#') {
+    window.open(filename, '_blank');
+  }
 }
 window.downloadFile = downloadFile;

@@ -7,7 +7,7 @@ $conferenceData = $conferenceData ?? require __DIR__ . '/../config/conference_da
 $navLinks = $conferenceData['nav_links'];
 
 $nameParts = explode(' ', $config['app_name'], 2);
-$brandTitle = $nameParts[0] ?? 'SANKALP';
+$brandTitle = $nameParts[0] ?? 'ICAIESF';
 $brandSub = $nameParts[1] ?? '2027';
 ?>
 <footer id="contact-section" class="site-footer">
@@ -30,17 +30,24 @@ $brandSub = $nameParts[1] ?? '2027';
           <?= e($config['app_full_title']) ?>. Uniting researchers, academicians, and industry experts globally.
         </p>
 
-        <!-- Social Icons -->
-        <div style="display: flex; gap: 0.625rem; padding-top: 0.25rem;">
-          <?php foreach (['facebook', 'twitter', 'linkedin', 'instagram', 'youtube'] as $soc): ?>
-            <a href="#" aria-label="<?= ucfirst($soc) ?>"
-              style="width: 2rem; height: 2rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.05); color: rgba(255,255,255,0.6); transition: all 0.15s;"
-              onmouseover="this.style.color='#fff'; this.style.borderColor='#fff';"
-              onmouseout="this.style.color='rgba(255,255,255,0.6)'; this.style.borderColor='rgba(255,255,255,0.2)';">
-              <?= render_icon($soc) ?>
-            </a>
-          <?php endforeach; ?>
-        </div>
+        <!-- Social Icons (Rendered only when valid URLs are configured) -->
+        <?php
+        $socialLinks = array_filter($config['social_links'] ?? [], function($url) {
+            return !empty($url) && $url !== '#';
+        });
+        ?>
+        <?php if (!empty($socialLinks)): ?>
+          <div style="display: flex; gap: 0.625rem; padding-top: 0.25rem;">
+            <?php foreach ($socialLinks as $soc => $socUrl): ?>
+              <a href="<?= e($socUrl) ?>" target="_blank" rel="noopener noreferrer" aria-label="<?= ucfirst($soc) ?>"
+                style="width: 2rem; height: 2rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.05); color: rgba(255,255,255,0.6); transition: all 0.15s;"
+                onmouseover="this.style.color='#fff'; this.style.borderColor='#fff';"
+                onmouseout="this.style.color='rgba(255,255,255,0.6)'; this.style.borderColor='rgba(255,255,255,0.2)';">
+                <?= render_icon($soc) ?>
+              </a>
+            <?php endforeach; ?>
+          </div>
+        <?php endif; ?>
       </div>
 
       <!-- Col 2: Quick Links (2 sub-columns) -->
@@ -63,9 +70,15 @@ $brandSub = $nameParts[1] ?? '2027';
       <!-- Col 3: Contact Info -->
       <div>
         <h4 class="font-mono uppercase tracking-widest font-bold text-white/50" style="font-size: 10px; margin-bottom: 1rem; color: rgba(255,255,255,0.5);">
-          Contact Us
+          Conference Secretariat
         </h4>
         <div style="display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.75rem;">
+          <div style="display: flex; gap: 0.625rem; color: rgba(255,255,255,0.85); font-weight: 600;">
+            <span><?= e($config['conference_chair'] ?? 'Conference Chair') ?></span>
+          </div>
+          <div style="font-size: 11px; color: rgba(255,255,255,0.6); line-height: 1.4;">
+            Director, School of Engineering &amp; Technology, MGM University
+          </div>
           <div style="display: flex; gap: 0.625rem; color: rgba(255,255,255,0.6);">
             <span style="flex-shrink: 0; margin-top: 0.125rem;"><?= render_icon('map-pin') ?></span>
             <span><?= e($config['app_venue']) ?></span>
@@ -77,6 +90,8 @@ $brandSub = $nameParts[1] ?? '2027';
           <div style="display: flex; align-items: center; gap: 0.625rem; color: rgba(255,255,255,0.6);">
             <?= render_icon('phone') ?>
             <a href="tel:<?= e(preg_replace('/[^0-9+]/', '', $config['contact_phone'])) ?>" style="color: inherit; transition: color 0.15s;" onmouseover="this.style.color='#fff';" onmouseout="this.style.color='rgba(255,255,255,0.6)';"><?= e($config['contact_phone']) ?></a>
+            <span style="color: rgba(255,255,255,0.4);">|</span>
+            <span style="color: rgba(255,255,255,0.6);"><?= e($config['contact_office']) ?></span>
           </div>
         </div>
       </div>
@@ -120,6 +135,7 @@ $brandSub = $nameParts[1] ?? '2027';
 <!-- Modals Inclusion -->
 <?php require __DIR__ . '/modals/registration-modal.php'; ?>
 <?php require __DIR__ . '/modals/submission-modal.php'; ?>
+<?php require __DIR__ . '/modals/brochure-modal.php'; ?>
 
 <!-- Client Scripts -->
 <script src="<?= asset_url('assets/js/countdown.js') ?>"></script>

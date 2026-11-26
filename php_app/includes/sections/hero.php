@@ -1,15 +1,26 @@
 <?php
 /**
  * Hero Section Component
+ * ICAIESF 2027 Conference
  */
 $config = $config ?? require __DIR__ . '/../../config/app.php';
 $conferenceData = $conferenceData ?? require __DIR__ . '/../../config/conference_data.php';
 $countdownTarget = $config['countdown_target'];
 
 $nameParts = explode(' ', $config['app_name'], 2);
-$brandTitle = $nameParts[0] ?? 'SANKALP';
+$brandTitle = $nameParts[0] ?? 'ICAIESF';
 $brandSub = $nameParts[1] ?? '2027';
 
+// Resolve registration deadline from conference data
+$regDeadline = 'February 20, 2027';
+if (!empty($conferenceData['dates'])) {
+    foreach ($conferenceData['dates'] as $d) {
+        if (stripos($d['label'], 'registration') !== false) {
+            $regDeadline = $d['date'];
+            break;
+        }
+    }
+}
 ?>
 <header class="hero-section sankalp-hero">
   <!-- Subtle ambient glow background -->
@@ -20,21 +31,28 @@ $brandSub = $nameParts[1] ?? '2027';
     <!-- Left Column (7 cols) -->
     <div class="reveal-up" style="display: flex; flex-direction: column; align-items: flex-start; text-align: left;">
 
+      <!-- Status Pill Badge -->
+      <div class="pill-badge" style="margin-bottom: 1.25rem;">
+        <span class="pulse-dot" style="width: 8px; height: 8px; border-radius: 50%; background: var(--color-accent-amber); display: inline-block;"></span>
+        International Academic &amp; Industry Conference
+      </div>
 
-      <!-- Main Conference Brand Title: SANKALP 2027 -->
+      <!-- Main Conference Brand Title: ICAIESF 2027 -->
       <h1 class="hero-brand-heading font-display font-black">
         <span class="hero-brand-name"><?= e($brandTitle) ?></span>
         <span class="hero-brand-year"><?= e($brandSub) ?></span>
       </h1>
 
-      <!-- Full Conference Academic Sub-title & Acronym (Dynamically bound to config/app.php) -->
+      <!-- Full Conference Academic Sub-title & Acronym -->
       <h2 class="hero-theme-title font-display font-bold">
-        <?= render_conference_theme_title($config['app_full_title'] ?? '') ?>
+        International Conference on<br>
+        <span class="acronym-highlight">A</span>dvancing <span class="acronym-highlight">I</span>ntelligent <span class="acronym-highlight">E</span>ngineering for a <span class="acronym-highlight">S</span>ustainable <span class="acronym-highlight">F</span>uture
       </h2>
 
-      <!-- Subtitle -->
-      <p style="font-size: clamp(0.875rem, 1.5vw, 1rem); line-height: 1.6; max-width: 32rem; margin-bottom: 2rem; color: rgba(255, 255, 255, 0.75);">
-        <?= e($config['app_subtitle']) ?>
+      <!-- Subtitle & Special Emphasis -->
+      <p style="font-size: clamp(0.875rem, 1.5vw, 1rem); line-height: 1.6; max-width: 34rem; margin-bottom: 2rem; color: rgba(255, 255, 255, 0.8);">
+        <?= e($config['app_subtitle']) ?>.<br>
+        <span style="color: var(--color-accent-amber); font-weight: 600;">Special Emphasis:</span> Sustainable Automotive Mobility, Electric Vehicles &amp; Industry 5.0.
       </p>
 
       <!-- Meta Row (Dates, Venue, Deadline) -->
@@ -55,6 +73,13 @@ $brandSub = $nameParts[1] ?? '2027';
           </div>
         </div>
 
+        <div class="hero-meta-item">
+          <?= render_icon('clock') ?>
+          <div>
+            <p class="font-mono text-[10px] uppercase tracking-wider" style="color: rgba(255, 255, 255, 0.6); font-size: 10px;">Registration Deadline</p>
+            <p class="font-semibold text-white" style="font-size: 12px; margin: 0;"><?= e($regDeadline) ?></p>
+          </div>
+        </div>
       </div>
 
       <!-- Action Buttons -->
@@ -62,6 +87,12 @@ $brandSub = $nameParts[1] ?? '2027';
         <button type="button" onclick="openRegistrationModal()"
           style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.875rem 1.75rem; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; border-radius: 9999px; background: #ffffff; color: var(--color-primary-900); box-shadow: 0 10px 25px rgba(0,0,0,0.15); transition: transform 0.15s;">
           Register Now <?= render_icon('arrow-right') ?>
+        </button>
+
+        <button type="button" onclick="showBrochureNotice()"
+          class="btn-outline-white"
+          style="padding: 0.875rem 1.75rem; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;">
+          Brochure Coming Soon <?= render_icon('clock') ?>
         </button>
       </div>
 
@@ -118,7 +149,7 @@ $brandSub = $nameParts[1] ?? '2027';
           <div class="globe-orbit-ring">
             <?php foreach ($globeTracks as $idx => $orb): ?>
               <div class="orbit-slot orbit-slot-<?= $idx + 1 ?>">
-                <button type="button" class="globe-track-orb" onclick="goToSection('tracks', 'home', 'Tracks')" title="<?= e($orb['title']) ?>" aria-label="<?= e($orb['title']) ?>">
+                <button type="button" class="globe-track-orb" onclick="goToSection('tracks', 'home', 'Tracks')" title="<?= e($orb['title']) ?>" aria-label="<?= e($orb['title']) ?>" data-label="<?= e($orb['label']) ?>">
                   <span class="orbit-symbol"><?= $orb['icon'] ?></span>
                 </button>
               </div>

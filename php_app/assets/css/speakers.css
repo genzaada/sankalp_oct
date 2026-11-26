@@ -56,6 +56,24 @@
   object-fit: cover;
 }
 
+/* Speaker academic monogram placeholder */
+.sankalp-speakers .speaker-monogram {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(145deg, var(--color-primary-700), var(--color-primary-900));
+  color: #ffffff;
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  border: 2px solid var(--color-accent-amber);
+  border-radius: 50%;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
 .sankalp-speakers .speaker-name {
   font-family: var(--font-display);
   font-weight: 700;

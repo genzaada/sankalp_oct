@@ -1,6 +1,6 @@
 /**
  * Live Countdown Timer Module
- * Calculates time remaining until SANKALP 2027 conference opening
+ * Calculates time remaining until ICAIESF 2027 conference opening
  */
 
 function initCountdown(targetDateString) {

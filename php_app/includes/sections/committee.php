@@ -37,6 +37,12 @@ $committee = $conferenceData['committee'];
                     <div class="member-photo-frame">
                       <img src="<?= e($photoSrc) ?>" alt="<?= e($m['name']) ?>" class="member-photo" loading="lazy">
                     </div>
+                  <?php elseif ($categoryName === 'Patrons'): ?>
+                    <div class="member-photo-frame member-placeholder-frame" aria-hidden="true">
+                      <div class="academic-monogram-circle">
+                        <span><?= e(get_member_initials($m['name'])) ?></span>
+                      </div>
+                    </div>
                   <?php endif; ?>
                   <div class="member-info">
                     <p class="member-role"><?= e($m['role']) ?></p>

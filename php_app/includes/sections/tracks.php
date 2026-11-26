@@ -50,7 +50,7 @@ $tracks = $conferenceData['tracks'];
           <!-- Card Footer -->
           <div class="track-card-footer">
             <span class="font-mono" style="font-size: 11px; color: #9ca3af;">6 Sub-themes</span>
-            <button type="button" onclick="openSubmissionModal(<?= $i + 1 ?>)" class="track-cta-btn">
+            <button type="button" onclick="openSubmissionModal(<?= $i + 1 ?>, '<?= e(addslashes($track['trackNum'] . ': ' . $track['title'])) ?>')" class="track-cta-btn">
               Submit to Track <?= render_icon('arrow-right') ?>
             </button>
           </div>

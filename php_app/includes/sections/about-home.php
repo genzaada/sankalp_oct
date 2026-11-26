@@ -23,7 +23,7 @@ $highlights = $conferenceData['highlights'] ?? [
         <span class="heading-underline" style="margin-bottom: 1.5rem;"></span>
 
         <p style="font-size: 0.9375rem; line-height: 1.6; color: var(--color-text-body); margin-bottom: 2rem;">
-          An International Conference that will provide a global platform for knowledge exchange, research dissemination, industry interaction, and collaborative innovation in sustainability-focused engineering and technology domains.
+          An International Conference organized by the School of Engineering and Technology, MGM University, providing a collaborative global platform for knowledge exchange, research dissemination, and industry-academia synergy in <strong>Intelligent Engineering, Sustainable Automotive Mobility, Industry 5.0, and Clean Energy</strong>.
         </p>
 
         <p class="font-mono text-[11px] uppercase tracking-widest font-semibold" style="font-size: 11px; color: var(--color-primary-500); margin-bottom: 1rem;">

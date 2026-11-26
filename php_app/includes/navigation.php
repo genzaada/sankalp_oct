@@ -7,7 +7,7 @@ $conferenceData = $conferenceData ?? require __DIR__ . '/../config/conference_da
 $navLinks = $conferenceData['nav_links'];
 
 $nameParts = explode(' ', $config['app_name'], 2);
-$brandTitle = $nameParts[0] ?? 'SANKALP';
+$brandTitle = $nameParts[0] ?? 'ICAIESF';
 $brandSub = $nameParts[1] ?? '2027';
 ?>
 <nav class="site-nav">

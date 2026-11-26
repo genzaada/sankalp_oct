@@ -1,22 +1,47 @@
 <?php
 /**
  * Application Configuration
- * SANKALP 2027 / ICAEITSF Conference
+ * ICAIESF 2027 Conference
+ * International Conference on Advancing Intelligent Engineering for a Sustainable Future
  */
 
 return [
-    'app_name' => 'SANKALP 2027',
-    'app_full_title' => 'International Conference on Sustainable Advances in ENgineering, Knowledge Systems, AI and InteLligent Technologies for Progress',
-    'app_subtitle' => 'Organized by MGM University, Chhatrapati Sambhajinagar',
-    'app_dates' => '15–16 February 2027',
+    'app_name' => 'ICAIESF 2027',
+    'app_full_title' => 'International Conference on Advancing Intelligent Engineering for a Sustainable Future',
+    'app_subtitle' => 'Organized by School of Engineering and Technology, MGM University, Chhatrapati Sambhajinagar',
+    'app_emphasis' => 'Sustainable Automotive Mobility, Intelligent Engineering and Industry 5.0',
+    
+    // Conference Dates (Controlled State: Conditional / Dates Under Confirmation)
+    'dates_confirmed' => false,
+    'app_dates' => 'April 9–10, 2027 (Proposed)',
+    'app_dates_label' => 'April 9–10, 2027 (Proposed / Confirmation in Progress)',
+    
     'app_venue' => 'MGM University, Chhatrapati Sambhajinagar, Maharashtra 431003',
     'app_venue_label' => 'MGM University Campus',
     'app_base_url' => '', // Leave empty for automatic relative path detection
-    'contact_email' => 'sankalp@mgmu.ac.in',
-    'contact_phone' => '+91 1234 567890',
     
-    // Target countdown date (ISO 8601)
-    'countdown_target' => '2027-02-15T00:00:00Z',
+    // Official Conference Leadership & Contact
+    'conference_chair' => 'Dr. Parminder Kaur Dhingra',
+    'conference_chair_title' => 'Conference Chair, Professor & Director, School of Engineering and Technology, MGM University',
+    'contact_email' => 'directorsoet@mgmu.ac.in',
+    'contact_phone' => '9960137111',
+    'contact_office' => '0240-6481000, Ext. 2811',
+
+    // Official Social Media Profiles (Empty strings keep profile icons gracefully hidden)
+    'social_links' => [
+        'facebook'  => '',
+        'twitter'   => '',
+        'linkedin'  => '',
+        'instagram' => '',
+        'youtube'   => ''
+    ],
+
+    // Official Microsoft CMT Paper Submission & Peer Review Portal URL
+    // Configurable: Set to official Microsoft CMT URL when activated
+    'cmt_submission_url' => getenv('CMT_SUBMISSION_URL') ?: '',
+    
+    // Target countdown date (ISO 8601) - Inactive / pending date confirmation
+    'countdown_target' => '2027-04-09T00:00:00Z',
 
     // Travel & Venue details
     'location_how_to_reach' => 'Connected by air via Chhatrapati Sambhajinagar Airport (IXU), central railway junction, and national expressways with direct connections from Mumbai, Pune, Hyderabad, and Delhi.',

@@ -763,6 +763,19 @@ button {
   object-fit: contain;
 }
 
+.nav-mgm-logo-link {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.nav-mgm-logo {
+  height: 48px;
+  width: auto;
+  display: block;
+  object-fit: contain;
+}
+
 .brand-text-block {
   display: flex;
   flex-direction: column;
@@ -1276,4 +1289,38 @@ button {
   color: #991b1b;
   border: 1px solid #fecaca;
   display: block;
+}
+
+/* ── Scroll to Top Button ─────────────────────────────────── */
+.scroll-top-btn {
+  position: fixed;
+  right: 1.5rem;
+  bottom: 1.5rem;
+  z-index: 45;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  background: var(--color-primary-700);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 6px 20px rgba(10, 74, 71, 0.28);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease, background 0.2s ease, color 0.2s ease;
+}
+
+.scroll-top-btn.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.scroll-top-btn:hover {
+  background: var(--color-accent-amber);
+  color: #111827;
+  transform: translateY(-2px);
 }

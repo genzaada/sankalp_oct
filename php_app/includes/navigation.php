@@ -17,7 +17,7 @@ $navLinks = $conferenceData['nav_links'];
     <!-- Desktop Navigation Links -->
     <div class="nav-desktop-links">
       <?php foreach ($navLinks as $link): ?>
-        <?php $isActive = (($currentPage ?? 'home') === 'sponsorship' && $link['label'] === 'Sponsorship') || (($currentPage ?? 'home') === 'abstract-submission' && $link['label'] === 'Abstract Submission') || (($currentPage ?? 'home') === 'home' && $link['label'] === 'Home'); ?>
+        <?php $isActive = (($currentPage ?? 'home') === 'sponsor' && $link['label'] === 'Sponsor') || (($currentPage ?? 'home') === 'abstract-submission' && $link['label'] === 'Abstract Submission') || (($currentPage ?? 'home') === 'about' && $link['label'] === 'About') || (($currentPage ?? 'home') === 'home' && $link['label'] === 'Home'); ?>
         <button type="button" class="nav-link <?= $isActive ? 'active' : '' ?>"
           data-nav="<?= e($link['label']) ?>"
           onclick="goToSection('<?= e($link['target']) ?>', '<?= e($link['page']) ?>', '<?= e($link['label']) ?>')">
@@ -28,6 +28,11 @@ $navLinks = $conferenceData['nav_links'];
 
     <!-- Right Header CTAs -->
     <div style="display: flex; align-items: center; gap: 0.75rem;">
+      <!-- MGM University Logo -->
+      <a href="https://mgmu.ac.in" target="_blank" rel="noopener noreferrer" aria-label="MGM University" class="nav-mgm-logo-link">
+        <img src="<?= asset_url('assets/images/mgm_logo_navbar.png') ?>" alt="MGM University" class="nav-mgm-logo">
+      </a>
+
       <!-- Mobile Hamburger Toggle -->
       <button type="button" id="mobile-menu-btn"
         aria-label="Toggle Navigation Menu"
@@ -46,7 +51,7 @@ $navLinks = $conferenceData['nav_links'];
   <div id="mobile-drawer" class="mobile-drawer" aria-hidden="true" aria-label="Mobile Navigation">
     <div class="mobile-nav-grid">
       <?php foreach ($navLinks as $link): ?>
-        <?php $isActive = (($currentPage ?? 'home') === 'sponsorship' && $link['label'] === 'Sponsorship') || (($currentPage ?? 'home') === 'abstract-submission' && $link['label'] === 'Abstract Submission') || (($currentPage ?? 'home') === 'home' && $link['label'] === 'Home'); ?>
+        <?php $isActive = (($currentPage ?? 'home') === 'sponsor' && $link['label'] === 'Sponsor') || (($currentPage ?? 'home') === 'abstract-submission' && $link['label'] === 'Abstract Submission') || (($currentPage ?? 'home') === 'about' && $link['label'] === 'About') || (($currentPage ?? 'home') === 'home' && $link['label'] === 'Home'); ?>
         <button type="button" class="mobile-nav-link <?= $isActive ? 'active' : '' ?>"
           data-nav="<?= e($link['label']) ?>"
           onclick="goToSection('<?= e($link['target']) ?>', '<?= e($link['page']) ?>', '<?= e($link['label']) ?>')">

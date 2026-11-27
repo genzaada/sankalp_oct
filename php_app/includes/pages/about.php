@@ -84,7 +84,7 @@ $config = $config ?? require __DIR__ . '/../../config/app.php';
           </div>
 
           <div class="inst-actions-row">
-            <a href="index.php" class="btn-primary" style="padding: 0.75rem 1.5rem; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; text-decoration: none;">
+            <a href="index.php?page=home" class="btn-primary" style="padding: 0.75rem 1.5rem; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; text-decoration: none;">
               Back to Conference Home <?= render_icon('arrow-right') ?>
             </a>
             <a href="mailto:<?= e($config['contact_email']) ?>" class="btn-outline-primary" style="padding: 0.75rem 1.25rem; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; text-decoration: none; border-radius: 9999px; display: inline-flex; align-items: center; gap: 0.4rem; border: 1px solid var(--color-primary-700); color: var(--color-primary-700);">

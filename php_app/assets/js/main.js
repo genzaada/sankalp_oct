@@ -131,3 +131,24 @@ function downloadFile(filename) {
   }
 }
 window.downloadFile = downloadFile;
+
+// Floating Scroll-to-Top Button
+document.addEventListener('DOMContentLoaded', () => {
+  const scrollBtn = document.getElementById('scroll-to-top-btn');
+  if (!scrollBtn) return;
+
+  const toggleScrollBtn = () => {
+    if (window.scrollY > 300) {
+      scrollBtn.classList.add('visible');
+    } else {
+      scrollBtn.classList.remove('visible');
+    }
+  };
+
+  window.addEventListener('scroll', toggleScrollBtn, { passive: true });
+  toggleScrollBtn();
+
+  scrollBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+});

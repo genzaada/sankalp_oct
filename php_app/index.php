@@ -13,15 +13,17 @@ require_once __DIR__ . '/includes/icons.php';
 $config = require __DIR__ . '/config/app.php';
 $conferenceData = require __DIR__ . '/config/conference_data.php';
 
-// Route detection: support query param (?page=about | ?page=sponsorship | ?page=abstract-submission)
-$pageParam = isset($_GET['page']) ? strtolower($_GET['page']) : 'home';
-$currentPage = in_array($pageParam, ['about', 'sponsorship', 'abstract-submission'], true) ? $pageParam : 'home';
+// Route detection: default to abstract-submission; support ?page=home | about | sponsor | abstract-submission | conference-acknowledgement
+$pageParam = isset($_GET['page']) ? strtolower($_GET['page']) : 'abstract-submission';
+$currentPage = in_array($pageParam, ['home', 'about', 'sponsor', 'abstract-submission', 'conference-acknowledgement'], true) ? $pageParam : 'abstract-submission';
 if ($currentPage === 'about') {
     $pageTitle = 'About the Host Institution — ' . $config['app_name'];
-} elseif ($currentPage === 'sponsorship') {
-    $pageTitle = 'Sponsorship Opportunities — ' . $config['app_name'];
+} elseif ($currentPage === 'sponsor') {
+    $pageTitle = 'Sponsor — ' . $config['app_name'];
 } elseif ($currentPage === 'abstract-submission') {
     $pageTitle = 'Abstract Submission — ' . $config['app_name'];
+} elseif ($currentPage === 'conference-acknowledgement') {
+    $pageTitle = 'Conference Acknowledgement — ' . $config['app_name'];
 } else {
     $pageTitle = $config['app_name'] . ' — ' . $config['app_full_title'];
 }
@@ -35,10 +37,12 @@ require __DIR__ . '/includes/navigation.php';
 // 3. Page View
 if ($currentPage === 'about') {
     require __DIR__ . '/includes/pages/about.php';
-} elseif ($currentPage === 'sponsorship') {
-    require __DIR__ . '/includes/pages/sponsorship.php';
+} elseif ($currentPage === 'sponsor') {
+    require __DIR__ . '/includes/pages/sponsor.php';
 } elseif ($currentPage === 'abstract-submission') {
     require __DIR__ . '/includes/pages/abstract-submission.php';
+} elseif ($currentPage === 'conference-acknowledgement') {
+    require __DIR__ . '/includes/pages/conference-acknowledgement.php';
 } else {
     require __DIR__ . '/includes/pages/home.php';
 }

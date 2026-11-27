@@ -24,7 +24,7 @@ return [
     'conference_chair' => 'Dr. Parminder Kaur Dhingra',
     'conference_chair_title' => 'Conference Chair, Professor & Director, School of Engineering and Technology, MGM University',
     'contact_email' => 'directorsoet@mgmu.ac.in',
-    'contact_phone' => '9960137111',
+    'contact_phone' => '+91 99601 37111',
     'contact_office' => '0240-6481000, Ext. 2811',
 
     // Official Social Media Profiles (Empty strings keep profile icons gracefully hidden)

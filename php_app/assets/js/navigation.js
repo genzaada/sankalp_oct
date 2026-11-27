@@ -14,7 +14,7 @@ const TARGET_LABEL_MAP = {
   'dates': 'Schedule',
   'speakers': 'Speakers',
   'fees': 'Registration',
-  'sponsorship': 'Sponsorship',
+  'sponsor': 'Sponsor',
   'venue': 'Venue',
   'contact-section': 'Contact'
 };
@@ -339,10 +339,10 @@ function scrollToTarget(targetId) {
 function navigateTo(page) {
   closeMobileMenu();
   const isAboutPage = window.location.search.includes('page=about');
-  const isSubPage = isAboutPage || window.location.search.includes('page=sponsorship') || window.location.search.includes('page=abstract-submission');
+  const isHomePage = window.location.search.includes('page=home');
   if (page === 'home' || page === 'top') {
-    if (isSubPage) {
-      window.location.href = 'index.php';
+    if (!isHomePage) {
+      window.location.href = 'index.php?page=home';
     } else {
       lockNavScroll('Home');
       window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -355,8 +355,8 @@ function navigateTo(page) {
       goToSection('about', 'home', 'About');
     }
   } else {
-    if (isSubPage) {
-      window.location.href = 'index.php#' + page;
+    if (!isHomePage) {
+      window.location.href = 'index.php?page=home#' + page;
     } else {
       goToSection(page, 'home');
     }
@@ -371,7 +371,8 @@ function goToSection(targetId, targetPage, navLabel) {
   const label = navLabel || TARGET_LABEL_MAP[targetId];
 
   if (targetPage && targetPage !== 'home') {
-    if (window.location.search.includes('page=' + targetPage) && targetId && document.getElementById(targetId)) {
+    const isDefaultAbstract = targetPage === 'abstract-submission' && !window.location.search.includes('page=');
+    if ((window.location.search.includes('page=' + targetPage) || isDefaultAbstract) && targetId && document.getElementById(targetId)) {
       if (label) lockNavScroll(label);
       scrollToTarget(targetId);
       return;
@@ -381,12 +382,12 @@ function goToSection(targetId, targetPage, navLabel) {
     return;
   }
 
-  const isSubPage = window.location.search.includes('page=about') || window.location.search.includes('page=sponsorship') || window.location.search.includes('page=abstract-submission');
-  if (isSubPage) {
+  const isHomePage = window.location.search.includes('page=home');
+  if (!isHomePage) {
     if (targetId === 'top') {
-      window.location.href = 'index.php';
+      window.location.href = 'index.php?page=home';
     } else {
-      window.location.href = 'index.php#' + targetId;
+      window.location.href = 'index.php?page=home#' + targetId;
     }
     return;
   }
@@ -414,14 +415,16 @@ function setActiveNav(label) {
 }
 
 function initScrollSpy() {
-  const sections = [
+  const params = new URLSearchParams(window.location.search);
+  const currentPageParam = (params.get('page') || 'abstract-submission').toLowerCase();
+
+  const homeSections = [
     { id: 'about', label: 'About' },
     { id: 'committee', label: 'Committee' },
     { id: 'tracks', label: 'Tracks' },
     { id: 'dates', label: 'Schedule' },
     { id: 'speakers', label: 'Speakers' },
-    { id: 'venue', label: 'Venue' },
-    { id: 'contact-section', label: 'Contact' }
+    { id: 'venue', label: 'Venue' }
   ];
 
   let ticking = false;
@@ -432,24 +435,52 @@ function initScrollSpy() {
       return;
     }
 
+    if (currentPageParam === 'sponsor') {
+      setActiveNav('Sponsor');
+      return;
+    }
+
+    if (currentPageParam === 'about') {
+      setActiveNav('About');
+      return;
+    }
+
+    if (currentPageParam === 'conference-acknowledgement') {
+      setActiveNav('');
+      return;
+    }
+
+    const navHeight = getNavbarHeight();
+    const readLine = Math.max(navHeight + 45, Math.min(window.innerHeight * 0.35, navHeight + 160));
+
+    if (currentPageParam === 'abstract-submission') {
+      if (window.scrollY < 200) {
+        setActiveNav('Abstract Submission');
+        return;
+      }
+      const feesEl = document.getElementById('fees');
+      if (feesEl) {
+        const r = feesEl.getBoundingClientRect();
+        if (r.top <= readLine && r.bottom > readLine) {
+          setActiveNav('Registration');
+          return;
+        }
+      }
+      setActiveNav('Abstract Submission');
+      return;
+    }
+
+    // Home page scroll spy
     // 1. If at or near top of page, highlight Home
     if (window.scrollY < 200) {
       setActiveNav('Home');
       return;
     }
 
-    // 2. If near bottom of document, highlight Contact
-    if ((window.innerHeight + window.scrollY) >= (document.documentElement.scrollHeight - 60)) {
-      setActiveNav('Contact');
-      return;
-    }
-
-    // 3. Inspect sections in reading line zone (navbar height + reading offset)
-    const navHeight = getNavbarHeight();
-    const readLine = Math.max(navHeight + 45, Math.min(window.innerHeight * 0.35, navHeight + 160));
+    // 2. Inspect sections in reading line zone (navbar height + reading offset)
     const intersecting = [];
 
-    for (const s of sections) {
+    for (const s of homeSections) {
       const el = document.getElementById(s.id);
       if (!el) continue;
       const r = el.getBoundingClientRect();
@@ -458,12 +489,16 @@ function initScrollSpy() {
       }
     }
 
-    if (!intersecting.length) return;
+    if (intersecting.length) {
+      intersecting.sort((a, b) => a.r.height - b.r.height);
+      setActiveNav(intersecting[0].s.label);
+      return;
+    }
 
-    // Disambiguate nested/sibling elements (e.g. child #cfp inside parent #fees):
-    // Prioritize the more specific child container (smaller height)
-    intersecting.sort((a, b) => a.r.height - b.r.height);
-    setActiveNav(intersecting[0].s.label);
+    // 3. If near bottom of document, keep Venue highlighted
+    if ((window.innerHeight + window.scrollY) >= (document.documentElement.scrollHeight - 60)) {
+      setActiveNav('Venue');
+    }
   }
 
   // Export internal update for programmatic release

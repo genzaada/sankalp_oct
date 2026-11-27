@@ -55,11 +55,11 @@ if (!empty($conferenceData['dates'])) {
 
       <!-- Meta Row (Abstract Submission Deadline & CTA) -->
       <div class="hero-meta-grid">
-        <div class="hero-meta-item">
+        <div class="hero-meta-item" style="border-color: rgba(242, 183, 5, 0.4); background: rgba(255, 255, 255, 0.11); box-shadow: 0 4px 18px rgba(242, 183, 5, 0.12);">
           <?= render_icon('clock') ?>
           <div>
-            <p class="font-mono text-[10px] uppercase tracking-wider" style="color: rgba(255, 255, 255, 0.6); font-size: 10px;">Paper Submission Deadline</p>
-            <p class="font-semibold text-white" style="font-size: 13px; margin: 0;"><?= e($subDeadline) ?></p>
+            <p class="font-mono uppercase tracking-wider" style="color: rgba(255, 255, 255, 0.85); font-size: 11px; font-weight: 600; margin-bottom: 0.15rem;">Paper Submission Deadline</p>
+            <p class="font-bold" style="font-size: 1.0625rem; color: var(--color-accent-amber); margin: 0; line-height: 1.2;"><?= e($subDeadline) ?></p>
           </div>
         </div>
 

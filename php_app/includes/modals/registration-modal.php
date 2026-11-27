@@ -22,7 +22,7 @@
 
       <div style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1.25rem; border-radius: 9999px; background: rgba(18, 124, 111, 0.08); border: 1px solid rgba(18, 124, 111, 0.2); font-family: var(--font-mono); font-size: 0.8125rem; font-weight: 600; color: var(--color-primary-700); margin-bottom: 2rem;">
         <span style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--color-accent-amber);"></span>
-        Status: Registration Not Yet Open &bull; Proposed Deadline: February 20, 2027
+        Status: Registration Not Yet Open &bull; Official Deadline: 20 February 2027
       </div>
 
       <div>

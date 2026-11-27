@@ -94,13 +94,13 @@ return [
         ],
     ],
 
-    // Important Conference Dates (Conditional Proposed State: Clearly marked as proposed pending formal confirmation)
+    // Important Conference Dates (Official Schedule)
     'dates' => [
-        ['label' => 'Paper Submission Deadline', 'date' => 'December 25, 2026', 'type' => 'deadline', 'status' => 'Proposed'],
-        ['label' => 'Notification of Acceptance', 'date' => 'January 10, 2027',  'type' => 'info',     'status' => 'Proposed'],
-        ['label' => 'Camera-Ready Paper Submission', 'date' => 'January 20, 2027', 'type' => 'info', 'status' => 'Proposed'],
-        ['label' => 'Conference Registration Deadline', 'date' => 'February 20, 2027', 'type' => 'special', 'status' => 'Proposed'],
-        ['label' => 'Conference Dates',          'date' => 'April 9–10, 2027',   'type' => 'event',    'status' => 'Proposed'],
+        ['label' => 'Paper Submission Deadline', 'date' => '15 January 2027',  'type' => 'deadline', 'status' => 'Official'],
+        ['label' => 'Acceptance Notification',   'date' => '20 January 2027',  'type' => 'info',     'status' => 'Official'],
+        ['label' => 'Camera-Ready Submission',   'date' => '30 January 2027',  'type' => 'info',     'status' => 'Official'],
+        ['label' => 'Registration Deadline',     'date' => '20 February 2027', 'type' => 'special',  'status' => 'Official'],
+        ['label' => 'Conference Dates',          'date' => '9–10 April 2027',  'type' => 'event',    'status' => 'Official'],
     ],
 
     // Keynote & Invited Sessions (Provisional State: Forthcoming Announcements)

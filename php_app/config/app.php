@@ -11,10 +11,10 @@ return [
     'app_subtitle' => 'Organized by School of Engineering and Technology, MGM University, Chhatrapati Sambhajinagar',
     'app_emphasis' => 'Sustainable Automotive Mobility, Intelligent Engineering and Industry 5.0',
     
-    // Conference Dates (Controlled State: Conditional / Dates Under Confirmation)
-    'dates_confirmed' => false,
-    'app_dates' => 'April 9–10, 2027 (Proposed)',
-    'app_dates_label' => 'April 9–10, 2027 (Proposed / Confirmation in Progress)',
+    // Conference Dates (Official Schedule)
+    'dates_confirmed' => true,
+    'app_dates' => 'April 9–10, 2027',
+    'app_dates_label' => 'April 9–10, 2027',
     
     'app_venue' => 'School of Engineering and Technology, MGM University, Chhatrapati Sambhajinagar, Maharashtra, India',
     'app_venue_label' => 'School of Engineering and Technology, MGM University',

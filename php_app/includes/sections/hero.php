@@ -11,13 +11,16 @@ $nameParts = explode(' ', $config['app_name'], 2);
 $brandTitle = $nameParts[0] ?? 'ICAIESF';
 $brandSub = $nameParts[1] ?? '2027';
 
-// Resolve registration deadline from conference data
+// Resolve submission & registration deadlines from conference data
+$subDeadline = 'January 15, 2027';
 $regDeadline = 'February 20, 2027';
 if (!empty($conferenceData['dates'])) {
     foreach ($conferenceData['dates'] as $d) {
+        if ($d['label'] === 'Paper Submission Deadline') {
+            $subDeadline = $d['date'];
+        }
         if (stripos($d['label'], 'registration') !== false) {
             $regDeadline = $d['date'];
-            break;
         }
     }
 }
@@ -55,8 +58,8 @@ if (!empty($conferenceData['dates'])) {
         <div class="hero-meta-item">
           <?= render_icon('clock') ?>
           <div>
-            <p class="font-mono text-[10px] uppercase tracking-wider" style="color: rgba(255, 255, 255, 0.6); font-size: 10px;">Abstract Last Date Submission</p>
-            <p class="font-semibold text-white" style="font-size: 13px; margin: 0;">25th December 2026</p>
+            <p class="font-mono text-[10px] uppercase tracking-wider" style="color: rgba(255, 255, 255, 0.6); font-size: 10px;">Paper Submission Deadline</p>
+            <p class="font-semibold text-white" style="font-size: 13px; margin: 0;"><?= e($subDeadline) ?></p>
           </div>
         </div>
 

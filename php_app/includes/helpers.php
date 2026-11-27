@@ -52,7 +52,7 @@ function verify_csrf_token(?string $token): bool {
  * Generate academic monogram initials from member name (e.g. "Dr. H. H. Shinde" -> "HS")
  */
 function get_member_initials(?string $name): string {
-    if (!$name) return 'MU';
+    if (!$name || trim($name) === '') return '—';
     $cleaned = preg_replace('/^(Dr\.|Prof\.|Mr\.|Mrs\.|Ms\.|Hon[\’\']ble)\s+/i', '', trim($name));
     $words = preg_split('/[\s\.\-]+/', $cleaned, -1, PREG_SPLIT_NO_EMPTY);
     if (empty($words)) return 'MU';

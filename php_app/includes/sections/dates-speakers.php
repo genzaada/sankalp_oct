@@ -18,8 +18,8 @@ $speakers = $conferenceData['speakers'];
             Important Dates
           </span>
         </div>
-        <span class="font-mono text-[9px] uppercase font-bold" style="font-size: 9px; color: #92400e; background: #fffbeb; border: 1px solid #fef3c7; padding: 0.2rem 0.5rem; border-radius: 9999px;">
-          Proposed Schedule
+        <span class="font-mono text-[9px] uppercase font-bold" style="font-size: 9px; color: #047857; background: #ecfdf5; border: 1px solid #a7f3d0; padding: 0.2rem 0.5rem; border-radius: 9999px;">
+          Official Schedule
         </span>
       </div>
 
@@ -36,8 +36,8 @@ $speakers = $conferenceData['speakers'];
               <span style="font-size: 0.8125rem; font-weight: 600; display: block; line-height: 1.4; <?= $textStyle ?>">
                 <?= e($d['label']) ?>
               </span>
-              <span class="font-mono text-[9px] uppercase" style="color: #92400e; font-size: 9px; font-weight: 600; display: inline-block; margin-top: 0.125rem;">
-                Proposed Schedule
+              <span class="font-mono text-[9px] uppercase" style="color: #047857; font-size: 9px; font-weight: 600; display: inline-block; margin-top: 0.125rem;">
+                Official Milestone
               </span>
             </div>
             <span class="font-mono font-bold" style="font-size: 11px; padding: 0.35rem 0.625rem; border-radius: 0.5rem; border: 1px solid var(--color-border); background: #ffffff; color: var(--color-primary-700); text-align: right; flex-shrink: 0; white-space: nowrap;">
@@ -48,7 +48,7 @@ $speakers = $conferenceData['speakers'];
 
         <div style="padding-top: 0.75rem; text-align: center;">
           <p style="font-size: 10px; color: var(--color-text-body); margin: 0 0 0.5rem 0; line-height: 1.4;">
-            * Milestones are in administrative review and will be formally finalized upon steering committee sign-off.
+            * All deadlines are 23:59 IST (Indian Standard Time, UTC+5:30). Authors are advised to complete submissions in advance.
           </p>
           <button type="button" onclick="goToSection('dates', 'home')"
             style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; display: inline-flex; align-items: center; gap: 0.25rem; color: var(--color-primary-500);">

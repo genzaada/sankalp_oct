@@ -4,6 +4,17 @@
  * ICAIESF 2027 — Abstract & Paper Submission Guidelines
  */
 $config = $config ?? require __DIR__ . '/../../config/app.php';
+$conferenceData = $conferenceData ?? require __DIR__ . '/../../config/conference_data.php';
+
+$paperDeadline = 'January 15, 2027';
+if (!empty($conferenceData['dates'])) {
+    foreach ($conferenceData['dates'] as $d) {
+        if ($d['label'] === 'Paper Submission Deadline') {
+            $paperDeadline = $d['date'];
+            break;
+        }
+    }
+}
 ?>
 <main id="main-content" tabindex="-1" class="page-view" style="<?= ($currentPage ?? 'home') === 'abstract-submission' ? 'display:block;' : 'display:none;' ?> min-height: 80vh; outline:none; scroll-margin-top: 5.5rem;">
 
@@ -37,7 +48,7 @@ $config = $config ?? require __DIR__ . '/../../config/app.php';
 
         <div style="position: relative; z-index: 10;">
           <div style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.25rem 0.75rem; border-radius: 9999px; border: 1px solid rgba(255,255,255,0.25); font-size: 10px; font-family: var(--font-mono); text-transform: uppercase; margin-bottom: 1rem; color: rgba(255,255,255,0.85);">
-            Abstract Last Date Submission: 20th December 2026
+            Paper Submission Deadline: <?= e($paperDeadline) ?>
           </div>
           <h2 class="font-display font-bold uppercase tracking-wide" style="font-size: 1.5rem; margin-bottom: 0.75rem; color: #ffffff;">
             Submit Your Abstract

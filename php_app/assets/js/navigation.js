@@ -9,7 +9,6 @@ const NAVBAR_HEIGHT_DEFAULT = 85;
 const TARGET_LABEL_MAP = {
   'top': 'Home',
   'about': 'About',
-  'overview': 'About',
   'committee': 'Committee',
   'tracks': 'Tracks',
   'dates': 'Schedule',
@@ -411,7 +410,6 @@ function setActiveNav(label) {
 function initScrollSpy() {
   const sections = [
     { id: 'about', label: 'About' },
-    { id: 'overview', label: 'About' },
     { id: 'committee', label: 'Committee' },
     { id: 'tracks', label: 'Tracks' },
     { id: 'dates', label: 'Schedule' },

@@ -28,13 +28,6 @@ $navLinks = $conferenceData['nav_links'];
 
     <!-- Right Header CTAs -->
     <div style="display: flex; align-items: center; gap: 0.75rem;">
-      <!-- Registration CTA Button -->
-      <button type="button" class="btn-primary"
-        style="padding: 0.625rem 1.25rem; font-size: 0.75rem; letter-spacing: 0.05em; text-transform: uppercase;"
-        onclick="openRegistrationModal()">
-        Registration Info <?= render_icon('arrow-right') ?>
-      </button>
-
       <!-- Mobile Hamburger Toggle -->
       <button type="button" id="mobile-menu-btn"
         aria-label="Toggle Navigation Menu"

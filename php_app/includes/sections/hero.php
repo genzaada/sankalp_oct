@@ -56,7 +56,7 @@ if (!empty($conferenceData['dates'])) {
           <?= render_icon('clock') ?>
           <div>
             <p class="font-mono text-[10px] uppercase tracking-wider" style="color: rgba(255, 255, 255, 0.6); font-size: 10px;">Abstract Last Date Submission</p>
-            <p class="font-semibold text-white" style="font-size: 13px; margin: 0;">28th December 2026</p>
+            <p class="font-semibold text-white" style="font-size: 13px; margin: 0;">25th December 2026</p>
           </div>
         </div>
 
@@ -118,42 +118,42 @@ if (!empty($conferenceData['dates'])) {
           <div class="globe-orbit-ring">
             <?php foreach ($globeTracks as $idx => $orb): ?>
               <div class="orbit-slot orbit-slot-<?= $idx + 1 ?>">
-                <button type="button" class="globe-track-orb" onclick="goToSection('tracks', 'home', 'Tracks')" title="<?= e($orb['title']) ?>" aria-label="<?= e($orb['title']) ?>" data-label="<?= e($orb['label']) ?>">
-                  <span class="orbit-symbol"><?= $orb['icon'] ?></span>
-                </button>
+                <button type="button" class="globe-track-orb" onclick="goToSection('tracks', 'home', 'Tracks')" title="<?= e($orb['title']) ?>" aria-label="<?= e($orb['title']) ?>" data-label="<?= e($orb['label']) ?>"></button>
               </div>
             <?php endforeach; ?>
           </div>
         </div>
       </div>
 
-      <!-- Live Countdown Widget Card -->
-      <div id="countdown-widget" class="float-card" data-target="<?= e($countdownTarget) ?>" style="width: 100%; max-width: 24rem; padding: 1.5rem;">
-        <p class="font-mono text-center uppercase tracking-widest font-semibold" style="font-size: 10px; color: var(--color-primary-500); margin-bottom: 1rem;">
-          Conference Begins In
-        </p>
-        <div style="display: flex; align-items: center; justify-content: center; gap: 0.25rem;">
-          <div class="countdown-block" style="padding-left: 0.75rem; padding-right: 0.75rem;">
-            <span id="cd-days" class="countdown-num">108</span>
-            <span class="countdown-label">Days</span>
-          </div>
-          <span class="countdown-sep">•</span>
-          <div class="countdown-block" style="padding-left: 0.75rem; padding-right: 0.75rem;">
-            <span id="cd-hours" class="countdown-num">14</span>
-            <span class="countdown-label">Hours</span>
-          </div>
-          <span class="countdown-sep">•</span>
-          <div class="countdown-block" style="padding-left: 0.75rem; padding-right: 0.75rem;">
-            <span id="cd-mins" class="countdown-num">32</span>
-            <span class="countdown-label">Minutes</span>
-          </div>
-          <span class="countdown-sep">•</span>
-          <div class="countdown-block" style="padding-left: 0.75rem; padding-right: 0.75rem;">
-            <span id="cd-secs" class="countdown-num">45</span>
-            <span class="countdown-label">Seconds</span>
+      <?php if (($currentPage ?? 'home') !== 'abstract-submission'): ?>
+        <!-- Live Countdown Widget Card -->
+        <div id="countdown-widget" class="float-card" data-target="<?= e($countdownTarget) ?>" style="width: 100%; max-width: 24rem; padding: 1.5rem;">
+          <p class="font-mono text-center uppercase tracking-widest font-semibold" style="font-size: 10px; color: var(--color-primary-500); margin-bottom: 1rem;">
+            Conference Begins In
+          </p>
+          <div style="display: flex; align-items: center; justify-content: center; gap: 0.25rem;">
+            <div class="countdown-block" style="padding-left: 0.75rem; padding-right: 0.75rem;">
+              <span id="cd-days" class="countdown-num">108</span>
+              <span class="countdown-label">Days</span>
+            </div>
+            <span class="countdown-sep">•</span>
+            <div class="countdown-block" style="padding-left: 0.75rem; padding-right: 0.75rem;">
+              <span id="cd-hours" class="countdown-num">14</span>
+              <span class="countdown-label">Hours</span>
+            </div>
+            <span class="countdown-sep">•</span>
+            <div class="countdown-block" style="padding-left: 0.75rem; padding-right: 0.75rem;">
+              <span id="cd-mins" class="countdown-num">32</span>
+              <span class="countdown-label">Minutes</span>
+            </div>
+            <span class="countdown-sep">•</span>
+            <div class="countdown-block" style="padding-left: 0.75rem; padding-right: 0.75rem;">
+              <span id="cd-secs" class="countdown-num">45</span>
+              <span class="countdown-label">Seconds</span>
+            </div>
           </div>
         </div>
-      </div>
+      <?php endif; ?>
 
     </div>
 

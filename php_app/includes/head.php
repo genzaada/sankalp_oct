@@ -132,7 +132,6 @@ $ogImageUrl = !empty($productionDomain) ? rtrim($productionDomain, '/') . '/asse
   <link rel="stylesheet" href="<?= asset_url('assets/css/dates.css') ?>?v=<?= time() ?>">
   <link rel="stylesheet" href="<?= asset_url('assets/css/hero.css') ?>?v=<?= time() ?>">
   <link rel="stylesheet" href="<?= asset_url('assets/css/stats.css') ?>?v=<?= time() ?>">
-  <link rel="stylesheet" href="<?= asset_url('assets/css/overview.css') ?>?v=<?= time() ?>">
   <link rel="stylesheet" href="<?= asset_url('assets/css/about.css') ?>?v=<?= time() ?>">
   <link rel="stylesheet" href="<?= asset_url('assets/css/committee.css') ?>?v=<?= time() ?>">
   <link rel="stylesheet" href="<?= asset_url('assets/css/sponsorship.css') ?>?v=<?= time() ?>">

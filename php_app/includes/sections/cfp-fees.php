@@ -13,9 +13,9 @@ $regFees = $conferenceData['reg_fees'];
       <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.25rem;">
         <div style="display: flex; align-items: center; gap: 0.75rem;">
           <div style="width: 4px; height: 1.25rem; border-radius: 9999px; background: var(--color-primary-700);"></div>
-          <span class="font-mono uppercase tracking-widest font-bold" style="font-size: 11px; color: var(--color-primary-700);">
-            Registration Fee Structure (Provisional)
-          </span>
+          <h2 class="font-display font-bold" style="font-size: 1.25rem; color: var(--color-text-heading); margin: 0;">
+            Registration Fee Structure
+          </h2>
         </div>
         <span style="display: flex; align-items: center; gap: 0.375rem; padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 10px; font-weight: 700; text-transform: uppercase; background: #fffbeb; border: 1px solid #fef3c7; color: #92400e;">
           Provisional Fee Schedule

@@ -99,15 +99,16 @@ if (!empty($conferenceData['dates'])) {
           <circle cx="62" cy="138" r="2" fill="#127C6F" />
         </svg>
 
-        <!-- 6 Orbiting Conference Track Symbols (Continuous Planetary Revolution) -->
+        <!-- 7 Orbiting Conference Track Symbols (Continuous Planetary Revolution) -->
         <?php
         $globeTracks = [
-            ['icon' => '⚡', 'label' => 'Energy Systems', 'title' => 'Track 1: Sustainable Energy Systems and Decarbonization Technologies'],
-            ['icon' => '🏙️', 'label' => 'Built Environments', 'title' => 'Track 2: Smart and Sustainable Built Environments'],
-            ['icon' => '♻️', 'label' => 'Circular Economy', 'title' => 'Track 3: Sustainable Manufacturing and Circular Economy'],
-            ['icon' => '🤖', 'label' => 'AI & Intelligent Tech', 'title' => 'Track 4: Artificial Intelligence and Digital Technologies for Sustainability'],
-            ['icon' => '🌿', 'label' => 'Climate & Ecology', 'title' => 'Track 5: Climate Change, Environmental Management and Resource Sustainability'],
-            ['icon' => '🚆', 'label' => 'Transportation', 'title' => 'Track 6: Sustainable Transportation and Resilient Infrastructure Systems'],
+            ['icon' => '🚗', 'label' => 'Mobility & ITS', 'title' => 'Track 1: Sustainable Automotive Mobility, Electric Vehicles and Intelligent Transportation Systems'],
+            ['icon' => '🏭', 'label' => 'Manufacturing 5.0', 'title' => 'Track 2: Intelligent Sustainable Manufacturing, Industrial Automation and Industry 5.0'],
+            ['icon' => '🏗️', 'label' => 'Materials & Systems', 'title' => 'Track 3: Smart and Sustainable Materials, Infrastructure and Advanced Engineering Systems'],
+            ['icon' => '⚡', 'label' => 'Energy Systems', 'title' => 'Track 4: Sustainable Energy Systems, Thermal Engineering and Renewable Energy Integration'],
+            ['icon' => '🌿', 'label' => 'Environmental & Circular', 'title' => 'Track 5: Environmental Sustainability, Climate Resilience and Circular Economy'],
+            ['icon' => '🤖', 'label' => 'AI & Data Technologies', 'title' => 'Track 6: AI, Machine Learning and Data-Driven Technologies for Sustainable Engineering'],
+            ['icon' => '💻', 'label' => 'Computing & Security', 'title' => 'Track 7: Emerging Computing Technologies, Cybersecurity and Next-Generation Information Systems'],
         ];
         if (!empty($conferenceData['tracks'])) {
             foreach ($conferenceData['tracks'] as $idx => $t) {

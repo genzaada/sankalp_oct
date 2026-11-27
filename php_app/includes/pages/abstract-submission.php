@@ -29,7 +29,7 @@ if (!empty($conferenceData['dates'])) {
         <div style="text-align: left;">
           <p class="eyebrow" style="margin-bottom: 0.25rem;">Conference Tracks</p>
           <p style="font-size: 0.9375rem; color: var(--color-text-heading); font-weight: 500; margin: 0;">
-            Click on <strong>View Tracks</strong> to explore all six official conference tracks before submitting your abstract.
+            Click on <strong>View Tracks</strong> to explore all seven official conference tracks before submitting your abstract.
           </p>
         </div>
         <button type="button" onclick="goToSection('tracks', 'home', 'Tracks')" class="btn-primary"
@@ -54,7 +54,7 @@ if (!empty($conferenceData['dates'])) {
             Submit Your Abstract
           </h2>
           <p style="font-size: 0.9375rem; line-height: 1.65; color: rgba(255,255,255,0.88); margin: 0;">
-            We invite original research papers, case studies, and comprehensive review papers addressing one of the six official conference tracks in intelligent engineering and sustainable systems. All submitted manuscripts will undergo a rigorous peer-review evaluation, with accepted and presented papers intended for publication in peer-reviewed conference proceedings, subject to formal publisher agreements and institutional approval.
+            We invite original research papers, case studies, and comprehensive review papers addressing one of the seven official conference tracks in intelligent engineering and sustainable systems. All submitted manuscripts will undergo a rigorous peer-review evaluation, with accepted and presented papers intended for publication in peer-reviewed conference proceedings, subject to formal publisher agreements and institutional approval.
           </p>
         </div>
 

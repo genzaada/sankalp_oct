@@ -198,7 +198,7 @@
   animation-play-state: paused;
 }
 
-/* Individual Orbit Slots (60-deg increments) */
+/* Individual Orbit Slots (7 slots, evenly spaced at ~51.43 deg) */
 .sankalp-hero .orbit-slot {
   position: absolute;
   top: 50%;
@@ -215,11 +215,12 @@
 }
 
 .sankalp-hero .orbit-slot-1 { transform: rotate(0deg) translate(var(--orbit-radius)) rotate(0deg); }
-.sankalp-hero .orbit-slot-2 { transform: rotate(60deg) translate(var(--orbit-radius)) rotate(-60deg); }
-.sankalp-hero .orbit-slot-3 { transform: rotate(120deg) translate(var(--orbit-radius)) rotate(-120deg); }
-.sankalp-hero .orbit-slot-4 { transform: rotate(180deg) translate(var(--orbit-radius)) rotate(-180deg); }
-.sankalp-hero .orbit-slot-5 { transform: rotate(240deg) translate(var(--orbit-radius)) rotate(-240deg); }
-.sankalp-hero .orbit-slot-6 { transform: rotate(300deg) translate(var(--orbit-radius)) rotate(-300deg); }
+.sankalp-hero .orbit-slot-2 { transform: rotate(51.43deg) translate(var(--orbit-radius)) rotate(-51.43deg); }
+.sankalp-hero .orbit-slot-3 { transform: rotate(102.86deg) translate(var(--orbit-radius)) rotate(-102.86deg); }
+.sankalp-hero .orbit-slot-4 { transform: rotate(154.29deg) translate(var(--orbit-radius)) rotate(-154.29deg); }
+.sankalp-hero .orbit-slot-5 { transform: rotate(205.71deg) translate(var(--orbit-radius)) rotate(-205.71deg); }
+.sankalp-hero .orbit-slot-6 { transform: rotate(257.14deg) translate(var(--orbit-radius)) rotate(-257.14deg); }
+.sankalp-hero .orbit-slot-7 { transform: rotate(308.57deg) translate(var(--orbit-radius)) rotate(-308.57deg); }
 
 /* Glassmorphic Circular Track Orb */
 .sankalp-hero .globe-track-orb {

@@ -16,7 +16,7 @@ $tracks = $conferenceData['tracks'];
       <div style="margin: 0.5rem auto 0 auto; width: 3.5rem; height: 4px; border-radius: 9999px; background: var(--color-primary-500);"></div>
     </div>
 
-    <!-- 6 Tracks Grid -->
+    <!-- 7 Tracks Grid -->
     <div class="tracks-grid">
       <?php foreach ($tracks as $i => $track): ?>
         <div class="track-card reveal-up delay-<?= ($i % 3) + 1 ?>">

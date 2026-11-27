@@ -1,15 +1,16 @@
-# SANKALP 2027 — Production PHP Application
+# ICAIESF 2027 — Production PHP Application
 
-**International Conference on Sustainable Advances in eNgineering, Knowledge Systems, AI and Intelligent Technologies for Progress**  
-*Organized by MGM University, Chhatrapati Sambhajinagar*
+**International Conference on Advances in Intelligent, Emission-Free, Sustainable and Future Technologies**
+*Organized by MGM University, School of Engineering and Technology (SOET), Chhatrapati Sambhajinagar*
 
 ---
 
 ## 1. Technology Overview
-- **Frontend:** Semantic HTML5, Native CSS3 (Design tokens, Flexbox/Grid, Animations), Vanilla JavaScript (ES6+).
+- **Frontend:** Semantic HTML5, Native CSS3 (Design tokens, CSS Grid/Flexbox, Keyframe animations), Vanilla JavaScript (ES6+).
 - **Backend:** PHP 8.x (compatible with PHP 8.0, 8.1, 8.2, 8.3, 8.4, 8.5+).
-- **Database:** MySQL 8.x / MariaDB 10.x accessed via secure PDO prepared statements.
-- **Web Server:** Apache 2.4+ (compatible with cPanel, DirectAdmin, Plesk, or standalone Apache).
+- **Web Server:** Apache 2.4+ (compatible with MAMP, cPanel, Plesk, or standalone Apache).
+- **Architecture:** Static informational conference portal. All conference content, committees, tracks, milestone dates, and venue information are rendered directly from centralized PHP configuration files.
+- **Database:** Zero runtime database dependencies. Public pages do not query or write to a database.
 - **Dependencies:** **Zero runtime dependencies on Node.js, React, TypeScript, or Vite.**
 
 ---
@@ -19,135 +20,101 @@
 ```text
 php_app/
 ├── index.php                      # Application entry point & router
-├── .htaccess                      # Apache security headers, MIME types, rewrites
+├── .htaccess                      # Apache security headers, access blocks, and routing rewrites
 ├── config/
-│   ├── app.php                    # General configuration & environment variables
-│   ├── database.php               # Secure PDO database connector
-│   └── conference_data.php        # Centralized conference content & data
+│   ├── app.php                    # Conference metadata, branding, and environment settings
+│   ├── conference_data.php        # Centralized tracks, dates, fees, venue, and highlights data
+│   ├── committee_members.php      # Organizing committee registry and member metadata
+│   └── database.php               # Secure PDO connector (fails safely; not used by public pages)
 ├── includes/
-│   ├── head.php                   # HTML head, Google Fonts, and meta tags
-│   ├── navigation.php             # Fixed navigation bar & mobile drawer
-│   ├── footer.php                 # Global footer, social links, scripts
+│   ├── head.php                   # HTML head, typography, SEO metadata, and open-graph tags
+│   ├── navigation.php             # Fixed navigation bar, mobile drawer, and accessibility controls
+│   ├── footer.php                 # Global footer, institutional credits, and script inclusions
 │   ├── icons.php                  # Vector SVG icon renderer
-│   ├── helpers.php                # Security, escaping, and CSRF utilities
+│   ├── helpers.php                # Security escaping, asset URL generation, and helper utilities
 │   ├── sections/                  # Modular homepage section templates
-│   │   ├── hero.php               # Hero section, title, globe & countdown
+│   │   ├── hero.php               # Hero section, title, animated planetary track nodes
 │   │   ├── stats.php              # Floating statistics bar with animated counters
-│   │   ├── overview.php           # Scope, objectives & host institution
-│   │   ├── about-home.php         # Shaping the future & campus photo
-│   │   ├── tracks.php             # 6 conference tracks and sub-themes
-│   │   ├── dates-speakers.php     # Important dates & keynote speakers
-│   │   ├── cfp-fees.php           # Call for papers & registration fee table
-│   │   └── sponsors.php           # Continuous marquee & sponsors scroller
+│   │   ├── overview.php           # Scope, objectives & host institution overview
+│   │   ├── about-home.php         # Host institution highlight and campus visual
+│   │   ├── tracks.php             # 6 official conference research tracks
+│   │   ├── dates-speakers.php     # Milestone dates and keynote series announcements
+│   │   ├── cfp-fees.php           # Call for papers guidelines and proposed registration fee table
+│   │   ├── committee.php          # Conference advisory and organizing committees
+│   │   ├── exhibition.php         # Technical exhibition and innovation showcase
+│   │   ├── sponsorship.php        # Sponsorship opportunities and partnership packages
+│   │   ├── sponsors.php           # Academic & institutional collaborator marquee
+│   │   └── venue.php              # MGM University campus venue, travel directions & transit
 │   ├── pages/
 │   │   ├── home.php               # Complete homepage view
-│   │   └── about.php              # Complete about page view
+│   │   └── about.php              # Dedicated institution-focused About page (MGM University & SOET)
 │   └── modals/
-│       ├── registration-modal.php # Interactive conference registration dialog
-│       └── submission-modal.php   # Paper/abstract submission dialog
-├── api/
-│   ├── register.php               # Registration submission endpoint
-│   ├── submit-abstract.php        # Paper abstract submission endpoint
-│   ├── newsletter.php             # Newsletter subscription endpoint
-│   └── contact.php                # Contact inquiry endpoint
+│       ├── registration-modal.php # Informational registration announcement modal
+│       ├── submission-modal.php   # Informational paper submission modal (Microsoft CMT workflow)
+│       └── brochure-modal.php     # Informational conference brochure notification modal
+├── api/                           # Legacy API endpoints (Retired with HTTP 410 & blocked by .htaccess)
+│   ├── register.php               # Returns HTTP 410 Gone (Direct registrations disabled)
+│   ├── submit-abstract.php        # Returns HTTP 410 Gone (Submissions routed to Microsoft CMT)
+│   ├── contact.php                # Returns HTTP 410 Gone (Direct inquiries use official email)
+│   └── newsletter.php             # Returns HTTP 410 Gone (Subscriptions retired)
 ├── assets/
 │   ├── css/
 │   │   ├── style.css              # Master stylesheet & design system tokens
-│   │   ├── animations.css         # Keyframe animations (globe, marquee, reveals)
-│   │   └── responsive.css         # Viewport breakpoint overrides
+│   │   ├── hero.css               # Hero section layout, planetary orbit, and responsive styles
+│   │   ├── overview.css           # Overview section styles
+│   │   ├── speakers.css           # Keynote speakers and milestone dates styles
+│   │   ├── committee.css          # Committee cards and portrait presentation
+│   │   ├── exhibition.css         # Exhibition section styling
+│   │   └── sponsorship.css        # Sponsorship tier cards styling
 │   ├── js/
-│   │   ├── main.js                # Core event orchestration & lifecycle
-│   │   ├── countdown.js           # Live countdown timer
+│   │   ├── main.js                # Core event orchestration and lifecycle initialization
+│   │   ├── countdown.js           # Live countdown timer script
 │   │   ├── counters.js            # Viewport-triggered animated number counters
-│   │   ├── navigation.js          # Sticky nav, smooth scroll & view routing
-│   │   ├── modals.js              # Modal popup triggers & keyboard handlers
-│   │   └── forms.js               # Asynchronous AJAX form handlers with CSRF
+│   │   ├── navigation.js          # Sticky nav, smooth scroll, scroll-spy & mobile drawer handlers
+│   │   └── modals.js              # Informational modal popup triggers and keyboard handlers
+│   ├── docs/
+│   │   ├── Paper_Guidelines.html  # Formatted author submission guidelines
+│   │   └── Paper_Guidelines.pdf   # Downloadable PDF submission guidelines
 │   └── images/
+│       ├── logo 2 .png            # Official ICAIESF 2027 logo emblem
+│       ├── mgm_university.jpg     # MGM University campus photograph
 │       ├── AdminBulding.jpeg      # Architectural photo (Admin Building)
-│       ├── mgm_university.png     # MGM University campus artwork
-│       ├── mgm_university.jpg     # MGM University photograph
-│       └── sveri_building.png     # Campus building visual asset
+│       └── committee/             # Committee member official portraits
 └── database/
-    └── schema.sql                 # MySQL tables schema
+    └── schema.sql                 # Historical reference schema (legacy reference only; not active)
 ```
 
 ---
 
-## 3. Quick Start (Local PHP Testing)
+## 3. Local Testing & Verification
 
+### A. Local PHP Server
 Run the PHP built-in web server:
 ```bash
 php -S 0.0.0.0:8080 -t php_app
 ```
-Then visit:
-- Homepage: `http://localhost:8080/` or `http://localhost:8080/index.php?page=home`
-- About Page: `http://localhost:8080/index.php?page=about`
+Preview at: `http://localhost:8080/`
+
+### B. MAMP Apache Testing
+When deployed to local MAMP:
+- URL: `http://localhost:8888/sankalp_oct-main/php_app/`
+- All `.htaccess` rules (access blocking for `api/`, `config/`, `database/`, `.zip`, and `.sql`) are actively enforced by Apache.
 
 ---
 
-## 4. Production Deployment to MGMU Hosting (cPanel / Apache)
+## 4. Security Architecture
 
-1. Upload all contents of `php_app/` into the hosting server's document root (typically `public_html/` or conference subfolder `public_html/sankalp2027/`).
-2. Log into **cPanel** > **MySQL Databases** (or phpMyAdmin) and import `database/schema.sql`.
-3. In `config/app.php`, update the database credentials if necessary:
-   ```php
-   'database' => [
-       'host' => 'localhost',
-       'port' => 3306,
-       'name' => 'your_cpanel_dbname',
-       'user' => 'your_cpanel_dbuser',
-       'pass' => 'your_cpanel_dbpass',
-       'charset' => 'utf8mb4'
-   ]
-   ```
-4. Verify the site in your browser. All static content, styling, interactive modals, and animations work out-of-the-box.
+1. **Static Informational Portal:** The website operates without active user account creation, session management, or database mutation endpoints.
+2. **Access Control (`.htaccess`):** Direct HTTP access to sensitive directories (`config/`, `database/`, `api/`) and sensitive file types (`.sql`, `.zip`, `.git`, `.env`) is forbidden (`HTTP 403 Forbidden`).
+3. **Application-Level Safeguards:** All legacy endpoints in `api/` return `HTTP 410 Gone` with structured JSON responses, ensuring no database operations or code generation occurs even if web server rules are bypassed.
+4. **Decoupled Database:** The database connector (`config/database.php`) defaults to safe null failure when environment variables are unset, ensuring that public-facing pages load immediately without MySQL.
 
 ---
 
-## 5. Direct Content Editing Guide
+## 5. Content Management Guide
 
-All website copy, dates, venue, contacts, and track data are 100% decoupled from HTML templates. You can edit the entire website directly using these two configuration files:
+All conference copy, milestone dates, registration fee tiers, committee directories, and venue information are maintained in centralized configuration files:
 
-### A. General Conference Settings: `config/app.php`
-Edit this file for site-wide metadata:
-- **`app_name`**: Primary conference name/year (`SANKALP 2027`). Changes navbar brand, footer, modals, and page titles.
-- **`app_full_title`**: Complete academic title used in SEO tags, page `<title>`, and hero subtitle.
-- **`app_subtitle`**: Organizing body description (`Organized by MGM University, Chhatrapati Sambhajinagar`).
-- **`app_dates`**: Conference event dates (`15–16 February 2027`).
-- **`app_venue`**: Official physical venue address (`MGM University, Chhatrapati Sambhajinagar, Maharashtra 431003`). Automatically updates the Hero card, Venue section, Footer, and Google Maps direction links.
-- **`app_venue_label`**: Short campus badge name (`MGM University Campus`).
-- **`location_how_to_reach`**: Transit summary for air, rail, and highway travelers.
-- **`contact_email`**: Official conference email (`sankalp@mgmu.ac.in`).
-- **`contact_phone`**: Official phone number (`+91 1234 567890`).
-- **`countdown_target`**: Target date (`2027-02-15T00:00:00Z`) driving the live JS countdown timer widget.
-
-### B. Repeating Section Data: `config/conference_data.php`
-Edit this file to update repeating blocks:
-- **`tracks`**: List of all 6 tracks with icons and sub-themes. Editing tracks here automatically updates both the Tracks grid and the Abstract Submission dialog dropdown.
-- **`dates`**: Milestones, paper deadlines, and early-bird dates.
-- **`speakers`**: Keynote speaker bios, headshots, organizations, and social links.
-- **`reg_fees`**: Registration tiers and fees.
-- **`stats`**: Animated counter statistics bar.
-- **`highlights`**: Key conference highlights checklist.
-- **`sponsors`**: Publication and academic partners in the scrolling marquee.
-- **`scopes`**: 10 multidisciplinary research scope domains.
-- **`objectives`**: Conference core mission objectives.
-- **`committee`**: Full organizing committee directory by tier.
-
----
-
-## 6. Changelog & Architectural Context
-
-### Why These Changes Were Made
-- **Problem**: Previously, venue information, dates, subtitle, and track names were hardcoded directly in individual templates (`hero.php`, `venue.php`, `footer.php`, `head.php`, `about.php`, `submission-modal.php`). When administrators edited `config/app.php`, the updates were not reflected on the website.
-- **Solution**: Replaced all hardcoded values with dynamic bindings to `$config` and `$conferenceData`. Now, editing `config/app.php` or `config/conference_data.php` immediately reflects across all pages, modals, and footer components without editing PHP templates or HTML.
-- **Hero Globe Scale & Revolving Track Symbols**: Enlarged the rotating wireframe globe to 360px and replaced the 3 generic tech labels (`IoT`, `Cloud`, `Cybersecurity`) with the pure symbols of the **6 official conference tracks** (`⚡`, `🏙️`, `♻️`, `🤖`, `🌿`, `🚆`). Created a continuous 360° orbital planetary revolution system (`orbitRevolve` 28s) with counter-rotating nodes (`orbitCounterRotate`) that keeps the symbols perfectly upright as they orbit smoothly around the globe, with hover-pause, glassmorphic styling, and click-to-scroll navigation.
-- **SANKALP 2027 Brand & Hero Title Scaling**: Scaled the header navigation brand logo emblem from 36px to 48px, increased "SANKALP" typography to 24.8px (1.55rem, 800-weight) and "2027" to 13px (0.22em tracking). Transformed the hero section to proudly display **SANKALP 2027** as a massive, commanding `<h1>` heading (`clamp(3rem, 6.8vw, 4.85rem)`) with glowing white and golden amber gradient text styling, backed by an authoritative academic sub-theme `<h2>`.
-- **Committee Member Photos & Dedicated Registry**: Created `assets/images/committee/` directory for executive portraits and `config/committee_members.php` for centralized configuration of all committee members and their photo assets. Enhanced member cards with explicit white backgrounds (`#ffffff`), placing the member's photo at the top with their role, name, and institution displayed below it. Configured transparent cutout staging (zero inner box borders or backgrounds, with realistic silhouette drop shadows) so transparent PNG cutouts integrate seamlessly directly onto the card. Added portraits for Chief Patron **Dr. Vilas S. Sapkal** and Co-Patron **Dr. Ashish Gadekar**.
-
-
-
-
-
-
-
+- **`config/app.php`:** Conference branding (`ICAIESF 2027`), full academic title, dates, venue address, contact email (`directorsoet@mgmu.ac.in`), and Microsoft CMT URL configuration.
+- **`config/conference_data.php`:** Official 6 research tracks, milestone dates, proposed registration fee tiers, conference highlights, and venue transit summaries.
+- **`config/committee_members.php`:** Organizing committee directory and member profiles.

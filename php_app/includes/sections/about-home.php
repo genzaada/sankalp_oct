@@ -43,9 +43,14 @@ $highlights = $conferenceData['highlights'] ?? [
           <?php endforeach; ?>
         </div>
 
-        <button type="button" onclick="goToSection('committee', 'home', 'Committee')" class="btn-primary" style="padding: 0.875rem 1.75rem; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;">
-          Organizing Committee <?= render_icon('arrow-right') ?>
-        </button>
+        <div style="display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center;">
+          <button type="button" onclick="goToSection('committee', 'home', 'Committee')" class="btn-primary" style="padding: 0.875rem 1.75rem; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;">
+            Organizing Committee <?= render_icon('arrow-right') ?>
+          </button>
+          <a href="index.php?page=about" class="btn-outline-primary" style="padding: 0.875rem 1.5rem; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; border-radius: 9999px; text-decoration: none; display: inline-flex; align-items: center; gap: 0.35rem; border: 1px solid var(--color-primary-600); color: var(--color-primary-700); background: transparent;">
+            About Institution <?= render_icon('arrow-right') ?>
+          </a>
+        </div>
       </div>
 
       <!-- Right Column: Campus Architectural Photo -->

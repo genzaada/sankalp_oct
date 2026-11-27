@@ -16,8 +16,8 @@ return [
     'app_dates' => 'April 9–10, 2027 (Proposed)',
     'app_dates_label' => 'April 9–10, 2027 (Proposed / Confirmation in Progress)',
     
-    'app_venue' => 'MGM University, Chhatrapati Sambhajinagar, Maharashtra 431003',
-    'app_venue_label' => 'MGM University Campus',
+    'app_venue' => 'School of Engineering and Technology, MGM University, Chhatrapati Sambhajinagar, Maharashtra, India',
+    'app_venue_label' => 'School of Engineering and Technology, MGM University',
     'app_base_url' => '', // Leave empty for automatic relative path detection
     
     // Official Conference Leadership & Contact
@@ -46,13 +46,13 @@ return [
     // Travel & Venue details
     'location_how_to_reach' => 'Connected by air via Chhatrapati Sambhajinagar Airport (IXU), central railway junction, and national expressways with direct connections from Mumbai, Pune, Hyderabad, and Delhi.',
 
-    // Database settings
+    // Database settings (Optional: environment variables only; public pages operate statically without MySQL)
     'database' => [
-        'host'    => getenv('DB_HOST') ?: (file_exists('/Applications/MAMP') ? '127.0.0.1' : 'localhost'),
-        'port'    => (int)(getenv('DB_PORT') ?: (file_exists('/Applications/MAMP') ? 8889 : 3306)),
-        'name'    => getenv('DB_NAME') ?: 'sankalp2027_db',
-        'user'    => getenv('DB_USER') ?: 'root',
-        'pass'    => getenv('DB_PASS') !== false ? getenv('DB_PASS') : (file_exists('/Applications/MAMP') ? 'root' : ''),
+        'host'    => getenv('DB_HOST') ?: '',
+        'port'    => (int)(getenv('DB_PORT') ?: 3306),
+        'name'    => getenv('DB_NAME') ?: '',
+        'user'    => getenv('DB_USER') ?: '',
+        'pass'    => getenv('DB_PASS') !== false ? getenv('DB_PASS') : '',
         'charset' => 'utf8mb4'
     ],
 

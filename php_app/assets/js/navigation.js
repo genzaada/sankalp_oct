@@ -3,12 +3,243 @@
  * Faithfully reproduces React navigation state and page switching
  */
 
-const NAVBAR_HEIGHT = 85;
+const NAVBAR_HEIGHT_DEFAULT = 85;
+
+// Mapping of section IDs to official navigation labels
+const TARGET_LABEL_MAP = {
+  'top': 'Home',
+  'about': 'About',
+  'overview': 'About',
+  'committee': 'Committee',
+  'tracks': 'Tracks',
+  'dates': 'Schedule',
+  'speakers': 'Speakers',
+  'cfp': 'Call for Papers',
+  'fees': 'Registration',
+  'exhibition': 'Exhibition',
+  'sponsorship': 'Sponsorship',
+  'venue': 'Venue',
+  'contact-section': 'Contact'
+};
+
+// Programmatic scroll lock state to prevent race conditions during smooth scrolling (DEF-002)
+let isProgrammaticScroll = false;
+let lockedTargetLabel = null;
+let scrollLockSafetyTimer = null;
+let scrollLockDebounceTimer = null;
+
+// Body scroll lock state for mobile drawer (DEF-003)
+let isBodyScrollLocked = false;
+let savedBodyScrollY = 0;
+
+function getNavbarHeight() {
+  const navbar = document.querySelector('.site-nav');
+  return navbar ? navbar.offsetHeight : NAVBAR_HEIGHT_DEFAULT;
+}
+
+/**
+ * Background body scroll lock to prevent underlying page scroll while mobile drawer is open (DEF-003)
+ */
+function lockBodyScroll() {
+  if (isBodyScrollLocked) return;
+  savedBodyScrollY = window.scrollY || window.pageYOffset || document.documentElement.scrollTop || 0;
+  isBodyScrollLocked = true;
+  document.body.style.overflow = 'hidden';
+  document.documentElement.style.overflow = 'hidden';
+}
+
+/**
+ * Restore background body scroll and preserve exact scroll position without jumps
+ */
+function unlockBodyScroll() {
+  if (!isBodyScrollLocked) return;
+  isBodyScrollLocked = false;
+  document.body.style.overflow = '';
+  document.documentElement.style.overflow = '';
+  window.scrollTo(0, savedBodyScrollY);
+}
+
+/**
+ * Open mobile navigation drawer with background lock and accessibility state
+ */
+function openMobileMenu() {
+  const mobileDrawer = document.getElementById('mobile-drawer');
+  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+  const backdrop = document.getElementById('mobile-drawer-backdrop');
+
+  if (mobileDrawer) {
+    mobileDrawer.classList.add('open');
+    mobileDrawer.setAttribute('aria-hidden', 'false');
+  }
+  if (backdrop) {
+    backdrop.classList.add('open');
+  }
+  if (mobileMenuBtn) {
+    mobileMenuBtn.setAttribute('aria-expanded', 'true');
+    mobileMenuBtn.setAttribute('aria-label', 'Close Navigation Menu');
+    const iconMenu = mobileMenuBtn.querySelector('.icon-menu');
+    const iconX = mobileMenuBtn.querySelector('.icon-x');
+    if (iconMenu && iconX) {
+      iconMenu.style.display = 'none';
+      iconX.style.display = 'block';
+    }
+  }
+  lockBodyScroll();
+}
+
+/**
+ * Close mobile navigation drawer, release scroll lock, and optionally restore focus
+ */
+function closeMobileMenu(returnFocus = false) {
+  const mobileDrawer = document.getElementById('mobile-drawer');
+  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+  const backdrop = document.getElementById('mobile-drawer-backdrop');
+
+  if (mobileDrawer) {
+    mobileDrawer.classList.remove('open');
+    mobileDrawer.setAttribute('aria-hidden', 'true');
+  }
+  if (backdrop) {
+    backdrop.classList.remove('open');
+  }
+  if (mobileMenuBtn) {
+    mobileMenuBtn.setAttribute('aria-expanded', 'false');
+    mobileMenuBtn.setAttribute('aria-label', 'Toggle Navigation Menu');
+    const iconMenu = mobileMenuBtn.querySelector('.icon-menu');
+    const iconX = mobileMenuBtn.querySelector('.icon-x');
+    if (iconMenu && iconX) {
+      iconMenu.style.display = 'block';
+      iconX.style.display = 'none';
+    }
+    if (returnFocus) {
+      mobileMenuBtn.focus();
+    }
+  }
+  unlockBodyScroll();
+}
+
+/**
+ * Toggle mobile drawer open/closed
+ */
+function toggleMobileMenu() {
+  const mobileDrawer = document.getElementById('mobile-drawer');
+  if (mobileDrawer && mobileDrawer.classList.contains('open')) {
+    closeMobileMenu(true);
+  } else {
+    openMobileMenu();
+  }
+}
+
+/**
+ * Lock active indicator to the selected item during smooth scrolling
+ */
+function lockNavScroll(targetLabel) {
+  isProgrammaticScroll = true;
+  lockedTargetLabel = targetLabel;
+  if (targetLabel) {
+    setActiveNav(targetLabel);
+  }
+
+  // Clear existing timers
+  if (scrollLockSafetyTimer) {
+    clearTimeout(scrollLockSafetyTimer);
+    scrollLockSafetyTimer = null;
+  }
+  if (scrollLockDebounceTimer) {
+    clearTimeout(scrollLockDebounceTimer);
+    scrollLockDebounceTimer = null;
+  }
+
+  const unlock = () => {
+    if (!isProgrammaticScroll) return;
+    isProgrammaticScroll = false;
+    if (scrollLockSafetyTimer) {
+      clearTimeout(scrollLockSafetyTimer);
+      scrollLockSafetyTimer = null;
+    }
+    if (scrollLockDebounceTimer) {
+      clearTimeout(scrollLockDebounceTimer);
+      scrollLockDebounceTimer = null;
+    }
+    window.removeEventListener('scrollend', unlock);
+    // When smooth scroll reaches destination, ensure user's selected section remains active
+    if (lockedTargetLabel) {
+      setActiveNav(lockedTargetLabel);
+    }
+  };
+
+  // Modern browsers fire scrollend when smooth scrolling concludes
+  window.addEventListener('scrollend', unlock, { once: true });
+
+  // Debounced unlock: as long as scroll events keep arriving, stay locked.
+  // When scroll frames stop for 200ms, unlock.
+  const onScrollEvent = () => {
+    if (!isProgrammaticScroll) {
+      window.removeEventListener('scroll', onScrollEvent);
+      return;
+    }
+    if (scrollLockDebounceTimer) clearTimeout(scrollLockDebounceTimer);
+    scrollLockDebounceTimer = setTimeout(() => {
+      window.removeEventListener('scroll', onScrollEvent);
+      unlock();
+    }, 200);
+  };
+  window.addEventListener('scroll', onScrollEvent, { passive: true });
+
+  // Fallback safety timeout for browsers with no scroll events/support (max 3000ms)
+  scrollLockSafetyTimer = setTimeout(() => {
+    window.removeEventListener('scroll', onScrollEvent);
+    unlock();
+  }, 3000);
+}
+
+/**
+ * Unlock programmatic lock on manual user scroll/interaction
+ */
+function unlockNavScroll() {
+  lockedTargetLabel = null;
+  if (isProgrammaticScroll) {
+    isProgrammaticScroll = false;
+    if (scrollLockSafetyTimer) {
+      clearTimeout(scrollLockSafetyTimer);
+      scrollLockSafetyTimer = null;
+    }
+    if (scrollLockDebounceTimer) {
+      clearTimeout(scrollLockDebounceTimer);
+      scrollLockDebounceTimer = null;
+    }
+  }
+  if (typeof window.__updateActiveNav === 'function') {
+    window.__updateActiveNav();
+  }
+}
+
+// User-initiated scrolling immediately releases the programmatic lock
+window.addEventListener('wheel', unlockNavScroll, { passive: true });
+window.addEventListener('touchstart', unlockNavScroll, { passive: true });
+window.addEventListener('keydown', (e) => {
+  // DEF-004: Escape key closes the mobile drawer and restores focus to hamburger button
+  if (e.key === 'Escape' || e.keyCode === 27) {
+    const mobileDrawer = document.getElementById('mobile-drawer');
+    if (mobileDrawer && mobileDrawer.classList.contains('open')) {
+      e.preventDefault();
+      e.stopPropagation();
+      closeMobileMenu(true);
+      return;
+    }
+  }
+
+  // Arrow keys, PageUp/Down, Home/End, Space release programmatic smooth-scroll lock
+  if ([32, 33, 34, 35, 36, 38, 40].includes(e.keyCode)) {
+    unlockNavScroll();
+  }
+});
 
 function initNavigation() {
   const navbar = document.querySelector('.site-nav');
   const mobileMenuBtn = document.getElementById('mobile-menu-btn');
   const mobileDrawer = document.getElementById('mobile-drawer');
+  const backdrop = document.getElementById('mobile-drawer-backdrop');
 
   // Sticky nav shadow toggle on scroll
   function handleNavScroll() {
@@ -22,39 +253,80 @@ function initNavigation() {
   window.addEventListener('scroll', handleNavScroll, { passive: true });
   handleNavScroll();
 
-  // Mobile menu toggle
-  if (mobileMenuBtn && mobileDrawer) {
-    mobileMenuBtn.addEventListener('click', () => {
-      const isOpen = mobileDrawer.classList.toggle('open');
-      const iconMenu = mobileMenuBtn.querySelector('.icon-menu');
-      const iconX = mobileMenuBtn.querySelector('.icon-x');
-      if (iconMenu && iconX) {
-        iconMenu.style.display = isOpen ? 'none' : 'block';
-        iconX.style.display = isOpen ? 'block' : 'none';
-      }
+  // Mobile menu button click handler
+  if (mobileMenuBtn) {
+    mobileMenuBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      toggleMobileMenu();
     });
   }
+
+  // Backdrop click closes mobile drawer
+  if (backdrop) {
+    backdrop.addEventListener('click', () => {
+      closeMobileMenu(true);
+    });
+  }
+
+  // Prevent accidental closure when clicking inside the mobile drawer content
+  if (mobileDrawer) {
+    mobileDrawer.addEventListener('click', (e) => {
+      e.stopPropagation();
+    });
+  }
+
+  // Close mobile drawer on desktop resize (>= 1024px)
+  window.addEventListener('resize', () => {
+    if (window.innerWidth >= 1024) {
+      const drawer = document.getElementById('mobile-drawer');
+      if (drawer && drawer.classList.contains('open')) {
+        closeMobileMenu(false);
+      }
+    }
+  }, { passive: true });
 
   // Scroll spy for active section highlight
   initScrollSpy();
 
+  // Skip to main content keyboard focus transfer (DEF-006)
+  const skipLink = document.querySelector('.skip-to-content');
+  if (skipLink) {
+    skipLink.addEventListener('click', () => {
+      const target = document.getElementById('main-content');
+      if (target) {
+        target.focus();
+      }
+    });
+  }
+
   // Check URL hash or pending section on load
   const hash = window.location.hash.replace('#', '');
   if (hash) {
-    setTimeout(() => {
+    const label = TARGET_LABEL_MAP[hash];
+    if (label) {
+      setActiveNav(label);
+    }
+    const doScroll = () => {
+      if (label) lockNavScroll(label);
       scrollToTarget(hash);
-    }, 150);
+    };
+    if (document.readyState === 'complete') {
+      setTimeout(doScroll, 80);
+    } else {
+      window.addEventListener('load', () => setTimeout(doScroll, 80), { once: true });
+    }
   }
 }
 
 /**
- * Scroll smoothly with 85px navbar offset
+ * Scroll smoothly with dynamic navbar offset
  */
 function scrollToTarget(targetId) {
   const el = document.getElementById(targetId);
   if (el) {
+    const navHeight = getNavbarHeight();
     const elementPosition = el.getBoundingClientRect().top + window.pageYOffset;
-    const offsetPosition = Math.max(0, elementPosition - NAVBAR_HEIGHT);
+    const offsetPosition = Math.max(0, Math.round(elementPosition - navHeight));
     window.scrollTo({
       top: offsetPosition,
       behavior: 'smooth'
@@ -69,14 +341,27 @@ function scrollToTarget(targetId) {
  */
 function navigateTo(page) {
   closeMobileMenu();
+  const isAboutPage = window.location.search.includes('page=about');
   if (page === 'home' || page === 'top') {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-    setActiveNav('Home');
+    if (isAboutPage) {
+      window.location.href = 'index.php';
+    } else {
+      lockNavScroll('Home');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   } else if (page === 'about') {
-    scrollToTarget('about');
-    setActiveNav('About');
+    if (isAboutPage) {
+      lockNavScroll('About');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      goToSection('about', 'home', 'About');
+    }
   } else {
-    scrollToTarget(page);
+    if (isAboutPage) {
+      window.location.href = 'index.php#' + page;
+    } else {
+      goToSection(page, 'home');
+    }
   }
 }
 
@@ -85,7 +370,22 @@ function navigateTo(page) {
  */
 function goToSection(targetId, targetPage, navLabel) {
   closeMobileMenu();
-  if (navLabel) setActiveNav(navLabel);
+  const label = navLabel || TARGET_LABEL_MAP[targetId];
+
+  const isAboutPage = window.location.search.includes('page=about');
+  if (isAboutPage) {
+    if (targetId === 'top') {
+      window.location.href = 'index.php';
+    } else {
+      window.location.href = 'index.php#' + targetId;
+    }
+    return;
+  }
+
+  // Lock active indicator during programmatic smooth scroll
+  if (label) {
+    lockNavScroll(label);
+  }
 
   if (targetId === 'top') {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -104,20 +404,6 @@ function setActiveNav(label) {
   });
 }
 
-function closeMobileMenu() {
-  const mobileDrawer = document.getElementById('mobile-drawer');
-  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-  if (mobileDrawer) mobileDrawer.classList.remove('open');
-  if (mobileMenuBtn) {
-    const iconMenu = mobileMenuBtn.querySelector('.icon-menu');
-    const iconX = mobileMenuBtn.querySelector('.icon-x');
-    if (iconMenu && iconX) {
-      iconMenu.style.display = 'block';
-      iconX.style.display = 'none';
-    }
-  }
-}
-
 function initScrollSpy() {
   const sections = [
     { id: 'about', label: 'About' },
@@ -128,6 +414,8 @@ function initScrollSpy() {
     { id: 'speakers', label: 'Speakers' },
     { id: 'cfp', label: 'Call for Papers' },
     { id: 'fees', label: 'Registration' },
+    { id: 'exhibition', label: 'Exhibition' },
+    { id: 'sponsorship', label: 'Sponsorship' },
     { id: 'venue', label: 'Venue' },
     { id: 'contact-section', label: 'Contact' }
   ];
@@ -135,6 +423,11 @@ function initScrollSpy() {
   let ticking = false;
 
   function updateActiveNav() {
+    // If programmatic smooth scroll is animating, keep user's chosen section active
+    if (isProgrammaticScroll) {
+      return;
+    }
+
     // 1. If at or near top of page, highlight Home
     if (window.scrollY < 200) {
       setActiveNav('Home');
@@ -142,20 +435,21 @@ function initScrollSpy() {
     }
 
     // 2. If near bottom of document, highlight Contact
-    if ((window.innerHeight + window.scrollY) >= (document.documentElement.scrollHeight - 80)) {
+    if ((window.innerHeight + window.scrollY) >= (document.documentElement.scrollHeight - 60)) {
       setActiveNav('Contact');
       return;
     }
 
-    // 3. Inspect sections in reading line zone (85px navbar + 35px threshold)
-    const readLine = NAVBAR_HEIGHT + 35;
+    // 3. Inspect sections in reading line zone (navbar height + reading offset)
+    const navHeight = getNavbarHeight();
+    const readLine = Math.max(navHeight + 45, Math.min(window.innerHeight * 0.35, navHeight + 160));
     const intersecting = [];
 
     for (const s of sections) {
       const el = document.getElementById(s.id);
       if (!el) continue;
       const r = el.getBoundingClientRect();
-      if (r.top <= readLine && r.bottom >= readLine) {
+      if (r.top <= readLine && r.bottom > readLine) {
         intersecting.push({ s, r });
       }
     }
@@ -167,6 +461,9 @@ function initScrollSpy() {
     intersecting.sort((a, b) => a.r.height - b.r.height);
     setActiveNav(intersecting[0].s.label);
   }
+
+  // Export internal update for programmatic release
+  window.__updateActiveNav = updateActiveNav;
 
   // Throttle scroll events via requestAnimationFrame for smooth 60fps tracking
   window.addEventListener('scroll', () => {
@@ -187,3 +484,7 @@ window.initNavigation = initNavigation;
 window.scrollToTarget = scrollToTarget;
 window.navigateTo = navigateTo;
 window.goToSection = goToSection;
+window.setActiveNav = setActiveNav;
+window.openMobileMenu = openMobileMenu;
+window.closeMobileMenu = closeMobileMenu;
+window.toggleMobileMenu = toggleMobileMenu;

@@ -5,19 +5,12 @@
  */
 
 return [
-    'stats' => [
-        ['icon' => 'users',    'value' => '500+', 'label' => 'Participants'],
-        ['icon' => 'globe',    'value' => '50+',  'label' => 'Countries'],
-        ['icon' => 'mic',      'value' => '120+', 'label' => 'Speakers'],
-        ['icon' => 'building', 'value' => '200+', 'label' => 'Institutions'],
-        ['icon' => 'file-text','value' => '150+', 'label' => 'Research Papers'],
-        ['icon' => 'award',    'value' => '10+',  'label' => 'Keynote Sessions'],
-    ],
+    'stats' => [],
     'highlights' => [
-        'High-quality paper presentations',
-        'Keynote talks from global experts',
-        'Workshops & technical sessions',
-        'Peer-reviewed conference proceedings',
+        'Interdisciplinary Research Presentation',
+        'Six Thematic Engineering Tracks',
+        'Peer-Reviewed Technical Submissions',
+        'Academic & Industry Knowledge Exchange',
     ],
 
     'tracks' => [
@@ -110,29 +103,44 @@ return [
         ['label' => 'Conference Dates',          'date' => 'April 9–10, 2027',   'type' => 'event',    'status' => 'Proposed'],
     ],
 
+    // Keynote & Invited Sessions (Provisional State: Forthcoming Announcements)
+    // Note: Official speaker profiles will be published following formal confirmation by the steering committee.
+    'speakers_confirmed' => false,
     'speakers' => [
         [
-            'name' => 'Dr. Kai-Fu Lee',
-            'role' => 'Chairman & CEO',
-            'org' => 'Innovation Ventures, USA',
-            'image' => null, // Placeholder stock models removed; authentic portraits pending speaker confirmation
-        ],
-        [
-            'name' => 'Dr. Fei-Fei Li',
-            'role' => 'Professor of AI',
-            'org' => 'Stanford University, USA',
+            'name' => 'To Be Announced',
+            'role' => 'Keynote Address',
+            'theme' => 'Sustainable Automotive Mobility & Electric Vehicles',
+            'track' => 'Track 1',
+            'status' => 'To Be Announced',
+            'confirmed' => false,
             'image' => null,
         ],
         [
-            'name' => 'Dr. R. A. Mashelkar',
-            'role' => 'Former Director General',
-            'org' => 'CSIR, India',
+            'name' => 'To Be Announced',
+            'role' => 'Keynote Address',
+            'theme' => 'Intelligent Sustainable Manufacturing & Industry 5.0',
+            'track' => 'Track 2',
+            'status' => 'To Be Announced',
+            'confirmed' => false,
             'image' => null,
         ],
         [
-            'name' => 'Dr. Yann LeCun',
-            'role' => 'VP & Chief AI Scientist',
-            'org' => 'Meta, USA',
+            'name' => 'To Be Announced',
+            'role' => 'Keynote Address',
+            'theme' => 'Artificial Intelligence & Digital Technologies in Engineering',
+            'track' => 'Track 5',
+            'status' => 'To Be Announced',
+            'confirmed' => false,
+            'image' => null,
+        ],
+        [
+            'name' => 'To Be Announced',
+            'role' => 'Keynote Address',
+            'theme' => 'Smart & Sustainable Materials, Infrastructure & Energy Systems',
+            'track' => 'Tracks 3 & 4',
+            'status' => 'To Be Announced',
+            'confirmed' => false,
             'image' => null,
         ],
     ],
@@ -144,41 +152,68 @@ return [
         ['category' => 'Industry / Others',  'early' => '₹3,000', 'regular' => '₹3,580', 'spot' => '₹4,000'],
     ],
 
-    'sponsors' => [
-        ['name' => 'IEEE'],
-        ['name' => 'Springer'],
-        ['name' => 'Scopus'],
-        ['name' => 'Google'],
-        ['name' => 'Microsoft'],
-        ['name' => 'AWS'],
-        ['name' => 'Taylor & Francis'],
+    // Publication Partners & Sponsors (Provisional State: Kept empty until formal agreements/approvals)
+    'sponsors' => [],
+
+    // Descriptive Industry Collaboration & Sponsorship Opportunities (Qualitative exploratory categories, no prices or tiers)
+    'sponsorship_collaboration_areas' => [
+        [
+            'title' => 'Academic & Institutional Collaboration',
+            'icon' => '🤝',
+            'description' => 'Exploratory dialogue for academic, research, and professional organizations interested in supporting conference activities and sustainable engineering dialogues.',
+            'engagement' => 'Exploratory discussions on institutional visibility, academic session support, and non-financial collaboration, subject to mutual agreement.',
+        ],
+        [
+            'title' => 'Technical Track Collaboration',
+            'icon' => '⚙️',
+            'description' => 'Opportunities for technology and engineering organizations to explore collaborative engagement with thematic research tracks in mobility, manufacturing, materials, and energy.',
+            'engagement' => 'Potential dialogue on industry-academic knowledge exchange and technical track interaction, pending formal review.',
+        ],
+        [
+            'title' => 'Research Dissemination Support',
+            'icon' => '📚',
+            'description' => 'Exploratory engagement for academic societies and scholarly groups interested in supporting the academic dissemination of conference research.',
+            'engagement' => 'Potential collaboration on scholarly visibility and research documentation support; formal publication arrangements remain subject to institutional approval.',
+        ],
+        [
+            'title' => 'Student & Scholar Engagement',
+            'icon' => '🏆',
+            'description' => 'Exploratory avenues to encourage student participation, youth innovation initiatives, and emerging researcher interaction.',
+            'engagement' => 'Potential opportunities to support student technical engagement; award frameworks and recognition models are exploratory and subject to committee approval.',
+        ],
     ],
 
-    // Proposed Industry Sponsorship Categories (Configurable - Not published until approved)
-    'sponsorship_categories' => [
+    // Industry Exhibition & Technology Showcase Focus Domains
+    'exhibition_domains' => [
         [
-            'category' => 'Title Sponsor',
-            'contribution' => '₹3,00,000',
-            'expected_slots' => 1,
-            'status' => 'Proposed'
+            'title' => 'Automotive & Electric Mobility',
+            'icon' => '🚗',
+            'description' => 'Showcase next-generation electric vehicles, battery management systems, intelligent powertrains, charging infrastructure, and connected telemetry solutions.',
+            'focus' => 'EV Prototypes, Battery Packs & Connected Mobility Solutions'
         ],
         [
-            'category' => 'Platinum Sponsor',
-            'contribution' => '₹2,00,000',
-            'expected_slots' => 1,
-            'status' => 'Proposed'
+            'title' => 'Intelligent Manufacturing & Industry 5.0',
+            'icon' => '🏭',
+            'description' => 'Demonstrate human-centric automation, cobotics, additive manufacturing systems, smart sensors, and digital twin technology for manufacturing plants.',
+            'focus' => 'Robotics Demos, Smart Sensors & Industrial Automation Systems'
         ],
         [
-            'category' => 'Gold Sponsor',
-            'contribution' => '₹1,00,000',
-            'expected_slots' => 3,
-            'status' => 'Proposed'
+            'title' => 'Sustainable Materials & Infrastructure',
+            'icon' => '🏗️',
+            'description' => 'Display bio-based polymers, circular engineering materials, non-destructive testing equipment, and net-zero smart infrastructure innovations.',
+            'focus' => 'Eco-Materials, Circular Technologies & Net-Zero Solutions'
         ],
         [
-            'category' => 'Silver Sponsor',
-            'contribution' => '₹50,000',
-            'expected_slots' => 4,
-            'status' => 'Proposed'
+            'title' => 'AI, IoT & Cyber-Physical Systems',
+            'icon' => '🤖',
+            'description' => 'Feature enterprise AI applications, computer vision automated inspection, edge IoT hardware, and industrial cybersecurity frameworks.',
+            'focus' => 'Enterprise AI Demos, Edge IoT & Automated Quality Inspection'
+        ],
+        [
+            'title' => 'Industry-Academia Collaborative R&D',
+            'icon' => '🤝',
+            'description' => 'Engage with MGM University faculty and engineering students on joint research testbeds, patent commercialization, and incubation projects.',
+            'focus' => 'R&D Showcases, Technology Transfer & Industry-Ready Talent'
         ],
     ],
 
@@ -189,19 +224,13 @@ return [
         'Sustainable Energy Systems, Thermal Engineering & Renewable Energy Integration',
         'Artificial Intelligence, Digital Technologies & Cyber-Physical Systems',
         'Environmental Sustainability, Climate Resilience & Circular Economy Models',
-        'Autonomous Vehicles, Connected Mobility & Intelligent Transportation Systems',
-        'Energy Storage Technologies, Hydrogen Fuel & Net-Zero Solutions',
-        'Digital Twins, IoT & Big Data Analytics for Industrial Optimization',
-        'Interdisciplinary Industry-Academia Collaborative Innovation',
     ],
 
     'objectives' => [
         'Provide a premier international forum bringing together academia, automotive professionals, industry leaders, and researchers to share breakthroughs in intelligent engineering and sustainable technologies.',
         'Promote sustainable automotive mobility, electric vehicles, and intelligent transportation solutions supporting climate resilience and decarbonization goals.',
-        'Foster active linkages and collaborative partnerships between academic institutions and global industries through joint research, innovation, and technological exchange.',
         'Advance the integration of Industry 5.0, Human-Centric Manufacturing, Artificial Intelligence, and Digital Technologies across diverse engineering domains.',
-        'Showcase emerging developments in renewable energy, advanced thermal engineering, energy storage, and resource-efficient circular production systems.',
-        'Facilitate meaningful technical dialogue on environmental sustainability, carbon footprint reduction, and future-ready engineering education.',
+        'Foster active linkages and collaborative partnerships between academic institutions and global industries through joint research, circular economy models, and technological exchange.',
     ],
 
     'committee' => require __DIR__ . '/committee_members.php',
@@ -214,6 +243,8 @@ return [
         ['label' => 'Speakers',        'target' => 'speakers',        'page' => 'home'],
         ['label' => 'Committee',       'target' => 'committee',       'page' => 'home'],
         ['label' => 'Schedule',        'target' => 'dates',           'page' => 'home'],
+        ['label' => 'Exhibition',      'target' => 'exhibition',      'page' => 'home'],
+        ['label' => 'Sponsorship',     'target' => 'sponsorship',     'page' => 'home'],
         ['label' => 'Registration',    'target' => 'fees',            'page' => 'home'],
         ['label' => 'Venue',           'target' => 'venue',           'page' => 'home'],
         ['label' => 'Contact',         'target' => 'contact-section', 'page' => 'home'],

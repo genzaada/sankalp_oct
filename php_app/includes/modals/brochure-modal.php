@@ -2,8 +2,9 @@
 <!-- Conference Brochure Notice Modal Component -->
 <div id="modal-brochure" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-brochure-title">
   <div class="modal-window" style="max-width: 520px; text-align: center; padding: 2.5rem 2rem;">
-    <button type="button" class="modal-close-btn" onclick="closeModal('modal-brochure')" aria-label="Close Brochure Dialog">
+    <button type="button" class="modal-close-btn" onclick="closeModal('modal-brochure')" aria-label="Close Brochure Dialog" title="Close Brochure Dialog">
       <?= render_icon('x') ?>
+      <span class="sr-only">Close Brochure Dialog</span>
     </button>
 
     <div style="width: 4rem; height: 4rem; border-radius: 50%; margin: 0 auto 1.25rem auto; background: rgba(18, 124, 111, 0.1); border: 2px solid var(--color-primary-500); display: flex; align-items: center; justify-content: center; font-size: 1.75rem; color: var(--color-primary-700);">
@@ -15,7 +16,7 @@
       Conference Brochure Coming Soon
     </h3>
     <p style="font-size: 0.875rem; color: var(--color-text-body); max-width: 26rem; margin: 0 auto 1.5rem auto; line-height: 1.6;">
-      The official <?= e($config['app_name']) ?> conference brochure, detailed track outlines, and delegate information are currently in preparation. It will be released prior to the early bird registration deadline.
+      The official <?= e($config['app_name']) ?> conference brochure, detailed track outlines, and delegate information are currently in preparation. It will be released in accordance with the proposed conference schedule.
     </p>
 
     <div style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1.25rem; border-radius: 9999px; background: rgba(242, 183, 5, 0.1); border: 1px solid rgba(242, 183, 5, 0.3); font-family: var(--font-mono); font-size: 0.8125rem; font-weight: 600; color: var(--color-primary-900); margin-bottom: 1.75rem;">

@@ -1,38 +1,16 @@
 <?php
 /**
- * API Endpoint: Newsletter Subscription
+ * API Endpoint: Newsletter Subscription (Retired)
+ * ICAIESF 2027 operates as a static informational portal.
  */
 
+http_response_code(410);
 header('Content-Type: application/json; charset=UTF-8');
-require_once __DIR__ . '/../includes/helpers.php';
-require_once __DIR__ . '/../config/database.php';
+header('Cache-Control: no-store, no-cache, must-revalidate');
 
-if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    json_response(['success' => false, 'message' => 'Method not allowed.'], 405);
-}
-
-$input = $_POST;
-if (empty($input)) {
-    $raw = file_get_contents('php://input');
-    $input = json_decode($raw, true) ?? [];
-}
-
-$email = trim($input['email'] ?? '');
-if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    json_response(['success' => false, 'message' => 'Please provide a valid email address.'], 422);
-}
-
-$pdo = get_db_connection();
-if ($pdo !== null) {
-    try {
-        $stmt = $pdo->prepare("INSERT IGNORE INTO newsletter_subscribers (email) VALUES (?)");
-        $stmt->execute([$email]);
-    } catch (PDOException $e) {
-        error_log("Newsletter DB error: " . $e->getMessage());
-    }
-}
-
-json_response([
-    'success' => true,
-    'message' => 'Thank you! You have subscribed to conference updates.'
-], 200);
+echo json_encode([
+    'success' => false,
+    'status'  => 410,
+    'message' => 'The newsletter subscription endpoint has been retired for ICAIESF 2027. Official updates and announcements are published directly on the conference portal.'
+], JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT);
+exit;

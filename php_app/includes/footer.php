@@ -19,7 +19,7 @@ $navLinks = $conferenceData['nav_links'];
           <img src="<?= asset_url('assets/images/logo%202%20.png') ?>" alt="<?= e($config['app_name']) ?>" class="brand-logo-img">
         </div>
         <p style="font-size: 0.75rem; line-height: 1.6; color: rgba(255,255,255,0.6);">
-          <?= e($config['app_full_title']) ?>. Uniting researchers, academicians, and industry experts globally.
+          <?= e($config['app_full_title']) ?>. Organized by School of Engineering and Technology (SOET), MGM University.
         </p>
 
         <!-- Social Icons (Rendered only when valid URLs are configured) -->
@@ -29,10 +29,10 @@ $navLinks = $conferenceData['nav_links'];
         });
         ?>
         <?php if (!empty($socialLinks)): ?>
-          <div style="display: flex; gap: 0.625rem; padding-top: 0.25rem;">
+          <div style="display: flex; gap: 0.625rem; padding-top: 0.25rem; flex-wrap: wrap;">
             <?php foreach ($socialLinks as $soc => $socUrl): ?>
               <a href="<?= e($socUrl) ?>" target="_blank" rel="noopener noreferrer" aria-label="<?= ucfirst($soc) ?>"
-                style="width: 2rem; height: 2rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.05); color: rgba(255,255,255,0.6); transition: all 0.15s;"
+                style="width: 2.75rem; height: 2.75rem; min-width: 44px; min-height: 44px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.05); color: rgba(255,255,255,0.6); transition: all 0.15s;"
                 onmouseover="this.style.color='#fff'; this.style.borderColor='#fff';"
                 onmouseout="this.style.color='rgba(255,255,255,0.6)'; this.style.borderColor='rgba(255,255,255,0.2)';">
                 <?= render_icon($soc) ?>
@@ -66,10 +66,11 @@ $navLinks = $conferenceData['nav_links'];
         </h4>
         <div style="display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.75rem;">
           <div style="display: flex; gap: 0.625rem; color: rgba(255,255,255,0.85); font-weight: 600;">
-            <span><?= e($config['conference_chair'] ?? 'Conference Chair') ?></span>
+            <span><?= e($config['conference_chair'] ?? 'Dr. Parminder Kaur Dhingra') ?></span>
           </div>
           <div style="font-size: 11px; color: rgba(255,255,255,0.6); line-height: 1.4;">
-            Director, School of Engineering &amp; Technology, MGM University
+            Conference Chair, Professor &amp; Director<br>
+            School of Engineering and Technology (SOET), MGM University
           </div>
           <div style="display: flex; gap: 0.625rem; color: rgba(255,255,255,0.6);">
             <span style="flex-shrink: 0; margin-top: 0.125rem;"><?= render_icon('map-pin') ?></span>
@@ -83,31 +84,24 @@ $navLinks = $conferenceData['nav_links'];
             <?= render_icon('phone') ?>
             <a href="tel:<?= e(preg_replace('/[^0-9+]/', '', $config['contact_phone'])) ?>" style="color: inherit; transition: color 0.15s;" onmouseover="this.style.color='#fff';" onmouseout="this.style.color='rgba(255,255,255,0.6)';"><?= e($config['contact_phone']) ?></a>
             <span style="color: rgba(255,255,255,0.4);">|</span>
-            <span style="color: rgba(255,255,255,0.6);"><?= e($config['contact_office']) ?></span>
+            <a href="tel:02406481000" style="color: inherit; transition: color 0.15s;" onmouseover="this.style.color='#fff';" onmouseout="this.style.color='rgba(255,255,255,0.6)';"><?= e($config['contact_office']) ?></a>
           </div>
         </div>
       </div>
 
-      <!-- Col 4: Newsletter -->
+      <!-- Col 4: Direct Inquiries -->
       <div>
         <h4 class="font-mono uppercase tracking-widest font-bold text-white/50" style="font-size: 10px; margin-bottom: 1rem; color: rgba(255,255,255,0.5);">
-          Newsletter
+          Direct Enquiries
         </h4>
-        <p style="font-size: 0.75rem; line-height: 1.6; color: rgba(255,255,255,0.6); margin-bottom: 1rem;">
-          Subscribe for news, deadline reminders, and conference updates.
+        <p style="font-size: 0.75rem; line-height: 1.6; color: rgba(255,255,255,0.6); margin-bottom: 1.25rem;">
+          For submissions, academic sessions, industry partnership, and general information, connect directly with the secretariat:
         </p>
 
-        <div id="newsletter-feedback" class="form-feedback" style="display: none;"></div>
-
-        <form id="newsletter-form" style="display: flex; flex-direction: column; gap: 0.625rem;">
-          <input type="hidden" name="csrf_token" value="<?= e(csrf_token()) ?>">
-          <input type="email" name="email" placeholder="Enter your email" required
-            style="font-size: 0.75rem; padding: 0.75rem 1rem; border-radius: 0.75rem; outline: none; color: #fff; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); transition: border-color 0.15s;">
-          <button type="submit" class="btn-amber"
-            style="padding: 0.75rem; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; justify-content: center;">
-            Subscribe
-          </button>
-        </form>
+        <a href="mailto:<?= e($config['contact_email']) ?>?subject=ICAIESF%202027%20Inquiry" class="btn-amber"
+          style="padding: 0.75rem 1rem; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; justify-content: center; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; width: 100%;">
+          <?= render_icon('mail') ?> Email Secretariat
+        </a>
       </div>
 
     </div>
@@ -115,10 +109,8 @@ $navLinks = $conferenceData['nav_links'];
     <!-- Bottom Copyright Bar -->
     <div style="padding-top: 1.5rem; display: flex; flex-direction: column; justify-content: space-between; align-items: center; gap: 0.75rem; font-size: 0.75rem; color: rgba(255,255,255,0.4); border-top: 1px solid rgba(255,255,255,0.08);" class="sm:flex-row">
       <span>&copy; <?= date('Y') ?> <?= e($config['app_name']) ?>. All rights reserved. <?= e($config['app_subtitle']) ?>.</span>
-      <div style="display: flex; gap: 1.25rem;">
-        <a href="#" style="color: inherit;" onmouseover="this.style.color='#fff';" onmouseout="this.style.color='rgba(255,255,255,0.4)';">Privacy Policy</a>
-        <span>·</span>
-        <a href="#" style="color: inherit;" onmouseover="this.style.color='#fff';" onmouseout="this.style.color='rgba(255,255,255,0.4)';">Terms &amp; Conditions</a>
+      <div style="display: flex; gap: 0.75rem; color: rgba(255,255,255,0.4);">
+        <span>School of Engineering and Technology, MGM University</span>
       </div>
     </div>
   </div>
@@ -134,7 +126,6 @@ $navLinks = $conferenceData['nav_links'];
 <script src="<?= asset_url('assets/js/counters.js') ?>"></script>
 <script src="<?= asset_url('assets/js/navigation.js') ?>"></script>
 <script src="<?= asset_url('assets/js/modals.js') ?>"></script>
-<script src="<?= asset_url('assets/js/forms.js') ?>"></script>
 <script src="<?= asset_url('assets/js/main.js') ?>"></script>
 </body>
 </html>

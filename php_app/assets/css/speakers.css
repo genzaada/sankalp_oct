@@ -25,13 +25,21 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: 1.25rem 0.75rem;
+  padding: 1.5rem 1rem;
   border-radius: 1rem;
   border: 1px solid var(--color-border);
   background: var(--color-bg-light);
   height: 100%;
   justify-content: space-between;
   transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.sankalp-speakers .speaker-forthcoming-card {
+  border-style: solid;
+  border-color: rgba(18, 124, 111, 0.2);
+  background: linear-gradient(180deg, #ffffff 0%, var(--color-bg-light) 100%);
 }
 
 .sankalp-speakers .speaker-card:hover {

@@ -16,7 +16,7 @@ $conferenceData = require __DIR__ . '/config/conference_data.php';
 // Route detection: support both query param (?page=about) and client-side view switching
 $currentPage = isset($_GET['page']) && strtolower($_GET['page']) === 'about' ? 'about' : 'home';
 $pageTitle = $currentPage === 'about' 
-    ? 'About the Conference & Host Institution — ' . $config['app_name'] 
+    ? 'About the Host Institution — ' . $config['app_name']
     : $config['app_name'] . ' — ' . $config['app_full_title'];
 
 // 1. Head & Meta
@@ -25,8 +25,12 @@ require __DIR__ . '/includes/head.php';
 // 2. Navigation Header
 require __DIR__ . '/includes/navigation.php';
 
-// 3. Page View: Unified single-page layout
-require __DIR__ . '/includes/pages/home.php';
+// 3. Page View
+if ($currentPage === 'about') {
+    require __DIR__ . '/includes/pages/about.php';
+} else {
+    require __DIR__ . '/includes/pages/home.php';
+}
 
 // 4. Global Footer, Modals & Client Scripts
 require __DIR__ . '/includes/footer.php';

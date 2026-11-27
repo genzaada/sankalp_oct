@@ -22,9 +22,9 @@ if (!empty($conferenceData['dates'])) {
     }
 }
 ?>
-<header class="hero-section sankalp-hero">
+<header class="hero-section sankalp-hero" style="overflow: hidden;">
   <!-- Subtle ambient glow background -->
-  <div class="ambient-glow" style="position: absolute; right: 0; top: 0; width: 600px; height: 600px; border-radius: 50%; pointer-events: none; background: rgba(18, 124, 111, 0.18); filter: blur(120px);"></div>
+  <div class="ambient-glow" style="position: absolute; right: 0; top: 0; width: 450px; max-width: 100vw; height: 450px; border-radius: 50%; pointer-events: none; background: rgba(18, 124, 111, 0.18); filter: blur(100px); overflow: hidden;"></div>
 
   <div class="container hero-content">
 
@@ -77,22 +77,22 @@ if (!empty($conferenceData['dates'])) {
           <?= render_icon('clock') ?>
           <div>
             <p class="font-mono text-[10px] uppercase tracking-wider" style="color: rgba(255, 255, 255, 0.6); font-size: 10px;">Registration Deadline</p>
-            <p class="font-semibold text-white" style="font-size: 12px; margin: 0;"><?= e($regDeadline) ?></p>
+            <p class="font-semibold text-white" style="font-size: 12px; margin: 0;"><?= e($regDeadline) ?> (Proposed)</p>
           </div>
         </div>
       </div>
 
       <!-- Action Buttons -->
       <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
-        <button type="button" onclick="openRegistrationModal()"
-          style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.875rem 1.75rem; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; border-radius: 9999px; background: #ffffff; color: var(--color-primary-900); box-shadow: 0 10px 25px rgba(0,0,0,0.15); transition: transform 0.15s;">
-          Register Now <?= render_icon('arrow-right') ?>
+        <button type="button" onclick="goToSection('cfp', 'home', 'Call for Papers')" class="btn-amber"
+          style="padding: 0.875rem 1.75rem; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;">
+          Call For Papers <?= render_icon('arrow-right') ?>
         </button>
 
-        <button type="button" onclick="showBrochureNotice()"
+        <button type="button" onclick="openRegistrationModal()"
           class="btn-outline-white"
           style="padding: 0.875rem 1.75rem; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;">
-          Brochure Coming Soon <?= render_icon('clock') ?>
+          Registration Info <?= render_icon('clock') ?>
         </button>
       </div>
 

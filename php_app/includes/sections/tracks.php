@@ -51,7 +51,7 @@ $tracks = $conferenceData['tracks'];
           <div class="track-card-footer">
             <span class="font-mono" style="font-size: 11px; color: #9ca3af;">6 Sub-themes</span>
             <button type="button" onclick="openSubmissionModal(<?= $i + 1 ?>, '<?= e(addslashes($track['trackNum'] . ': ' . $track['title'])) ?>')" class="track-cta-btn">
-              Submit to Track <?= render_icon('arrow-right') ?>
+              Track Submission Info <?= render_icon('arrow-right') ?>
             </button>
           </div>
         </div>
@@ -62,7 +62,7 @@ $tracks = $conferenceData['tracks'];
     <div class="reveal-up" style="text-align: center;">
       <button type="button" onclick="goToSection('cfp', 'home', 'Call for Papers')" class="btn-primary"
         style="padding: 0.875rem 2rem; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;">
-        Submit Your Paper to a Track <?= render_icon('arrow-right') ?>
+        View Call for Papers &amp; Guidelines <?= render_icon('arrow-right') ?>
       </button>
     </div>
 

@@ -3,7 +3,7 @@
  * Homepage View Template
  */
 ?>
-<main id="view-home" class="page-view" style="display:block;">
+<main id="main-content" tabindex="-1" class="page-view" style="display:block; outline:none; scroll-margin-top: 5.5rem;">
   <?php require __DIR__ . '/../sections/hero.php'; ?>
   <?php require __DIR__ . '/../sections/stats.php'; ?>
   <?php require __DIR__ . '/../sections/about-home.php'; ?>
@@ -12,6 +12,8 @@
   <?php require __DIR__ . '/../sections/tracks.php'; ?>
   <?php require __DIR__ . '/../sections/dates-speakers.php'; ?>
   <?php require __DIR__ . '/../sections/cfp-fees.php'; ?>
+  <?php require __DIR__ . '/../sections/exhibition.php'; ?>
+  <?php require __DIR__ . '/../sections/sponsorship.php'; ?>
   <?php require __DIR__ . '/../sections/venue.php'; ?>
   <?php require __DIR__ . '/../sections/sponsors.php'; ?>
 </main>

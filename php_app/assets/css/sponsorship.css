@@ -1,0 +1,110 @@
+/* ── ICAIESF 2027: Sponsorship Section Stylesheet ───────────────────────── */
+/* Scoped root: .sankalp-sponsorship */
+
+.sankalp-sponsorship .sponsorship-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .sankalp-sponsorship .sponsorship-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .sankalp-sponsorship .sponsorship-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+.sankalp-sponsorship .sponsorship-card {
+  padding: 1.75rem 1.5rem;
+  border-radius: 1rem;
+  background: #ffffff;
+  border: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  position: relative;
+}
+
+.sankalp-sponsorship .sponsorship-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(10, 74, 71, 0.1);
+  border-color: var(--color-primary-500);
+}
+
+.sankalp-sponsorship .sponsorship-card-header {
+  margin-bottom: 1rem;
+}
+
+.sankalp-sponsorship .sponsorship-benefits-wrapper {
+  border-top: 1px solid var(--color-border);
+  padding-top: 1rem;
+  margin-bottom: 1rem;
+  flex-grow: 1;
+}
+
+.sankalp-sponsorship .sponsorship-benefits-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+
+.sankalp-sponsorship .sponsorship-benefits-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  line-height: 1.45;
+  color: var(--color-text-body);
+}
+
+.sankalp-sponsorship .benefit-check-icon {
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+  margin-top: 0.125rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-primary-600);
+}
+
+.sankalp-sponsorship .benefit-check-icon svg {
+  width: 0.875rem;
+  height: 0.875rem;
+}
+
+.sankalp-sponsorship .btn-outline-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  border: 1px solid var(--color-primary-600);
+  background: transparent;
+  color: var(--color-primary-700);
+  transition: all 0.15s ease;
+  text-decoration: none;
+}
+
+.sankalp-sponsorship .btn-outline-primary:hover {
+  background: var(--color-primary-700);
+  color: #ffffff;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sankalp-sponsorship .sponsorship-card {
+    transition: none;
+  }
+  .sankalp-sponsorship .sponsorship-card:hover {
+    transform: none;
+  }
+}

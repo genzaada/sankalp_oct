@@ -1,5 +1,7 @@
--- SANKALP 2027 / ICAEITSF Database Schema for MySQL 8.x
--- MGM University School of Engineering and Technology
+-- ICAIESF 2027 / Reference Database Schema
+-- MGM University School of Engineering and Technology (SOET)
+-- Note: The ICAIESF 2027 conference website operates as a static informational portal.
+-- This schema is preserved for architectural reference only and is not active in production.
 
 CREATE DATABASE IF NOT EXISTS `sankalp2027_db` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 USE `sankalp2027_db`;

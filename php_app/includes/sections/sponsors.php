@@ -3,7 +3,12 @@
  * Publication Partners & Sponsors Component
  */
 $conferenceData = $conferenceData ?? require __DIR__ . '/../../config/conference_data.php';
-$sponsors = $conferenceData['sponsors'];
+$sponsors = $conferenceData['sponsors'] ?? [];
+
+// Hide section when no confirmed sponsors or publication partners are configured
+if (empty($sponsors)) {
+    return;
+}
 ?>
 <section class="section-white" style="padding-top: 4rem; padding-bottom: 4rem; overflow: hidden;">
   <div class="container text-center" style="text-align: center;">

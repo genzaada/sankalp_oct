@@ -7,7 +7,7 @@
  */
 
 return [
-    'Patrons' => [
+    'Patrons & Leadership' => [
         [
             'role'  => 'Chief Patron',
             'name'  => 'Dr. Vilas S. Sapkal',
@@ -17,7 +17,7 @@ return [
         [
             'role'  => 'Patron',
             'name'  => 'Dr. H. H. Shinde',
-            'org'   => 'Dean, School of Engineering & Technology, MGM University',
+            'org'   => 'Dean, School of Engineering and Technology, MGM University',
             'image' => null,
         ],
         [
@@ -26,28 +26,34 @@ return [
             'org'   => 'Registrar, MGM University',
             'image' => 'assets/images/committee/dr_ashish_gadekar.png',
         ],
+        [
+            'role'  => 'Conference Chair',
+            'name'  => 'Dr. Parminder Kaur Dhingra',
+            'org'   => 'Professor & Director, School of Engineering and Technology, MGM University',
+            'image' => null,
+        ],
     ],
-    'Steering' => [
+    'Organizing Committee' => [
         [
             'role'  => 'General Chair',
             'name'  => 'Dr. S. C. Tamane',
-            'org'   => 'School of Engineering & Technology, MGM University',
+            'org'   => 'School of Engineering and Technology, MGM University',
             'image' => null,
         ],
         [
             'role'  => 'Technical Program Chair',
             'name'  => 'Dr. V. B. Musande',
-            'org'   => 'School of Engineering & Technology, MGM University',
+            'org'   => 'School of Engineering and Technology, MGM University',
             'image' => null,
         ],
         [
             'role'  => 'Finance Chair',
             'name'  => 'Dr. B. M. Patil',
-            'org'   => 'School of Engineering & Technology, MGM University',
+            'org'   => 'School of Engineering and Technology, MGM University',
             'image' => null,
         ],
     ],
-    'Advisory' => [
+    'Advisory Committee' => [
         [
             'role'  => 'International Advisor',
             'name'  => 'Dr. Albert Y. Zomaya',

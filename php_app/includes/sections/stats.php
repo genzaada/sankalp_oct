@@ -1,9 +1,12 @@
 <?php
 /**
- * Stats Bar Component (Overlapping Hero with -mt-10)
+ * Stats Bar Component (Conditional Render: Only when verified statistics are configured)
  */
 $conferenceData = $conferenceData ?? require __DIR__ . '/../../config/conference_data.php';
-$stats = $conferenceData['stats'];
+$stats = $conferenceData['stats'] ?? [];
+if (empty($stats)) {
+    return;
+}
 ?>
 <section class="stats-section section-white sankalp-stats">
   <div class="container">

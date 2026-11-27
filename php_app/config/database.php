@@ -2,6 +2,7 @@
 /**
  * Secure PDO Database Connector
  * Uses prepared statements and exception handling
+ * Public-facing pages operate statically without database dependency.
  */
 
 function get_db_connection(): ?PDO {
@@ -18,14 +19,19 @@ function get_db_connection(): ?PDO {
 
     $attempted = true;
     $config = require __DIR__ . '/app.php';
-    $db = $config['database'];
+    $db = $config['database'] ?? [];
+
+    // Safe failure: If database name or user is not configured via environment variables, return null safely.
+    if (empty($db['name']) || empty($db['user'])) {
+        return null;
+    }
 
     $dsn = sprintf(
         'mysql:host=%s;port=%d;dbname=%s;charset=%s',
-        $db['host'],
-        $db['port'],
+        $db['host'] ?: 'localhost',
+        $db['port'] ?: 3306,
         $db['name'],
-        $db['charset']
+        $db['charset'] ?: 'utf8mb4'
     );
 
     $options = [

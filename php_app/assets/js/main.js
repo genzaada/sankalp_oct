@@ -20,12 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initAnimatedCounters();
   }
 
-  // 4. Initialize AJAX Forms
-  if (typeof initForms === 'function') {
-    initForms();
-  }
-
-  // 5. Initialize Viewport Intersection Reveal
+  // 4. Initialize Viewport Intersection Reveal
   initViewportReveals();
 
   // 6. Initialize Sponsor Scroller Controls
@@ -123,7 +118,7 @@ function downloadFile(filename) {
     return;
   }
 
-  if (filename === 'SANKALP_Brochure.pdf') {
+  if (filename === 'ICAIESF_Brochure.pdf') {
     if (typeof showBrochureNotice === 'function') {
       showBrochureNotice();
     }

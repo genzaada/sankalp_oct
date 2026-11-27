@@ -1,143 +1,56 @@
 <?php
 /**
- * Conference Overview Component: Scope, Objectives & Host Institution
+ * Conference Objectives Component
  */
 $config = $config ?? require __DIR__ . '/../../config/app.php';
 $conferenceData = $conferenceData ?? require __DIR__ . '/../../config/conference_data.php';
-$scopes = $conferenceData['scopes'];
 $objectives = $conferenceData['objectives'];
 ?>
-<section id="overview" class="section-light sankalp-overview" style="padding-top: 6rem; padding-bottom: 6rem;">
+<section id="overview" class="section-light sankalp-overview" style="padding-top: 6rem; padding-bottom: 6rem; scroll-margin-top: 5rem;">
   <div class="container">
 
     <!-- Section Header -->
-    <div class="reveal-up text-center" style="text-align: center; margin-bottom: 3.5rem;">
-      <p class="eyebrow" style="margin-bottom: 0.75rem;">Conference Overview</p>
+    <div class="reveal-up text-center" style="text-align: center; margin-bottom: 3rem;">
+      <p class="eyebrow" style="margin-bottom: 0.75rem;">Mission &amp; Purpose</p>
       <h2 class="font-display font-bold text-3xl md:text-4xl leading-tight" style="font-size: clamp(1.75rem, 3vw, 2.25rem); color: var(--color-text-heading);">
-        About the Conference
+        Conference Objectives
       </h2>
       <div style="margin: 0.75rem auto 0 auto; width: 3.5rem; height: 4px; border-radius: 9999px; background: var(--color-primary-500);"></div>
     </div>
 
-    <!-- 1. Conference Scope -->
-    <div style="margin-bottom: 3.5rem;">
-      <div class="reveal-up" style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.5rem;">
-        <div style="width: 4px; height: 1.25rem; border-radius: 9999px; background: var(--color-primary-700); flex-shrink: 0;"></div>
-        <span class="font-mono text-[11px] uppercase tracking-widest font-bold" style="font-size: 11px; color: var(--color-primary-700);">
-          <?= e($config['app_name']) ?> Scope
-        </span>
-      </div>
-
-      <div class="card reveal-up delay-1" style="padding: 2rem 2.5rem;">
-        <h3 class="font-display font-bold text-xl sm:text-2xl" style="font-size: 1.35rem; color: var(--color-text-heading); margin-bottom: 1rem;">
-          Multidisciplinary Research &amp; Innovation Domains
-        </h3>
-        <p style="font-size: 0.875rem; line-height: 1.6; color: var(--color-text-body); margin-bottom: 1.5rem; max-width: 56rem;">
-          <?= e($config['app_name']) ?> provides a multidisciplinary platform covering emerging trends, scientific breakthroughs, and industrial innovations in sustainability-focused engineering and technology domains. The conference welcomes original research contributions, case studies, industrial applications, and innovative practices related to:
-        </p>
-
-        <!-- 10 Scopes Grid (Balanced 2 columns) -->
-        <div class="scopes-grid">
-          <?php foreach ($scopes as $scope): ?>
-            <div class="scope-item">
-              <div style="width: 1.5rem; height: 1.5rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; background: rgba(18, 124, 111, 0.14); color: var(--color-primary-700);">
-                <?= render_icon('check') ?>
-              </div>
-              <span style="font-size: 0.875rem; font-weight: 500; color: var(--color-text-heading); line-height: 1.4;">
-                <?= e($scope) ?>
-              </span>
-            </div>
-          <?php endforeach; ?>
-        </div>
-
-        <!-- Concluding Callout Banner -->
-        <div style="padding: 1.25rem; border-radius: 0.75rem; border: 1px solid rgba(18, 124, 111, 0.18); background: rgba(18, 124, 111, 0.05); display: flex; align-items: flex-start; gap: 0.875rem;">
-          <div style="width: 1.75rem; height: 1.75rem; border-radius: 0.5rem; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 0.125rem; background: rgba(18, 124, 111, 0.15); color: var(--color-primary-700);">
-            <span style="font-size: 0.875rem;">🚗</span>
-          </div>
-          <p style="font-size: 0.875rem; line-height: 1.6; color: var(--color-text-body); margin: 0;">
-            <strong>Special Emphasis:</strong> The conference bridges academic research and industrial reality with special focus on <em>Sustainable Automotive Mobility, Electric Vehicles, Intelligent Transportation Systems, and Industry 5.0</em>, driving transformative engineering solutions in partnership with leading professional societies and manufacturing sectors.
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <!-- 2. Conference Objectives -->
-    <div class="reveal-up delay-2" style="border-radius: 1rem; padding: 2rem; margin-bottom: 3.5rem; position: relative; overflow: hidden; background: linear-gradient(150deg, var(--color-primary-700) 0%, var(--color-primary-900) 100%); color: #fff;">
-      <div style="position: absolute; right: -3rem; bottom: -3rem; width: 12rem; height: 12rem; border-radius: 50%; pointer-events: none; background: rgba(255,255,255,0.06); filter: blur(40px);"></div>
+    <!-- Conference Objectives Card -->
+    <div class="reveal-up delay-1" style="border-radius: 1rem; padding: 2.5rem; position: relative; overflow: hidden; background: linear-gradient(150deg, var(--color-primary-700) 0%, var(--color-primary-900) 100%); color: #fff; box-shadow: 0 12px 32px rgba(10, 74, 71, 0.12);">
+      <div style="position: absolute; right: -3rem; bottom: -3rem; width: 14rem; height: 14rem; border-radius: 50%; pointer-events: none; background: rgba(255,255,255,0.06); filter: blur(40px);"></div>
 
       <div style="position: relative; z-index: 10;">
-        <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.75rem;">
-          <div style="width: 4px; height: 1.25rem; border-radius: 9999px; background: rgba(255,255,255,0.4); flex-shrink: 0;"></div>
-          <span class="font-mono text-[11px] uppercase tracking-widest font-bold" style="font-size: 11px; color: rgba(255,255,255,0.7);">
-            Conference Objectives
+        <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 2rem;">
+          <div style="width: 4px; height: 1.25rem; border-radius: 9999px; background: var(--color-accent-amber); flex-shrink: 0;"></div>
+          <span class="font-mono text-xs uppercase tracking-widest font-bold" style="font-size: 11px; color: rgba(255,255,255,0.9);">
+            Strategic Academic Goals
           </span>
         </div>
 
         <div class="objectives-grid">
           <?php foreach ($objectives as $idx => $obj): ?>
-            <div style="display: flex; align-items: flex-start; gap: 0.75rem;">
-              <div style="width: 1.5rem; height: 1.5rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 0.125rem; background: rgba(242, 183, 5, 0.18); border: 1px solid rgba(242, 183, 5, 0.35); color: var(--color-accent-amber);">
-                <svg style="width: 0.875rem; height: 0.875rem;" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                  <polyline points="20 6 9 17 4 12" />
-                </svg>
+            <div style="display: flex; align-items: flex-start; gap: 1rem; padding: 1rem; border-radius: 0.75rem; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1);">
+              <div style="width: 1.75rem; height: 1.75rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 0.125rem; background: rgba(242, 183, 5, 0.22); border: 1px solid rgba(242, 183, 5, 0.45); color: var(--color-accent-amber); font-weight: bold; font-size: 0.75rem;">
+                <?= $idx + 1 ?>
               </div>
-              <p style="font-size: 0.875rem; line-height: 1.5; color: rgba(255, 255, 255, 0.85); margin: 0;">
+              <p style="font-size: 0.875rem; line-height: 1.65; color: rgba(255, 255, 255, 0.95); margin: 0;">
                 <?= e($obj) ?>
               </p>
             </div>
           <?php endforeach; ?>
         </div>
-      </div>
-    </div>
 
-    <!-- 3. About Host Institution Section -->
-    <div class="reveal-up delay-3 card" style="overflow: hidden; display: grid; grid-template-columns: 1fr; border-radius: 1rem;">
-      <div style="display: grid; grid-template-columns: 1fr; align-items: stretch;">
-        <div style="padding: 2rem 2.5rem; position: relative; overflow: hidden; background: linear-gradient(150deg, var(--color-primary-900) 0%, #073533 100%); color: #fff;">
-          <div style="position: absolute; left: -2.5rem; top: -2.5rem; width: 10rem; height: 10rem; border-radius: 50%; pointer-events: none; background: rgba(18, 124, 111, 0.2); filter: blur(60px);"></div>
-
-          <div style="position: relative; z-index: 10; display: flex; flex-direction: column; gap: 1rem;">
-            <div style="display: flex; align-items: center; gap: 0.75rem;">
-              <div style="width: 2.5rem; height: 2.5rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; background: rgba(255,255,255,0.12); color: #fff;">
-                <?= render_icon('building') ?>
-              </div>
-              <div>
-                <span class="font-mono text-[10px] uppercase tracking-widest" style="font-size: 10px; color: rgba(255,255,255,0.5);">Host Institution</span>
-                <h3 class="font-display font-bold text-lg leading-tight" style="font-size: 1.15rem; color: #fff; margin: 0;">
-                  <?= e($config['app_subtitle']) ?>
-                </h3>
-              </div>
-            </div>
-
-            <blockquote style="font-style: italic; font-size: 0.875rem; color: rgba(255,255,255,0.7); border-left: 2px solid var(--color-accent-amber); padding-left: 1rem; margin: 0.25rem 0;">
-              "In a gentle way, you can shake the world."
-            </blockquote>
-
-            <div>
-              <h4 style="font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: rgba(252, 211, 77, 0.9); margin-bottom: 0.25rem;">
-                About the Organizing Institution (SOET)
-              </h4>
-              <p style="font-size: 0.875rem; line-height: 1.6; color: rgba(255,255,255,0.85); margin: 0;">
-                The School of Engineering and Technology (SOET), MGM University, is a multidisciplinary engineering institution dedicated to excellence in education, research, innovation, and industry engagement. The School offers undergraduate and Diploma programs in emerging areas of engineering and technology and actively promotes interdisciplinary research addressing contemporary industrial and societal challenges.
-              </p>
-            </div>
-
-            <div>
-              <h4 style="font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: rgba(252, 211, 77, 0.9); margin-bottom: 0.25rem;">
-                About MGM University
-              </h4>
-              <p style="font-size: 0.875rem; line-height: 1.6; color: rgba(255,255,255,0.85); margin: 0;">
-                MGM University, located in Chhatrapati Sambhajinagar (Aurangabad), Maharashtra, is a State Private University established under the MGM University Act, 2019. The University is promoted by the Mahatma Gandhi Mission Trust, a renowned educational organization with a legacy of over four decades in education, healthcare, research, and social development.
-              </p>
-            </div>
-
-            <div style="border-radius: 0.75rem; padding: 0.75rem 1rem; background: rgba(242, 183, 5, 0.1); border: 1px solid rgba(242, 183, 5, 0.25);">
-              <p style="font-size: 0.875rem; line-height: 1.5; color: rgba(255,255,255,0.9); margin: 0;">
-                The University emphasizes innovation-driven education, research excellence, entrepreneurship, industry collaboration, and sustainable development. Through its academic ecosystem, modern laboratories, research centers, incubation facilities, and international collaborations, MGM University is committed to contributing towards national priorities and global sustainable development goals.
-              </p>
-            </div>
-          </div>
+        <!-- Technical Tracks Link Callout -->
+        <div style="margin-top: 2rem; padding: 1.25rem 1.75rem; border-radius: 0.75rem; background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.15); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem;">
+          <p style="font-size: 0.875rem; line-height: 1.5; color: rgba(255, 255, 255, 0.9); margin: 0; max-width: 48rem;">
+            These objectives are operationalized across <strong>six dedicated conference tracks</strong> spanning 36 specialized engineering research topics in automotive mobility, smart manufacturing, sustainable materials, clean energy, AI, and climate resilience.
+          </p>
+          <button type="button" onclick="goToSection('tracks', 'home', 'Tracks')" class="btn-gold" style="padding: 0.625rem 1.25rem; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; white-space: nowrap; flex-shrink: 0;">
+            Explore Tracks <?= render_icon('arrow-right') ?>
+          </button>
         </div>
       </div>
     </div>

@@ -1,57 +1,15 @@
 <?php
 /**
- * Call for Papers & Registration Fees Component
+ * Registration Fees Component
  */
 $conferenceData = $conferenceData ?? require __DIR__ . '/../../config/conference_data.php';
 $regFees = $conferenceData['reg_fees'];
 ?>
 <section id="fees" class="section-light" style="padding-top: 6rem; padding-bottom: 6rem; scroll-margin-top: 5rem; overflow: hidden;">
-  <div class="container split-grid">
+  <div class="container">
 
-    <!-- Left: Call for Papers Dark Teal Card (~35%) -->
-    <div id="cfp" class="reveal-up" style="scroll-margin-top: 6rem; height: 100%;">
-      <div style="border-radius: 1rem; padding: 2rem; height: 100%; display: flex; flex-direction: column; gap: 1.5rem; position: relative; overflow: hidden; background: linear-gradient(150deg, var(--color-primary-700) 0%, var(--color-primary-900) 100%); color: #ffffff;">
-        <!-- Ambient Blur -->
-        <div style="position: absolute; right: -2rem; bottom: -2rem; width: 10rem; height: 10rem; border-radius: 50%; opacity: 0.1; background: #ffffff; filter: blur(40px);"></div>
-
-        <div style="position: relative; z-index: 10;">
-          <div style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.25rem 0.75rem; border-radius: 9999px; border: 1px solid rgba(255,255,255,0.25); font-size: 10px; font-family: var(--font-mono); text-transform: uppercase; margin-bottom: 1rem; color: rgba(255,255,255,0.85);">
-            Call for Papers
-          </div>
-          <h3 class="font-display font-bold uppercase tracking-wide text-2xl" style="font-size: 1.5rem; margin-bottom: 0.75rem;">
-            Call For Papers
-          </h3>
-          <p style="font-size: 0.875rem; line-height: 1.6; color: rgba(255,255,255,0.85); max-width: 90%;">
-            We invite original research papers, case studies, and comprehensive review papers addressing one of the six official conference tracks in intelligent engineering and sustainable systems. All submitted manuscripts will undergo a rigorous peer-review evaluation, with accepted and presented papers intended for publication in peer-reviewed conference proceedings, subject to formal publisher agreements and institutional approval.
-          </p>
-        </div>
-
-        <!-- Megaphone + Document Watermark SVG -->
-        <div style="position: absolute; right: 0.5rem; bottom: 0.5rem; width: 7rem; height: 7rem; opacity: 0.1; pointer-events: none; z-index: 0;">
-          <svg style="width: 100%; height: 100%; color: #ffffff;" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-            <polyline points="14 2 14 8 20 8"></polyline>
-            <path d="M18 8a3 3 0 0 1 3 3v2a3 3 0 0 1-3 3h-1l-3 3v-9l3 3h1z" fill="currentColor"></path>
-          </svg>
-        </div>
-
-        <!-- Action Buttons -->
-        <div style="display: flex; flex-direction: column; gap: 0.75rem; margin-top: auto; position: relative; z-index: 10;">
-          <button type="button" onclick="openSubmissionModal()" class="btn-amber"
-            style="padding: 0.875rem 1.5rem; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; justify-content: center;">
-            Submission Guidelines <?= render_icon('arrow-right') ?>
-          </button>
-
-          <button type="button" onclick="downloadFile('Paper_Guidelines.pdf')" class="btn-outline-white"
-            style="padding: 0.875rem 1.5rem; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; justify-content: center;">
-            <?= render_icon('download') ?> Author Guidelines (PDF)
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Right: Registration Fee Table (~65%) -->
-    <div class="reveal-up delay-2">
+    <!-- Registration Fee Table -->
+    <div class="reveal-up">
       <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.25rem;">
         <div style="display: flex; align-items: center; gap: 0.75rem;">
           <div style="width: 4px; height: 1.25rem; border-radius: 9999px; background: var(--color-primary-700);"></div>

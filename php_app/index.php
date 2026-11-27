@@ -13,13 +13,15 @@ require_once __DIR__ . '/includes/icons.php';
 $config = require __DIR__ . '/config/app.php';
 $conferenceData = require __DIR__ . '/config/conference_data.php';
 
-// Route detection: support query param (?page=about | ?page=sponsorship)
+// Route detection: support query param (?page=about | ?page=sponsorship | ?page=abstract-submission)
 $pageParam = isset($_GET['page']) ? strtolower($_GET['page']) : 'home';
-$currentPage = in_array($pageParam, ['about', 'sponsorship'], true) ? $pageParam : 'home';
+$currentPage = in_array($pageParam, ['about', 'sponsorship', 'abstract-submission'], true) ? $pageParam : 'home';
 if ($currentPage === 'about') {
     $pageTitle = 'About the Host Institution — ' . $config['app_name'];
 } elseif ($currentPage === 'sponsorship') {
     $pageTitle = 'Sponsorship Opportunities — ' . $config['app_name'];
+} elseif ($currentPage === 'abstract-submission') {
+    $pageTitle = 'Abstract Submission — ' . $config['app_name'];
 } else {
     $pageTitle = $config['app_name'] . ' — ' . $config['app_full_title'];
 }
@@ -35,6 +37,8 @@ if ($currentPage === 'about') {
     require __DIR__ . '/includes/pages/about.php';
 } elseif ($currentPage === 'sponsorship') {
     require __DIR__ . '/includes/pages/sponsorship.php';
+} elseif ($currentPage === 'abstract-submission') {
+    require __DIR__ . '/includes/pages/abstract-submission.php';
 } else {
     require __DIR__ . '/includes/pages/home.php';
 }

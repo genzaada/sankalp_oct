@@ -14,7 +14,6 @@ const TARGET_LABEL_MAP = {
   'tracks': 'Tracks',
   'dates': 'Schedule',
   'speakers': 'Speakers',
-  'cfp': 'Call for Papers',
   'fees': 'Registration',
   'sponsorship': 'Sponsorship',
   'venue': 'Venue',
@@ -341,7 +340,7 @@ function scrollToTarget(targetId) {
 function navigateTo(page) {
   closeMobileMenu();
   const isAboutPage = window.location.search.includes('page=about');
-  const isSubPage = isAboutPage || window.location.search.includes('page=sponsorship');
+  const isSubPage = isAboutPage || window.location.search.includes('page=sponsorship') || window.location.search.includes('page=abstract-submission');
   if (page === 'home' || page === 'top') {
     if (isSubPage) {
       window.location.href = 'index.php';
@@ -377,7 +376,7 @@ function goToSection(targetId, targetPage, navLabel) {
     return;
   }
 
-  const isSubPage = window.location.search.includes('page=about') || window.location.search.includes('page=sponsorship');
+  const isSubPage = window.location.search.includes('page=about') || window.location.search.includes('page=sponsorship') || window.location.search.includes('page=abstract-submission');
   if (isSubPage) {
     if (targetId === 'top') {
       window.location.href = 'index.php';
@@ -417,7 +416,6 @@ function initScrollSpy() {
     { id: 'tracks', label: 'Tracks' },
     { id: 'dates', label: 'Schedule' },
     { id: 'speakers', label: 'Speakers' },
-    { id: 'cfp', label: 'Call for Papers' },
     { id: 'fees', label: 'Registration' },
     { id: 'venue', label: 'Venue' },
     { id: 'contact-section', label: 'Contact' }

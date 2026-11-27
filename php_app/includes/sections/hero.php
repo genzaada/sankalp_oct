@@ -31,12 +31,6 @@ if (!empty($conferenceData['dates'])) {
     <!-- Left Column (7 cols) -->
     <div class="reveal-up" style="display: flex; flex-direction: column; align-items: flex-start; text-align: left;">
 
-      <!-- Status Pill Badge -->
-      <div class="pill-badge" style="margin-bottom: 1.25rem;">
-        <span class="pulse-dot" style="width: 8px; height: 8px; border-radius: 50%; background: var(--color-accent-amber); display: inline-block;"></span>
-        International Academic &amp; Industry Conference
-      </div>
-
       <!-- Main Conference Brand Title: ICAIESF 2027 -->
       <h1 class="hero-brand-heading font-display font-black">
         <span class="hero-brand-name"><?= e($brandTitle) ?></span>

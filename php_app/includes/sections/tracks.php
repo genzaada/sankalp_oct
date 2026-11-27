@@ -60,9 +60,9 @@ $tracks = $conferenceData['tracks'];
 
     <!-- Central Submission CTA -->
     <div class="reveal-up" style="text-align: center;">
-      <button type="button" onclick="goToSection('cfp', 'home', 'Call for Papers')" class="btn-primary"
+      <button type="button" onclick="goToSection('abstract-submission', 'abstract-submission', 'Abstract Submission')" class="btn-primary"
         style="padding: 0.875rem 2rem; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;">
-        View Call for Papers &amp; Guidelines <?= render_icon('arrow-right') ?>
+        View Abstract Submission &amp; Guidelines <?= render_icon('arrow-right') ?>
       </button>
     </div>
 

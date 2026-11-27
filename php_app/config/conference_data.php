@@ -205,7 +205,7 @@ return [
         ['label' => 'Home',            'target' => 'top',             'page' => 'home'],
         ['label' => 'About',           'target' => 'about',           'page' => 'home'],
         ['label' => 'Tracks',          'target' => 'tracks',          'page' => 'home'],
-        ['label' => 'Call for Papers', 'target' => 'cfp',             'page' => 'home'],
+        ['label' => 'Abstract Submission', 'target' => 'abstract-submission', 'page' => 'abstract-submission'],
         ['label' => 'Speakers',        'target' => 'speakers',        'page' => 'home'],
         ['label' => 'Committee',       'target' => 'committee',       'page' => 'home'],
         ['label' => 'Schedule',        'target' => 'dates',           'page' => 'home'],

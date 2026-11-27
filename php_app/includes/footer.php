@@ -5,10 +5,6 @@
 $config = $config ?? require __DIR__ . '/../config/app.php';
 $conferenceData = $conferenceData ?? require __DIR__ . '/../config/conference_data.php';
 $navLinks = $conferenceData['nav_links'];
-
-$nameParts = explode(' ', $config['app_name'], 2);
-$brandTitle = $nameParts[0] ?? 'ICAIESF';
-$brandSub = $nameParts[1] ?? '2027';
 ?>
 <footer id="contact-section" class="site-footer">
   <!-- Ambient footer glow -->
@@ -19,12 +15,8 @@ $brandSub = $nameParts[1] ?? '2027';
 
       <!-- Col 1: Brand & Social -->
       <div style="display: flex; flex-direction: column; gap: 1rem; text-align: left;">
-        <div style="display: flex; align-items: center; gap: 0.75rem;">
-          <?= render_icon('logo') ?>
-          <div class="brand-text-block">
-            <span class="brand-title" style="color: #ffffff;"><?= e($brandTitle) ?></span>
-            <span class="brand-subtitle" style="color: var(--color-accent-amber);"><?= e($brandSub) ?></span>
-          </div>
+        <div class="footer-brand-badge">
+          <img src="<?= asset_url('assets/images/logo%202%20.png') ?>" alt="<?= e($config['app_name']) ?>" class="brand-logo-img">
         </div>
         <p style="font-size: 0.75rem; line-height: 1.6; color: rgba(255,255,255,0.6);">
           <?= e($config['app_full_title']) ?>. Uniting researchers, academicians, and industry experts globally.

@@ -223,7 +223,7 @@ return [
         ['label' => 'Committee',       'target' => 'committee',       'page' => 'home'],
         ['label' => 'Schedule',        'target' => 'dates',           'page' => 'home'],
         ['label' => 'Sponsorship',     'target' => 'sponsorship',     'page' => 'sponsorship'],
-        ['label' => 'Registration',    'target' => 'fees',            'page' => 'home'],
+        ['label' => 'Registration',    'target' => 'fees',            'page' => 'abstract-submission'],
         ['label' => 'Venue',           'target' => 'venue',           'page' => 'home'],
         ['label' => 'Contact',         'target' => 'contact-section', 'page' => 'home'],
     ]

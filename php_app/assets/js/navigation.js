@@ -371,7 +371,13 @@ function goToSection(targetId, targetPage, navLabel) {
   const label = navLabel || TARGET_LABEL_MAP[targetId];
 
   if (targetPage && targetPage !== 'home') {
-    window.location.href = 'index.php?page=' + encodeURIComponent(targetPage);
+    if (window.location.search.includes('page=' + targetPage) && targetId && document.getElementById(targetId)) {
+      if (label) lockNavScroll(label);
+      scrollToTarget(targetId);
+      return;
+    }
+    const hash = (targetId && targetId !== targetPage) ? '#' + encodeURIComponent(targetId) : '';
+    window.location.href = 'index.php?page=' + encodeURIComponent(targetPage) + hash;
     return;
   }
 
@@ -414,7 +420,6 @@ function initScrollSpy() {
     { id: 'tracks', label: 'Tracks' },
     { id: 'dates', label: 'Schedule' },
     { id: 'speakers', label: 'Speakers' },
-    { id: 'fees', label: 'Registration' },
     { id: 'venue', label: 'Venue' },
     { id: 'contact-section', label: 'Contact' }
   ];

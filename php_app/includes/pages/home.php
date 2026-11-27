@@ -12,8 +12,6 @@
   <?php require __DIR__ . '/../sections/tracks.php'; ?>
   <?php require __DIR__ . '/../sections/dates-speakers.php'; ?>
   <?php require __DIR__ . '/../sections/cfp-fees.php'; ?>
-  <?php require __DIR__ . '/../sections/exhibition.php'; ?>
-  <?php require __DIR__ . '/../sections/sponsorship.php'; ?>
   <?php require __DIR__ . '/../sections/venue.php'; ?>
   <?php require __DIR__ . '/../sections/sponsors.php'; ?>
 </main>

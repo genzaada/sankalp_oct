@@ -66,6 +66,20 @@
   text-align: left;
 }
 
+.sankalp-hero .hero-theme-date {
+  display: inline-block;
+  margin-top: 0.25rem;
+  color: var(--color-accent-amber);
+}
+
+@media (min-width: 1024px) {
+  .sankalp-hero .hero-theme-line {
+    display: inline-block;
+    white-space: nowrap;
+    font-size: 23px;
+  }
+}
+
 .sankalp-hero .acronym-highlight {
   color: var(--color-accent-amber);
   font-weight: 800;
@@ -87,8 +101,21 @@
 
 @media (min-width: 640px) {
   .sankalp-hero .hero-meta-grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, minmax(0, max-content));
+    align-items: stretch;
   }
+}
+
+.sankalp-hero .hero-submit-btn {
+  padding: 0.75rem 1.5rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  min-height: 4.25rem;
+  border-radius: 1rem;
+  justify-content: center;
+  white-space: nowrap;
 }
 
 .sankalp-hero .hero-meta-item {

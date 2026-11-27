@@ -16,7 +16,6 @@ const TARGET_LABEL_MAP = {
   'speakers': 'Speakers',
   'cfp': 'Call for Papers',
   'fees': 'Registration',
-  'exhibition': 'Exhibition',
   'sponsorship': 'Sponsorship',
   'venue': 'Venue',
   'contact-section': 'Contact'
@@ -342,8 +341,9 @@ function scrollToTarget(targetId) {
 function navigateTo(page) {
   closeMobileMenu();
   const isAboutPage = window.location.search.includes('page=about');
+  const isSubPage = isAboutPage || window.location.search.includes('page=sponsorship');
   if (page === 'home' || page === 'top') {
-    if (isAboutPage) {
+    if (isSubPage) {
       window.location.href = 'index.php';
     } else {
       lockNavScroll('Home');
@@ -357,7 +357,7 @@ function navigateTo(page) {
       goToSection('about', 'home', 'About');
     }
   } else {
-    if (isAboutPage) {
+    if (isSubPage) {
       window.location.href = 'index.php#' + page;
     } else {
       goToSection(page, 'home');
@@ -372,8 +372,13 @@ function goToSection(targetId, targetPage, navLabel) {
   closeMobileMenu();
   const label = navLabel || TARGET_LABEL_MAP[targetId];
 
-  const isAboutPage = window.location.search.includes('page=about');
-  if (isAboutPage) {
+  if (targetPage && targetPage !== 'home') {
+    window.location.href = 'index.php?page=' + encodeURIComponent(targetPage);
+    return;
+  }
+
+  const isSubPage = window.location.search.includes('page=about') || window.location.search.includes('page=sponsorship');
+  if (isSubPage) {
     if (targetId === 'top') {
       window.location.href = 'index.php';
     } else {
@@ -414,8 +419,6 @@ function initScrollSpy() {
     { id: 'speakers', label: 'Speakers' },
     { id: 'cfp', label: 'Call for Papers' },
     { id: 'fees', label: 'Registration' },
-    { id: 'exhibition', label: 'Exhibition' },
-    { id: 'sponsorship', label: 'Sponsorship' },
     { id: 'venue', label: 'Venue' },
     { id: 'contact-section', label: 'Contact' }
   ];

@@ -45,54 +45,29 @@ if (!empty($conferenceData['dates'])) {
 
       <!-- Full Conference Academic Sub-title & Acronym -->
       <h2 class="hero-theme-title font-display font-bold">
-        International Conference on<br>
-        <span class="acronym-highlight">A</span>dvancing <span class="acronym-highlight">I</span>ntelligent <span class="acronym-highlight">E</span>ngineering for a <span class="acronym-highlight">S</span>ustainable <span class="acronym-highlight">F</span>uture
+        <span class="acronym-highlight">I</span>nternational <span class="acronym-highlight">C</span>onference on<br>
+        <span class="hero-theme-line"><span class="acronym-highlight">A</span>dvancing <span class="acronym-highlight">I</span>ntelligent <span class="acronym-highlight">E</span>ngineering for a <span class="acronym-highlight">S</span>ustainable <span class="acronym-highlight">F</span>uture</span><br>
+        <span class="hero-theme-date">April 9-10 2027</span>
       </h2>
 
-      <!-- Subtitle & Special Emphasis -->
-      <p style="font-size: clamp(0.875rem, 1.5vw, 1rem); line-height: 1.6; max-width: 34rem; margin-bottom: 2rem; color: rgba(255, 255, 255, 0.8);">
-        <?= e($config['app_subtitle']) ?>.<br>
-        <span style="color: var(--color-accent-amber); font-weight: 600;">Special Emphasis:</span> Sustainable Automotive Mobility, Electric Vehicles &amp; Industry 5.0.
+      <!-- Subtitle -->
+      <p style="font-size: clamp(0.875rem, 1.5vw, 1rem); font-weight: 600; line-height: 1.6; max-width: 38rem; margin-bottom: 2rem; color: rgba(255, 255, 255, 0.9);">
+        Organized By<br>
+        School of Engineering and Technology, MGM University, Chhatrapati Sambhajinagar, Maharashtra, India
       </p>
 
-      <!-- Meta Row (Dates, Venue, Deadline) -->
+      <!-- Meta Row (Abstract Submission Deadline & CTA) -->
       <div class="hero-meta-grid">
-        <div class="hero-meta-item">
-          <?= render_icon('calendar') ?>
-          <div>
-            <p class="font-mono text-[10px] uppercase tracking-wider" style="color: rgba(255, 255, 255, 0.6); font-size: 10px;">Conference Dates</p>
-            <p class="font-semibold text-white" style="font-size: 12px; margin: 0;"><?= e($config['app_dates']) ?></p>
-          </div>
-        </div>
-
-        <div class="hero-meta-item">
-          <?= render_icon('map-pin') ?>
-          <div>
-            <p class="font-mono text-[10px] uppercase tracking-wider" style="color: rgba(255, 255, 255, 0.6); font-size: 10px;">Venue</p>
-            <p class="font-semibold text-white" style="font-size: 12px; margin: 0;"><?= e($config['app_venue']) ?></p>
-          </div>
-        </div>
-
         <div class="hero-meta-item">
           <?= render_icon('clock') ?>
           <div>
-            <p class="font-mono text-[10px] uppercase tracking-wider" style="color: rgba(255, 255, 255, 0.6); font-size: 10px;">Registration Deadline</p>
-            <p class="font-semibold text-white" style="font-size: 12px; margin: 0;"><?= e($regDeadline) ?> (Proposed)</p>
+            <p class="font-mono text-[10px] uppercase tracking-wider" style="color: rgba(255, 255, 255, 0.6); font-size: 10px;">Abstract Last Date Submission</p>
+            <p class="font-semibold text-white" style="font-size: 13px; margin: 0;">28th December 2026</p>
           </div>
         </div>
-      </div>
 
-      <!-- Action Buttons -->
-      <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
-        <button type="button" onclick="goToSection('cfp', 'home', 'Call for Papers')" class="btn-amber"
-          style="padding: 0.875rem 1.75rem; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;">
-          Call For Papers <?= render_icon('arrow-right') ?>
-        </button>
-
-        <button type="button" onclick="openRegistrationModal()"
-          class="btn-outline-white"
-          style="padding: 0.875rem 1.75rem; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;">
-          Registration Info <?= render_icon('clock') ?>
+        <button type="button" onclick="openSubmissionModal()" class="btn-amber hero-submit-btn">
+          Submit Abstract <?= render_icon('arrow-right') ?>
         </button>
       </div>
 

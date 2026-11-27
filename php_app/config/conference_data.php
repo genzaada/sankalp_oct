@@ -183,40 +183,6 @@ return [
         ],
     ],
 
-    // Industry Exhibition & Technology Showcase Focus Domains
-    'exhibition_domains' => [
-        [
-            'title' => 'Automotive & Electric Mobility',
-            'icon' => '🚗',
-            'description' => 'Showcase next-generation electric vehicles, battery management systems, intelligent powertrains, charging infrastructure, and connected telemetry solutions.',
-            'focus' => 'EV Prototypes, Battery Packs & Connected Mobility Solutions'
-        ],
-        [
-            'title' => 'Intelligent Manufacturing & Industry 5.0',
-            'icon' => '🏭',
-            'description' => 'Demonstrate human-centric automation, cobotics, additive manufacturing systems, smart sensors, and digital twin technology for manufacturing plants.',
-            'focus' => 'Robotics Demos, Smart Sensors & Industrial Automation Systems'
-        ],
-        [
-            'title' => 'Sustainable Materials & Infrastructure',
-            'icon' => '🏗️',
-            'description' => 'Display bio-based polymers, circular engineering materials, non-destructive testing equipment, and net-zero smart infrastructure innovations.',
-            'focus' => 'Eco-Materials, Circular Technologies & Net-Zero Solutions'
-        ],
-        [
-            'title' => 'AI, IoT & Cyber-Physical Systems',
-            'icon' => '🤖',
-            'description' => 'Feature enterprise AI applications, computer vision automated inspection, edge IoT hardware, and industrial cybersecurity frameworks.',
-            'focus' => 'Enterprise AI Demos, Edge IoT & Automated Quality Inspection'
-        ],
-        [
-            'title' => 'Industry-Academia Collaborative R&D',
-            'icon' => '🤝',
-            'description' => 'Engage with MGM University faculty and engineering students on joint research testbeds, patent commercialization, and incubation projects.',
-            'focus' => 'R&D Showcases, Technology Transfer & Industry-Ready Talent'
-        ],
-    ],
-
     'scopes' => [
         'Sustainable Automotive Mobility, Electric Vehicles & Powertrain Innovations',
         'Intelligent Sustainable Manufacturing, Smart Robotics & Industry 5.0',
@@ -243,8 +209,7 @@ return [
         ['label' => 'Speakers',        'target' => 'speakers',        'page' => 'home'],
         ['label' => 'Committee',       'target' => 'committee',       'page' => 'home'],
         ['label' => 'Schedule',        'target' => 'dates',           'page' => 'home'],
-        ['label' => 'Exhibition',      'target' => 'exhibition',      'page' => 'home'],
-        ['label' => 'Sponsorship',     'target' => 'sponsorship',     'page' => 'home'],
+        ['label' => 'Sponsorship',     'target' => 'sponsorship',     'page' => 'sponsorship'],
         ['label' => 'Registration',    'target' => 'fees',            'page' => 'home'],
         ['label' => 'Venue',           'target' => 'venue',           'page' => 'home'],
         ['label' => 'Contact',         'target' => 'contact-section', 'page' => 'home'],

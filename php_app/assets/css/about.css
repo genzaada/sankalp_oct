@@ -35,3 +35,227 @@
 .sankalp-about .about-image-card:hover img {
   transform: scale(1.04);
 }
+
+/* ── Host Institution Page (.sankalp-institution-page) ─────────────────── */
+/* Converted from Figma SANKALP 2027 · Institution template */
+
+.sankalp-institution-page {
+  background: var(--color-bg-light);
+}
+
+.sankalp-institution-page .institution-editorial-section {
+  padding: 3rem 0 5rem;
+}
+
+.sankalp-institution-page .institution-editorial-card {
+  background: var(--color-bg-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+}
+
+.sankalp-institution-page .inst-top-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.sankalp-institution-page .inst-intro-col {
+  padding: 2.5rem 1.5rem 2rem;
+  text-align: left;
+}
+
+.sankalp-institution-page .inst-display-heading {
+  font-family: var(--font-display);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  line-height: 1.12;
+  color: var(--color-primary-900);
+  margin: 0 0 1.75rem 0;
+}
+
+.sankalp-institution-page .inst-copy-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 1.35rem;
+  max-width: 30rem;
+}
+
+.sankalp-institution-page .inst-copy-stack p,
+.sankalp-institution-page .inst-infra-copy-col p {
+  font-family: var(--font-family-base);
+  font-size: var(--fs-body);
+  line-height: 1.68;
+  color: var(--color-text-body);
+  margin: 0;
+}
+
+.sankalp-institution-page .inst-website-link {
+  display: inline-block;
+  width: fit-content;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--color-primary-700);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  transition: color 0.2s ease;
+}
+
+.sankalp-institution-page .inst-website-link:hover {
+  color: var(--color-primary-500);
+}
+
+.sankalp-institution-page .inst-vdivider {
+  display: none;
+  background: rgba(10, 74, 71, 0.18);
+}
+
+.sankalp-institution-page .inst-media-col {
+  padding: 0 1.5rem 2.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.sankalp-institution-page .inst-photo-frame {
+  width: 100%;
+  height: 240px;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  background: #20181B;
+}
+
+.sankalp-institution-page .inst-photo-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.sankalp-institution-page .inst-hdivider {
+  height: 1px;
+  width: 100%;
+  background: rgba(10, 74, 71, 0.18);
+}
+
+.sankalp-institution-page .inst-bottom-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  padding: 2.25rem 1.5rem 2.75rem;
+  text-align: left;
+}
+
+.sankalp-institution-page .inst-bottom-grid .inst-display-heading {
+  margin-bottom: 0;
+}
+
+.sankalp-institution-page .inst-infra-copy-col {
+  max-width: 36rem;
+}
+
+.sankalp-institution-page .inst-footer-strip {
+  padding: 1.75rem 1.5rem;
+  background: var(--color-bg-light);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.sankalp-institution-page .inst-facts-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.sankalp-institution-page .inst-fact-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  text-align: left;
+}
+
+.sankalp-institution-page .inst-fact-label {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-primary-500);
+  font-weight: 600;
+}
+
+.sankalp-institution-page .inst-fact-value {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-text-heading);
+  line-height: 1.4;
+}
+
+.sankalp-institution-page .inst-actions-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .sankalp-institution-page .inst-facts-row {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .sankalp-institution-page .institution-editorial-section {
+    padding: 4rem 0 6rem;
+  }
+
+  .sankalp-institution-page .inst-top-grid {
+    grid-template-columns: 43fr 1px 57fr;
+    align-items: stretch;
+  }
+
+  .sankalp-institution-page .inst-intro-col {
+    padding: 4rem 3rem 3.5rem;
+  }
+
+  .sankalp-institution-page .inst-vdivider {
+    display: block;
+  }
+
+  .sankalp-institution-page .inst-media-col {
+    padding: 4rem 2.75rem;
+  }
+
+  .sankalp-institution-page .inst-photo-frame {
+    height: 440px;
+  }
+
+  .sankalp-institution-page .inst-bottom-grid {
+    grid-template-columns: 43fr 57fr;
+    gap: 0;
+    padding: 3.25rem 0 3.75rem;
+    align-items: start;
+  }
+
+  .sankalp-institution-page .inst-infra-heading-col {
+    padding: 0 3rem;
+  }
+
+  .sankalp-institution-page .inst-infra-copy-col {
+    padding: 0 2.75rem;
+  }
+
+  .sankalp-institution-page .inst-footer-strip {
+    padding: 2rem 3rem;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .sankalp-institution-page .inst-facts-row {
+    flex: 1;
+  }
+}

@@ -2,13 +2,6 @@
 /**
  * About Highlight Section (Homepage)
  */
-$conferenceData = $conferenceData ?? require __DIR__ . '/../../config/conference_data.php';
-$highlights = $conferenceData['highlights'] ?? [
-    'High-quality paper presentations',
-    'Keynote talks from global experts',
-    'Workshops & technical sessions',
-    'Peer-reviewed conference proceedings'
-];
 ?>
 <section id="about" class="section-white sankalp-about" style="padding-top: 6rem; padding-bottom: 6rem; scroll-margin-top: 5rem; overflow: hidden;">
   <div class="container">
@@ -25,23 +18,6 @@ $highlights = $conferenceData['highlights'] ?? [
         <p style="font-size: 0.9375rem; line-height: 1.6; color: var(--color-text-body); margin-bottom: 2rem;">
           An International Conference organized by the School of Engineering and Technology, MGM University, providing a collaborative global platform for knowledge exchange, research dissemination, and industry-academia synergy in <strong>Intelligent Engineering, Sustainable Automotive Mobility, Industry 5.0, and Clean Energy</strong>.
         </p>
-
-        <p class="font-mono text-[11px] uppercase tracking-widest font-semibold" style="font-size: 11px; color: var(--color-primary-500); margin-bottom: 1rem;">
-          Key Highlights
-        </p>
-
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0.75rem; margin-bottom: 2rem;">
-          <?php foreach ($highlights as $hl): ?>
-            <div style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem; border-radius: 1rem; border: 1px solid var(--color-border); background: var(--color-bg-light); transition: transform 0.15s;">
-              <div style="width: 1.5rem; height: 1.5rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; background: rgba(18, 124, 111, 0.12); color: var(--color-primary-700);">
-                <?= render_icon('check') ?>
-              </div>
-              <span style="font-size: 0.75rem; font-weight: 600; color: var(--color-text-heading);">
-                <?= e($hl) ?>
-              </span>
-            </div>
-          <?php endforeach; ?>
-        </div>
 
         <div style="display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center;">
           <button type="button" onclick="goToSection('committee', 'home', 'Committee')" class="btn-primary" style="padding: 0.875rem 1.75rem; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;">

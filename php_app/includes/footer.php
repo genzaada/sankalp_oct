@@ -89,18 +89,6 @@ $navLinks = $conferenceData['nav_links'];
             <span style="flex-shrink: 0; margin-top: 0.125rem;"><?= render_icon('map-pin') ?></span>
             <span>MGM University, Chhatrapati Sambhajinagar &ndash; 431003, Maharashtra, India</span>
           </div>
-          <div style="display: flex; align-items: center; gap: 0.625rem; color: #ffffff;">
-            <span style="flex-shrink: 0;"><?= render_icon('phone') ?></span>
-            <span style="display: inline-flex; align-items: center; gap: 0.375rem; white-space: nowrap;">
-              <a href="tel:<?= e(preg_replace('/[^0-9+]/', '', $config['contact_phone'])) ?>" style="color: inherit; transition: color 0.15s;" onmouseover="this.style.color='var(--color-accent-amber)';" onmouseout="this.style.color='#ffffff';"><?= e($config['contact_phone']) ?></a>
-              <span style="color: rgba(255,255,255,0.6);">|</span>
-              <a href="tel:02406481000" style="color: inherit; transition: color 0.15s;" onmouseover="this.style.color='var(--color-accent-amber)';" onmouseout="this.style.color='#ffffff';"><?= e($config['contact_office']) ?></a>
-            </span>
-          </div>
-          <div style="display: flex; align-items: center; gap: 0.625rem; color: #ffffff;">
-            <?= render_icon('mail') ?>
-            <a href="mailto:<?= e($config['contact_email']) ?>" style="color: inherit; transition: color 0.15s;" onmouseover="this.style.color='var(--color-accent-amber)';" onmouseout="this.style.color='#ffffff';"><?= e($config['contact_email']) ?></a>
-          </div>
         </div>
       </div>
 

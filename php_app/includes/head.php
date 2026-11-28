@@ -137,18 +137,12 @@ $ogImageUrl = !empty($productionDomain) ? rtrim($productionDomain, '/') . '/asse
   <link rel="stylesheet" href="<?= asset_url('assets/css/sponsorship.css') ?>?v=2027.1">
   <link rel="stylesheet" href="<?= asset_url('assets/css/venue.css') ?>?v=2027.1">
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><path d='M50 5L88.9711 27.5V72.5L50 95L11.0289 72.5V27.5L50 5Z' fill='%230E5A56' stroke='%23F2B705' stroke-width='4'/><text x='50' y='60' fill='white' font-size='30' font-weight='bold' font-family='sans-serif' text-anchor='middle'>I</text></svg>">
-
-  <!-- Three.js Local Import Map for Hero 3D Cube (Self-Contained, No External CDN) -->
-  <script type="importmap">
-    {
-      "imports": {
-        "three": "<?= asset_url('assets/js/vendor/three/three.module.js') ?>",
-        "three/addons/": "<?= asset_url('assets/js/vendor/three/addons/') ?>"
-      }
-    }
-  </script>
+  <!-- Favicons (All Devices) -->
+  <link rel="apple-touch-icon" sizes="180x180" href="<?= asset_url('assets/images/favicon/apple-touch-icon.png') ?>">
+  <link rel="icon" type="image/png" sizes="32x32" href="<?= asset_url('assets/images/favicon/favicon-32x32.png') ?>">
+  <link rel="icon" type="image/png" sizes="16x16" href="<?= asset_url('assets/images/favicon/favicon-16x16.png') ?>">
+  <link rel="icon" type="image/x-icon" href="<?= asset_url('assets/images/favicon/favicon.ico') ?>">
+  <link rel="manifest" href="<?= asset_url('assets/images/favicon/site.webmanifest') ?>">
 </head>
 <body id="top">
   <!-- Accessible Skip to Content Link (WCAG 2.2 AA) -->

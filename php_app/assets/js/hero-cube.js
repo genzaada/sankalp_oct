@@ -4,9 +4,9 @@
  * rich emerald/deep-teal metallic-gloss materials, 3/4 default camera,
  * 360° horizontal rotation, and constrained vertical polar angle.
  */
-import * as THREE from 'three';
-import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
-import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+import * as THREE from './vendor/three/three.module.js';
+import { OrbitControls } from './vendor/three/addons/controls/OrbitControls.js';
+import { RoomEnvironment } from './vendor/three/addons/environments/RoomEnvironment.js';
 
 function createExtrudedPiece(points, material, { depth = 0.28, bevel = 0.04, zOffset = 0 } = {}) {
   const shape = new THREE.Shape();

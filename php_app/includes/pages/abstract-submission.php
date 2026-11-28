@@ -192,38 +192,16 @@ if (!empty($conferenceData['dates'])) {
         </div>
 
         <p style="font-size: 1rem; line-height: 1.65; color: #111827; margin: 0 0 1.25rem 0;">
-          The conference welcomes original research contributions in the following seven approved technical tracks:
+          The conference welcomes original research contributions in the following six approved technical tracks:
         </p>
 
         <ol style="list-style: none; padding: 0; margin: 0 0 1.5rem 0; display: flex; flex-direction: column; gap: 0.9rem;">
+          <?php foreach (($conferenceData['tracks'] ?? []) as $idx => $track): ?>
           <li style="display: flex; align-items: flex-start; gap: 0.75rem;">
-            <span style="width: 1.625rem; height: 1.625rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 0.1rem; background: rgba(18, 124, 111, 0.12); color: var(--color-primary-700); font-weight: 700; font-size: 0.875rem;">1</span>
-            <span style="font-size: 1rem; line-height: 1.65; color: #111827;">Sustainable Automotive Mobility, Electric Vehicles and Intelligent Transportation Systems</span>
+            <span style="width: 1.625rem; height: 1.625rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 0.1rem; background: rgba(18, 124, 111, 0.12); color: var(--color-primary-700); font-weight: 700; font-size: 0.875rem;"><?= (int)($idx + 1) ?></span>
+            <span style="font-size: 1rem; line-height: 1.65; color: #111827;"><?= e($track['title']) ?></span>
           </li>
-          <li style="display: flex; align-items: flex-start; gap: 0.75rem;">
-            <span style="width: 1.625rem; height: 1.625rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 0.1rem; background: rgba(18, 124, 111, 0.12); color: var(--color-primary-700); font-weight: 700; font-size: 0.875rem;">2</span>
-            <span style="font-size: 1rem; line-height: 1.65; color: #111827;">Intelligent Sustainable Manufacturing, Industrial Automation and Industry 5.0</span>
-          </li>
-          <li style="display: flex; align-items: flex-start; gap: 0.75rem;">
-            <span style="width: 1.625rem; height: 1.625rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 0.1rem; background: rgba(18, 124, 111, 0.12); color: var(--color-primary-700); font-weight: 700; font-size: 0.875rem;">3</span>
-            <span style="font-size: 1rem; line-height: 1.65; color: #111827;">Smart and Sustainable Materials, Infrastructure and Advanced Engineering Systems</span>
-          </li>
-          <li style="display: flex; align-items: flex-start; gap: 0.75rem;">
-            <span style="width: 1.625rem; height: 1.625rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 0.1rem; background: rgba(18, 124, 111, 0.12); color: var(--color-primary-700); font-weight: 700; font-size: 0.875rem;">4</span>
-            <span style="font-size: 1rem; line-height: 1.65; color: #111827;">Sustainable Energy Systems, Thermal Engineering and Renewable Energy Integration</span>
-          </li>
-          <li style="display: flex; align-items: flex-start; gap: 0.75rem;">
-            <span style="width: 1.625rem; height: 1.625rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 0.1rem; background: rgba(18, 124, 111, 0.12); color: var(--color-primary-700); font-weight: 700; font-size: 0.875rem;">5</span>
-            <span style="font-size: 1rem; line-height: 1.65; color: #111827;">Environmental Sustainability, Climate Resilience and Circular Economy</span>
-          </li>
-          <li style="display: flex; align-items: flex-start; gap: 0.75rem;">
-            <span style="width: 1.625rem; height: 1.625rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 0.1rem; background: rgba(18, 124, 111, 0.12); color: var(--color-primary-700); font-weight: 700; font-size: 0.875rem;">6</span>
-            <span style="font-size: 1rem; line-height: 1.65; color: #111827;">AI, Machine Learning and Data-Driven Technologies for Sustainable Engineering</span>
-          </li>
-          <li style="display: flex; align-items: flex-start; gap: 0.75rem;">
-            <span style="width: 1.625rem; height: 1.625rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 0.1rem; background: rgba(18, 124, 111, 0.12); color: var(--color-primary-700); font-weight: 700; font-size: 0.875rem;">7</span>
-            <span style="font-size: 1rem; line-height: 1.65; color: #111827;">Emerging Computing Technologies, Cybersecurity and Next-Generation Information Systems</span>
-          </li>
+          <?php endforeach; ?>
         </ol>
 
         <p style="font-size: 1rem; line-height: 1.65; color: #111827; margin: 0 0 1.75rem 0;">

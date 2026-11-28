@@ -9,7 +9,21 @@
   background: linear-gradient(135deg, var(--color-primary-900) 0%, var(--color-primary-700) 55%, #0B3B3A 100%);
 }
 
+.sankalp-hero .hero-wallpaper-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0.55;
+  pointer-events: none;
+  z-index: 0;
+}
+
 .sankalp-hero .hero-content {
+  position: relative;
+  z-index: 2;
   padding-top: 3.5rem;
   padding-bottom: 5.5rem;
   display: grid;
@@ -152,6 +166,77 @@
   align-items: center;
   gap: 1.75rem;
   width: 100%;
+}
+
+/* 3D Hollow Cube Viewer */
+.sankalp-hero .cube-viewer-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  height: 380px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.sankalp-hero .cube-ambient-glow {
+  position: absolute;
+  inset: 12%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(18, 124, 111, 0.32) 0%, rgba(242, 183, 5, 0.08) 55%, transparent 75%);
+  filter: blur(40px);
+  pointer-events: none;
+}
+
+.sankalp-hero #cube-viewer {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 2;
+  cursor: grab;
+  touch-action: pan-y;
+}
+
+.sankalp-hero #cube-viewer:active {
+  cursor: grabbing;
+}
+
+.sankalp-hero #cube-viewer canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  outline: none;
+}
+
+.sankalp-hero .cube-hint {
+  position: absolute;
+  left: 50%;
+  bottom: 10px;
+  transform: translateX(-50%);
+  color: rgba(255, 255, 255, 0.68);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  line-height: 1.4;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+@media (max-width: 1023px) {
+  .sankalp-hero .cube-viewer-wrapper {
+    max-width: 380px;
+    height: 340px;
+  }
+}
+
+@media (max-width: 640px) {
+  .sankalp-hero .cube-viewer-wrapper {
+    max-width: 320px;
+    height: 290px;
+  }
 }
 
 /* Enlarged Globe Container */

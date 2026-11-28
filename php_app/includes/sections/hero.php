@@ -26,8 +26,11 @@ if (!empty($conferenceData['dates'])) {
 }
 ?>
 <header class="hero-section sankalp-hero" style="overflow: hidden;">
+  <!-- Hero Wallpaper Layer (in front of green background, below content) -->
+  <img src="<?= asset_url('assets/images/hero-wallpaper.jpg') ?>" alt="" aria-hidden="true" class="hero-wallpaper-bg">
+
   <!-- Subtle ambient glow background -->
-  <div class="ambient-glow" style="position: absolute; right: 0; top: 0; width: 450px; max-width: 100vw; height: 450px; border-radius: 50%; pointer-events: none; background: rgba(18, 124, 111, 0.18); filter: blur(100px); overflow: hidden;"></div>
+  <div class="ambient-glow" style="position: absolute; right: 0; top: 0; width: 450px; max-width: 100vw; height: 450px; border-radius: 50%; pointer-events: none; background: rgba(18, 124, 111, 0.18); filter: blur(100px); overflow: hidden; z-index: 1;"></div>
 
   <div class="container hero-content">
 
@@ -70,62 +73,14 @@ if (!empty($conferenceData['dates'])) {
 
     </div>
 
-    <!-- Right Column (5 cols): Globe + Countdown Widget -->
+    <!-- Right Column (5 cols): Interactive 3D Hollow Cube + Countdown Widget -->
     <div class="reveal-up delay-2 hero-right-col">
 
-      <!-- Interactive Rotating Wireframe Globe -->
-      <div class="globe-container">
-        <!-- Core glow -->
-        <div class="globe-glow" style="position: absolute; inset: 0; border-radius: 50%; background: rgba(18,124,111,0.22); filter: blur(65px);"></div>
-
-        <!-- Outer Dashed Ring -->
-        <div class="globe-dashed-ring" style="position: absolute; width: 100%; height: 100%; border-radius: 50%; border: 1px dashed rgba(255,255,255,0.18);"></div>
-
-        <!-- Wireframe Coordinate Mesh SVG -->
-        <svg class="globe-mesh" style="position: absolute; width: 86%; height: 86%; color: rgba(255,255,255,0.28);" viewBox="0 0 200 200" fill="none" stroke="currentColor">
-          <circle cx="100" cy="100" r="88" stroke-width="0.8" stroke-dasharray="4 4" />
-          <ellipse cx="100" cy="100" rx="88" ry="32" stroke-width="0.7" />
-          <ellipse cx="100" cy="100" rx="88" ry="62" stroke-width="0.7" />
-          <ellipse cx="100" cy="100" rx="32" ry="88" stroke-width="0.7" />
-          <ellipse cx="100" cy="100" rx="62" ry="88" stroke-width="0.7" />
-          <line x1="12" y1="100" x2="188" y2="100" stroke-width="0.7" />
-          <line x1="100" y1="12" x2="100" y2="188" stroke-width="0.7" />
-          <circle cx="100" cy="12" r="2.5" fill="#F2B705" />
-          <circle cx="100" cy="188" r="2.5" fill="#127C6F" />
-          <circle cx="12" cy="100" r="2.5" fill="#127C6F" />
-          <circle cx="188" cy="100" r="2.5" fill="#127C6F" />
-          <circle cx="100" cy="100" r="3.5" fill="#F2B705" />
-          <circle cx="138" cy="62" r="2" fill="#127C6F" />
-          <circle cx="62" cy="138" r="2" fill="#127C6F" />
-        </svg>
-
-        <!-- 7 Orbiting Conference Track Symbols (Continuous Planetary Revolution) -->
-        <?php
-        $globeTracks = [
-            ['icon' => '🚗', 'label' => 'Mobility & ITS', 'title' => 'Track 1: Sustainable Automotive Mobility, Electric Vehicles and Intelligent Transportation Systems'],
-            ['icon' => '🏭', 'label' => 'Manufacturing 5.0', 'title' => 'Track 2: Intelligent Sustainable Manufacturing, Industrial Automation and Industry 5.0'],
-            ['icon' => '🏗️', 'label' => 'Materials & Systems', 'title' => 'Track 3: Smart and Sustainable Materials, Infrastructure and Advanced Engineering Systems'],
-            ['icon' => '⚡', 'label' => 'Energy Systems', 'title' => 'Track 4: Sustainable Energy Systems, Thermal Engineering and Renewable Energy Integration'],
-            ['icon' => '🌿', 'label' => 'Environmental & Circular', 'title' => 'Track 5: Environmental Sustainability, Climate Resilience and Circular Economy'],
-            ['icon' => '🤖', 'label' => 'AI & Data Technologies', 'title' => 'Track 6: AI, Machine Learning and Data-Driven Technologies for Sustainable Engineering'],
-            ['icon' => '💻', 'label' => 'Computing & Security', 'title' => 'Track 7: Emerging Computing Technologies, Cybersecurity and Next-Generation Information Systems'],
-        ];
-        if (!empty($conferenceData['tracks'])) {
-            foreach ($conferenceData['tracks'] as $idx => $t) {
-                if (isset($globeTracks[$idx])) {
-                    $globeTracks[$idx]['icon'] = $t['icon'];
-                }
-            }
-        }
-        ?>
-        <div class="globe-orbit-system">
-          <div class="globe-orbit-ring">
-            <?php foreach ($globeTracks as $idx => $orb): ?>
-              <div class="orbit-slot orbit-slot-<?= $idx + 1 ?>">
-                <button type="button" class="globe-track-orb" onclick="goToSection('tracks', 'home', 'Tracks')" title="<?= e($orb['title']) ?>" aria-label="<?= e($orb['title']) ?>" data-label="<?= e($orb['label']) ?>"></button>
-              </div>
-            <?php endforeach; ?>
-          </div>
+      <!-- Interactive 3D Hollow Cube Viewer -->
+      <div class="cube-viewer-wrapper">
+        <div class="cube-ambient-glow" aria-hidden="true"></div>
+        <div id="cube-viewer">
+          <div class="cube-hint">Drag to rotate</div>
         </div>
       </div>
 

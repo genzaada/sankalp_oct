@@ -163,5 +163,6 @@ $navLinks = $conferenceData['nav_links'];
 <script src="<?= asset_url('assets/js/navigation.js') ?>"></script>
 <script src="<?= asset_url('assets/js/modals.js') ?>"></script>
 <script src="<?= asset_url('assets/js/main.js') ?>"></script>
+<script type="module" src="<?= asset_url('assets/js/hero-cube.js') ?>"></script>
 </body>
 </html>

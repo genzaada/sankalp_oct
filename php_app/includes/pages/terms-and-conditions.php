@@ -25,19 +25,19 @@ $config = $config ?? require __DIR__ . '/../../config/app.php';
 
   <!-- Policies Content Section -->
   <section class="section-white" style="padding-top: 3.5rem; padding-bottom: 5rem;">
-    <div class="container" style="max-width: 960px;">
-      <div class="reveal-up" style="display: flex; flex-direction: column; gap: 3rem;">
+    <div class="container">
+      <div class="reveal-up" style="display: flex; flex-direction: column; gap: 3.5rem; text-align: left;">
 
         <!-- 1. Refund / Cancellation Policy -->
-        <article id="refund-policy" style="border: 1px solid var(--color-border); border-radius: 1rem; padding: 2rem 2.25rem; background: #ffffff; box-shadow: 0 4px 16px rgba(0,0,0,0.03);">
+        <article id="refund-policy">
           <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.25rem;">
-            <div style="width: 4px; height: 1.5rem; border-radius: 9999px; background: var(--color-primary-700); flex-shrink: 0;"></div>
-            <h2 class="font-display font-bold uppercase" style="font-size: 1.35rem; color: #111827; margin: 0;">
+            <div style="width: 4px; height: 1.25rem; border-radius: 9999px; background: var(--color-primary-700); flex-shrink: 0;"></div>
+            <h2 class="font-display font-bold uppercase" style="font-size: 1.375rem; color: #111827; margin: 0;">
               1. Refund and Cancellation Policy
             </h2>
           </div>
-          <div style="font-size: 0.95rem; line-height: 1.7; color: var(--color-text-body);">
-            <div style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1rem; border-radius: 8px; background: #fffbeb; border: 1px solid #fef3c7; color: #92400e; font-size: 0.875rem; font-weight: 500; margin-bottom: 1rem;">
+          <div style="font-size: 1rem; line-height: 1.7; color: #111827;">
+            <div style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1rem; border-radius: 8px; background: #fffbeb; border: 1px solid #fef3c7; color: #92400e; font-size: 0.9375rem; font-weight: 500; margin-bottom: 1rem;">
               <span>&#9432;</span>
               <span>Detailed refund and cancellation terms will be published shortly upon final administrative review.</span>
             </div>
@@ -48,14 +48,14 @@ $config = $config ?? require __DIR__ . '/../../config/app.php';
         </article>
 
         <!-- 2. Terms and Conditions -->
-        <article id="terms-conditions" style="border: 1px solid var(--color-border); border-radius: 1rem; padding: 2rem 2.25rem; background: #ffffff; box-shadow: 0 4px 16px rgba(0,0,0,0.03);">
+        <article id="terms-conditions">
           <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.25rem;">
-            <div style="width: 4px; height: 1.5rem; border-radius: 9999px; background: var(--color-primary-700); flex-shrink: 0;"></div>
-            <h2 class="font-display font-bold uppercase" style="font-size: 1.35rem; color: #111827; margin: 0;">
+            <div style="width: 4px; height: 1.25rem; border-radius: 9999px; background: var(--color-primary-700); flex-shrink: 0;"></div>
+            <h2 class="font-display font-bold uppercase" style="font-size: 1.375rem; color: #111827; margin: 0;">
               2. Terms and Conditions
             </h2>
           </div>
-          <div style="font-size: 0.95rem; line-height: 1.75; color: var(--color-text-body); display: flex; flex-direction: column; gap: 1rem;">
+          <div style="font-size: 1rem; line-height: 1.7; color: #111827; display: flex; flex-direction: column; gap: 1.15rem;">
             <p style="margin: 0;">
               By registering for ICAIESF, participants agree to uphold the highest standards of scientific integrity, academic ethics, and professional conduct throughout the conference. Participation is open to faculty members, researchers, academicians, students, and industry professionals. Any submission of fraudulent credentials or misleading information may result in disqualification.
             </p>
@@ -72,14 +72,14 @@ $config = $config ?? require __DIR__ . '/../../config/app.php';
         </article>
 
         <!-- 3. Privacy Policy -->
-        <article id="privacy-policy" style="border: 1px solid var(--color-border); border-radius: 1rem; padding: 2rem 2.25rem; background: #ffffff; box-shadow: 0 4px 16px rgba(0,0,0,0.03);">
+        <article id="privacy-policy">
           <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.25rem;">
-            <div style="width: 4px; height: 1.5rem; border-radius: 9999px; background: var(--color-primary-700); flex-shrink: 0;"></div>
-            <h2 class="font-display font-bold uppercase" style="font-size: 1.35rem; color: #111827; margin: 0;">
+            <div style="width: 4px; height: 1.25rem; border-radius: 9999px; background: var(--color-primary-700); flex-shrink: 0;"></div>
+            <h2 class="font-display font-bold uppercase" style="font-size: 1.375rem; color: #111827; margin: 0;">
               3. Privacy Policy
             </h2>
           </div>
-          <div style="font-size: 0.95rem; line-height: 1.75; color: var(--color-text-body); display: flex; flex-direction: column; gap: 1rem;">
+          <div style="font-size: 1rem; line-height: 1.7; color: #111827; display: flex; flex-direction: column; gap: 1.15rem;">
             <p style="margin: 0;">
               The School of Engineering and Technology (SOET), MGM University, is committed to protecting the privacy and security of personal and professional information collected through the ICAIESF conference website and registration process.
             </p>

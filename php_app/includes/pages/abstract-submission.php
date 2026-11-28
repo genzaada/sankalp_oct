@@ -20,6 +20,124 @@ if (!empty($conferenceData['dates'])) {
 
   <?php require __DIR__ . '/../sections/hero.php'; ?>
 
+  <!-- Important Dates Landscape Section -->
+  <section id="important-dates-schedule" class="section-light" style="padding-top: 3.5rem; padding-bottom: 2rem; scroll-margin-top: 5rem;">
+    <div class="container">
+      <div class="reveal-up">
+        
+        <!-- Header with Pill -->
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 0.75rem;">
+          <div style="display: flex; align-items: center; gap: 0.75rem;">
+            <div style="width: 4px; height: 1.5rem; border-radius: 9999px; background: var(--color-primary-700);"></div>
+            <h2 class="font-display font-bold uppercase" style="font-size: 1.375rem; color: #111827; margin: 0; letter-spacing: 0.02em;">
+              Important Dates
+            </h2>
+          </div>
+          <span class="font-mono uppercase font-bold" style="font-size: 10px; color: #047857; background: #ecfdf5; border: 1px solid #a7f3d0; padding: 0.35rem 0.85rem; border-radius: 9999px; letter-spacing: 0.05em;">
+            Official Schedule
+          </span>
+        </div>
+
+        <!-- Landscape Dates Table Card -->
+        <div class="card" style="padding: 1.5rem; background: #ffffff; border: 1px solid var(--color-border); border-radius: 1rem; box-shadow: 0 4px 16px rgba(0,0,0,0.03); overflow: hidden;">
+          
+          <!-- Desktop / Tablet Horizontal Table -->
+          <div class="hidden sm:block" style="overflow-x: auto;">
+            <table style="width: 100%; border-collapse: separate; border-spacing: 0;">
+              <thead>
+                <tr style="border-bottom: 2px solid var(--color-border); text-align: left;">
+                  <th style="padding: 0.875rem 1rem; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--color-primary-700); font-family: var(--font-mono);">
+                    Conference Milestone
+                  </th>
+                  <th style="padding: 0.875rem 1rem; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--color-primary-700); font-family: var(--font-mono); width: 220px; text-align: right;">
+                    Official Date
+                  </th>
+                  <th style="padding: 0.875rem 1rem; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--color-primary-700); font-family: var(--font-mono); width: 140px; text-align: center;">
+                    Status
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <?php if (!empty($conferenceData['dates'])): ?>
+                  <?php foreach ($conferenceData['dates'] as $idx => $d): ?>
+                    <?php
+                    $isDeadline = ($d['type'] ?? '') === 'deadline';
+                    $isEvent = ($d['type'] ?? '') === 'event';
+                    $rowBg = $isDeadline 
+                      ? 'background: #fff1f2;' 
+                      : ($isEvent ? 'background: rgba(18,124,111,0.05);' : ($idx % 2 === 1 ? 'background: var(--color-bg-light);' : 'background: #ffffff;'));
+                    $titleColor = $isDeadline ? '#be123c;' : '#111827;';
+                    ?>
+                    <tr style="<?= $rowBg ?> border-bottom: 1px solid var(--color-border); transition: background 0.15s;">
+                      <td style="padding: 1rem; border-top: 1px solid var(--color-border);">
+                        <div style="display: flex; align-items: center; gap: 0.625rem;">
+                          <span style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: <?= $isDeadline ? '#be123c' : ($isEvent ? 'var(--color-primary-700)' : 'var(--color-accent-amber)') ?>;"></span>
+                          <span style="font-size: 0.9375rem; font-weight: 700; color: <?= $titleColor ?>">
+                            <?= e($d['label']) ?>
+                          </span>
+                        </div>
+                      </td>
+                      <td style="padding: 1rem; text-align: right; border-top: 1px solid var(--color-border); white-space: nowrap;">
+                        <span class="font-mono font-bold" style="font-size: 0.9375rem; color: var(--color-primary-700); background: #ffffff; border: 1px solid var(--color-border); padding: 0.35rem 0.75rem; border-radius: 0.5rem; display: inline-block;">
+                          <?= e($d['date']) ?>
+                        </span>
+                      </td>
+                      <td style="padding: 1rem; text-align: center; border-top: 1px solid var(--color-border);">
+                        <span class="font-mono uppercase font-bold" style="font-size: 10px; padding: 0.25rem 0.625rem; border-radius: 9999px; background: #ecfdf5; border: 1px solid #a7f3d0; color: #047857; letter-spacing: 0.04em;">
+                          <?= e($d['status'] ?? 'Official') ?>
+                        </span>
+                      </td>
+                    </tr>
+                  <?php endforeach; ?>
+                <?php endif; ?>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Mobile Cards Layout (Stacked gracefully on narrow viewports) -->
+          <div class="sm:hidden" style="display: flex; flex-direction: column; gap: 0.75rem;">
+            <?php if (!empty($conferenceData['dates'])): ?>
+              <?php foreach ($conferenceData['dates'] as $d): ?>
+                <?php
+                $isDeadline = ($d['type'] ?? '') === 'deadline';
+                $isEvent = ($d['type'] ?? '') === 'event';
+                $cardBg = $isDeadline ? 'background: #fff1f2; border: 1px solid #ffe4e6;' : ($isEvent ? 'background: rgba(18,124,111,0.06); border: 1px solid #ccfbf1;' : 'border: 1px solid var(--color-border); background: var(--color-bg-light);');
+                ?>
+                <div style="padding: 1rem; border-radius: 0.75rem; <?= $cardBg ?> display: flex; flex-direction: column; gap: 0.5rem;">
+                  <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 0.5rem;">
+                    <span style="font-size: 0.875rem; font-weight: 700; color: <?= $isDeadline ? '#be123c' : '#111827' ?>;">
+                      <?= e($d['label']) ?>
+                    </span>
+                    <span class="font-mono uppercase font-bold" style="font-size: 9px; padding: 0.15rem 0.45rem; border-radius: 9999px; background: #ecfdf5; border: 1px solid #a7f3d0; color: #047857; flex-shrink: 0;">
+                      <?= e($d['status'] ?? 'Official') ?>
+                    </span>
+                  </div>
+                  <div style="display: flex; justify-content: flex-end;">
+                    <span class="font-mono font-bold" style="font-size: 0.875rem; color: var(--color-primary-700); background: #ffffff; border: 1px solid var(--color-border); padding: 0.25rem 0.625rem; border-radius: 0.5rem;">
+                      <?= e($d['date']) ?>
+                    </span>
+                  </div>
+                </div>
+              <?php endforeach; ?>
+            <?php endif; ?>
+          </div>
+
+          <!-- Footnote notice -->
+          <div style="margin-top: 1.25rem; padding-top: 0.875rem; border-top: 1px solid var(--color-border); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem;">
+            <p style="font-size: 11px; color: var(--color-text-body); margin: 0; line-height: 1.4;">
+              * All deadlines are 23:59 IST (Indian Standard Time, UTC+5:30). Authors are advised to complete submissions in advance.
+            </p>
+            <span class="font-mono font-bold uppercase" style="font-size: 10px; color: var(--color-primary-700);">
+              <?= count($conferenceData['dates'] ?? []) ?> Official Milestones
+            </span>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
   <?php require __DIR__ . '/../sections/cfp-fees.php'; ?>
 
   <!-- Registration Information & Accommodation -->

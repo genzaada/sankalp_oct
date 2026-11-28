@@ -11,7 +11,6 @@ const TARGET_LABEL_MAP = {
   'about': 'About',
   'committee': 'Committee',
   'tracks': 'Tracks',
-  'dates': 'Schedule',
   'speakers': 'Speakers',
   'fees': 'Registration',
   'sponsor': 'Sponsor',
@@ -423,7 +422,6 @@ function initScrollSpy() {
     { id: 'about', label: 'About' },
     { id: 'committee', label: 'Committee' },
     { id: 'tracks', label: 'Tracks' },
-    { id: 'dates', label: 'Schedule' },
     { id: 'speakers', label: 'Speakers' },
     { id: 'venue', label: 'Venue' }
   ];

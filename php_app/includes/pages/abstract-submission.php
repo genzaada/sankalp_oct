@@ -21,7 +21,7 @@ if (!empty($conferenceData['dates'])) {
   <?php require __DIR__ . '/../sections/hero.php'; ?>
 
   <!-- Important Dates Landscape Section -->
-  <section id="important-dates-schedule" class="section-light" style="padding-top: 3.5rem; padding-bottom: 2rem; scroll-margin-top: 5rem;">
+  <section id="important-dates-schedule" class="section-light" style="padding-top: 3rem; padding-bottom: 0.5rem; scroll-margin-top: 5rem;">
     <div class="container">
       <div class="reveal-up">
         
@@ -52,9 +52,6 @@ if (!empty($conferenceData['dates'])) {
                   <th style="padding: 0.875rem 1rem; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--color-primary-700); font-family: var(--font-mono); width: 220px; text-align: right;">
                     Official Date
                   </th>
-                  <th style="padding: 0.875rem 1rem; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--color-primary-700); font-family: var(--font-mono); width: 140px; text-align: center;">
-                    Status
-                  </th>
                 </tr>
               </thead>
               <tbody>
@@ -82,11 +79,6 @@ if (!empty($conferenceData['dates'])) {
                           <?= e($d['date']) ?>
                         </span>
                       </td>
-                      <td style="padding: 1rem; text-align: center; border-top: 1px solid var(--color-border);">
-                        <span class="font-mono uppercase font-bold" style="font-size: 10px; padding: 0.25rem 0.625rem; border-radius: 9999px; background: #ecfdf5; border: 1px solid #a7f3d0; color: #047857; letter-spacing: 0.04em;">
-                          <?= e($d['status'] ?? 'Official') ?>
-                        </span>
-                      </td>
                     </tr>
                   <?php endforeach; ?>
                 <?php endif; ?>
@@ -103,33 +95,23 @@ if (!empty($conferenceData['dates'])) {
                 $isEvent = ($d['type'] ?? '') === 'event';
                 $cardBg = $isDeadline ? 'background: #fff1f2; border: 1px solid #ffe4e6;' : ($isEvent ? 'background: rgba(18,124,111,0.06); border: 1px solid #ccfbf1;' : 'border: 1px solid var(--color-border); background: var(--color-bg-light);');
                 ?>
-                <div style="padding: 1rem; border-radius: 0.75rem; <?= $cardBg ?> display: flex; flex-direction: column; gap: 0.5rem;">
-                  <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 0.5rem;">
-                    <span style="font-size: 0.875rem; font-weight: 700; color: <?= $isDeadline ? '#be123c' : '#111827' ?>;">
-                      <?= e($d['label']) ?>
-                    </span>
-                    <span class="font-mono uppercase font-bold" style="font-size: 9px; padding: 0.15rem 0.45rem; border-radius: 9999px; background: #ecfdf5; border: 1px solid #a7f3d0; color: #047857; flex-shrink: 0;">
-                      <?= e($d['status'] ?? 'Official') ?>
-                    </span>
-                  </div>
-                  <div style="display: flex; justify-content: flex-end;">
-                    <span class="font-mono font-bold" style="font-size: 0.875rem; color: var(--color-primary-700); background: #ffffff; border: 1px solid var(--color-border); padding: 0.25rem 0.625rem; border-radius: 0.5rem;">
-                      <?= e($d['date']) ?>
-                    </span>
-                  </div>
+                <div style="padding: 1rem; border-radius: 0.75rem; <?= $cardBg ?> display: flex; justify-content: space-between; align-items: center; gap: 0.75rem;">
+                  <span style="font-size: 0.875rem; font-weight: 700; color: <?= $isDeadline ? '#be123c' : '#111827' ?>;">
+                    <?= e($d['label']) ?>
+                  </span>
+                  <span class="font-mono font-bold" style="font-size: 0.875rem; color: var(--color-primary-700); background: #ffffff; border: 1px solid var(--color-border); padding: 0.25rem 0.625rem; border-radius: 0.5rem; flex-shrink: 0; white-space: nowrap;">
+                    <?= e($d['date']) ?>
+                  </span>
                 </div>
               <?php endforeach; ?>
             <?php endif; ?>
           </div>
 
           <!-- Footnote notice -->
-          <div style="margin-top: 1.25rem; padding-top: 0.875rem; border-top: 1px solid var(--color-border); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem;">
+          <div style="margin-top: 1.25rem; padding-top: 0.875rem; border-top: 1px solid var(--color-border); display: flex; align-items: center; justify-content: flex-start;">
             <p style="font-size: 11px; color: var(--color-text-body); margin: 0; line-height: 1.4;">
               * All deadlines are 23:59 IST (Indian Standard Time, UTC+5:30). Authors are advised to complete submissions in advance.
             </p>
-            <span class="font-mono font-bold uppercase" style="font-size: 10px; color: var(--color-primary-700);">
-              <?= count($conferenceData['dates'] ?? []) ?> Official Milestones
-            </span>
           </div>
 
         </div>
@@ -141,7 +123,7 @@ if (!empty($conferenceData['dates'])) {
   <?php require __DIR__ . '/../sections/cfp-fees.php'; ?>
 
   <!-- Registration Information & Accommodation -->
-  <section class="section-white" style="padding-top: 1.5rem; padding-bottom: 2.5rem;">
+  <section class="section-white" style="padding-top: 3rem; padding-bottom: 3rem;">
     <div class="container">
       <div class="reveal-up" style="text-align: left;">
         <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.25rem;">
@@ -199,7 +181,7 @@ if (!empty($conferenceData['dates'])) {
   </section>
 
   <!-- Proposed Conference Tracks -->
-  <section class="section-white" style="padding-top: 2rem; padding-bottom: 3.5rem;">
+  <section class="section-light" style="padding-top: 3rem; padding-bottom: 3rem;">
     <div class="container">
       <div class="reveal-up" style="text-align: left;">
         <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.25rem;">
@@ -253,7 +235,7 @@ if (!empty($conferenceData['dates'])) {
   </section>
 
   <!-- Abstract Submission Guidelines, Procedure & Publication Opportunities -->
-  <section class="section-white" style="padding-top: 1.5rem; padding-bottom: 3.5rem;">
+  <section class="section-white" style="padding-top: 3rem; padding-bottom: 3.5rem;">
     <div class="container">
       <div class="reveal-up" style="text-align: left; display: flex; flex-direction: column; gap: 3rem;">
 
@@ -391,7 +373,7 @@ if (!empty($conferenceData['dates'])) {
   </section>
 
   <!-- Abstract Submission Content -->
-  <section class="section-light" style="padding-top: 2.5rem; padding-bottom: 5rem;">
+  <section class="section-light" style="padding-top: 3.5rem; padding-bottom: 5rem;">
     <div class="container" style="max-width: 52rem;">
       <div class="reveal-up" style="border-radius: 1rem; padding: 2.5rem; display: flex; flex-direction: column; gap: 1.5rem; position: relative; overflow: hidden; background: linear-gradient(150deg, var(--color-primary-700) 0%, var(--color-primary-900) 100%); color: #ffffff; box-shadow: 0 12px 32px rgba(10, 74, 71, 0.14);">
         <div style="position: absolute; right: -2rem; bottom: -2rem; width: 12rem; height: 12rem; border-radius: 50%; opacity: 0.1; background: #ffffff; filter: blur(40px); pointer-events: none;"></div>

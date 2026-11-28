@@ -5,7 +5,7 @@
 $conferenceData = $conferenceData ?? require __DIR__ . '/../../config/conference_data.php';
 $regFees = $conferenceData['reg_fees'];
 ?>
-<section id="fees" class="section-light" style="padding-top: 6rem; padding-bottom: 1.5rem; scroll-margin-top: 5rem; overflow: hidden;">
+<section id="fees" class="section-light" style="padding-top: 1.5rem; padding-bottom: 2rem; scroll-margin-top: 5rem; overflow: hidden;">
   <div class="container">
 
     <!-- Registration Fee Table -->

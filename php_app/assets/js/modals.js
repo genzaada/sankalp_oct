@@ -50,7 +50,7 @@ function closeModal(modalId) {
   }
 }
 
-function openRegistrationModal(category = 'Students', type = 'early_bird') {
+function openRegistrationModal(category = 'Student / Researcher (SAARC)', type = 'early') {
   const catSelect = document.getElementById('reg-category');
   const typeSelect = document.getElementById('reg-type');
   if (catSelect && category) catSelect.value = category;

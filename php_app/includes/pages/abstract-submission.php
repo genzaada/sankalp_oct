@@ -180,19 +180,19 @@ if (!empty($conferenceData['dates'])) {
     </div>
   </section>
 
-  <!-- Proposed Conference Tracks -->
+  <!-- Approved Conference Tracks -->
   <section class="section-light" style="padding-top: 3rem; padding-bottom: 3rem;">
     <div class="container">
       <div class="reveal-up" style="text-align: left;">
         <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.25rem;">
           <div style="width: 4px; height: 1.25rem; border-radius: 9999px; background: var(--color-primary-700); flex-shrink: 0;"></div>
           <h2 class="font-display font-bold uppercase" style="font-size: 1.375rem; color: #111827; margin: 0;">
-            Proposed Conference Tracks
+            Conference Research Tracks
           </h2>
         </div>
 
         <p style="font-size: 1rem; line-height: 1.65; color: #111827; margin: 0 0 1.25rem 0;">
-          The conference welcomes original research contributions in the following areas:
+          The conference welcomes original research contributions in the following seven approved technical tracks:
         </p>
 
         <ol style="list-style: none; padding: 0; margin: 0 0 1.5rem 0; display: flex; flex-direction: column; gap: 0.9rem;">
@@ -202,7 +202,7 @@ if (!empty($conferenceData['dates'])) {
           </li>
           <li style="display: flex; align-items: flex-start; gap: 0.75rem;">
             <span style="width: 1.625rem; height: 1.625rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 0.1rem; background: rgba(18, 124, 111, 0.12); color: var(--color-primary-700); font-weight: 700; font-size: 0.875rem;">2</span>
-            <span style="font-size: 1rem; line-height: 1.65; color: #111827;">Intelligent Sustainable Manufacturing and Industry 5.0</span>
+            <span style="font-size: 1rem; line-height: 1.65; color: #111827;">Intelligent Sustainable Manufacturing, Industrial Automation and Industry 5.0</span>
           </li>
           <li style="display: flex; align-items: flex-start; gap: 0.75rem;">
             <span style="width: 1.625rem; height: 1.625rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 0.1rem; background: rgba(18, 124, 111, 0.12); color: var(--color-primary-700); font-weight: 700; font-size: 0.875rem;">3</span>
@@ -214,11 +214,15 @@ if (!empty($conferenceData['dates'])) {
           </li>
           <li style="display: flex; align-items: flex-start; gap: 0.75rem;">
             <span style="width: 1.625rem; height: 1.625rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 0.1rem; background: rgba(18, 124, 111, 0.12); color: var(--color-primary-700); font-weight: 700; font-size: 0.875rem;">5</span>
-            <span style="font-size: 1rem; line-height: 1.65; color: #111827;">Artificial Intelligence and Digital Technologies for Intelligent Engineering</span>
+            <span style="font-size: 1rem; line-height: 1.65; color: #111827;">Environmental Sustainability, Climate Resilience and Circular Economy</span>
           </li>
           <li style="display: flex; align-items: flex-start; gap: 0.75rem;">
             <span style="width: 1.625rem; height: 1.625rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 0.1rem; background: rgba(18, 124, 111, 0.12); color: var(--color-primary-700); font-weight: 700; font-size: 0.875rem;">6</span>
-            <span style="font-size: 1rem; line-height: 1.65; color: #111827;">Environmental Sustainability, Climate Resilience and Circular Economy</span>
+            <span style="font-size: 1rem; line-height: 1.65; color: #111827;">AI, Machine Learning and Data-Driven Technologies for Sustainable Engineering</span>
+          </li>
+          <li style="display: flex; align-items: flex-start; gap: 0.75rem;">
+            <span style="width: 1.625rem; height: 1.625rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 0.1rem; background: rgba(18, 124, 111, 0.12); color: var(--color-primary-700); font-weight: 700; font-size: 0.875rem;">7</span>
+            <span style="font-size: 1rem; line-height: 1.65; color: #111827;">Emerging Computing Technologies, Cybersecurity and Next-Generation Information Systems</span>
           </li>
         </ol>
 

@@ -26,11 +26,11 @@ $regFees = $conferenceData['reg_fees'];
             <tr style="border-bottom: 2px solid var(--color-border);">
               <th style="font-size: 0.9375rem; font-weight: 700; color: #111827;">Registration Category</th>
               <th style="font-size: 0.9375rem; font-weight: 700; color: var(--color-primary-700); background: rgba(18,124,111,0.07); border-radius: 0.75rem 0.75rem 0 0;">
-                Early Bird
-                <span style="display: block; font-size: 0.75rem; font-weight: 600; margin-top: 0.125rem; color: var(--color-primary-700);">By 25 Dec 2026</span>
+                Early Registration
+                <span style="display: block; font-size: 0.75rem; font-weight: 600; margin-top: 0.125rem; color: var(--color-primary-700);">Deadline: 25 December 2026</span>
               </th>
               <th style="font-size: 0.9375rem; font-weight: 700; color: #111827;">
-                Late / On-Spot
+                Late / On-spot Registration
                 <span style="display: block; font-size: 0.75rem; font-weight: 600; margin-top: 0.125rem; color: #374151;">After 25 Dec 2026</span>
               </th>
             </tr>
@@ -45,11 +45,6 @@ $regFees = $conferenceData['reg_fees'];
             <?php endforeach; ?>
           </tbody>
         </table>
-
-        <div style="margin-top: 1.25rem; font-size: 0.875rem; line-height: 1.6; color: #dc2626;">
-          <strong style="color: #dc2626;">Institutional Advisory Notice:</strong>
-          Registration fee slabs and schedule milestones are currently under administrative review and subject to institutional approval by MGM University. All presented fees are provisional and will be confirmed prior to opening delegate registration.
-        </div>
 
         <div style="margin-top: 1.25rem; padding-top: 1rem; border-top: 1px solid var(--color-border); display: flex; align-items: center; justify-content: space-between;">
           <span style="font-size: 0.875rem; color: #111827;">
@@ -68,17 +63,17 @@ $regFees = $conferenceData['reg_fees'];
           <div class="card" style="padding: 1.25rem;">
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
               <h4 class="font-display font-bold text-base" style="color: var(--color-text-heading); margin: 0;"><?= e($fee['category']) ?></h4>
-              <span style="padding: 0.125rem 0.5rem; border-radius: 9999px; font-size: 9px; font-weight: 700; text-transform: uppercase; background: #fffbeb; border: 1px solid #fef3c7; color: #92400e;">Provisional Slab</span>
+              <span style="padding: 0.125rem 0.5rem; border-radius: 9999px; font-size: 9px; font-weight: 700; text-transform: uppercase; background: rgba(18,124,111,0.08); border: 1px solid rgba(18,124,111,0.2); color: var(--color-primary-700);">Approved Rate</span>
             </div>
 
             <div style="border-radius: 0.75rem; padding: 1rem; margin-bottom: 1rem; background: rgba(18,124,111,0.08); border: 1px solid rgba(18,124,111,0.2);">
-              <span class="font-mono uppercase font-bold" style="font-size: 10px; display: block; margin-bottom: 0.25rem; color: var(--color-primary-700);">Early Bird (By 25 Dec 2026)</span>
+              <span class="font-mono uppercase font-bold" style="font-size: 10px; display: block; margin-bottom: 0.25rem; color: var(--color-primary-700);">Early Registration (Deadline: 25 Dec 2026)</span>
               <span class="font-mono font-bold text-2xl" style="font-size: 1.5rem; color: var(--color-primary-700);"><?= e($fee['early']) ?></span>
             </div>
 
             <div style="margin-bottom: 1rem; font-size: 0.875rem; font-family: var(--font-mono);">
               <div style="padding: 0.75rem; border-radius: 0.75rem; border: 1px solid var(--color-border); background: var(--color-bg-light);">
-                <span style="display: block; font-size: 11px; text-transform: uppercase; margin-bottom: 0.25rem; color: #374151; font-weight: 600;">Late / On-Spot (After 25 Dec 2026)</span>
+                <span style="display: block; font-size: 11px; text-transform: uppercase; margin-bottom: 0.25rem; color: #374151; font-weight: 600;">Late / On-spot Registration (After 25 Dec 2026)</span>
                 <span style="font-size: 1.125rem; font-weight: 700; color: #111827;"><?= e($fee['spot']) ?></span>
               </div>
             </div>

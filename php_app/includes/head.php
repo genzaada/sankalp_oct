@@ -140,9 +140,14 @@ $ogImageUrl = !empty($productionDomain) ? rtrim($productionDomain, '/') . '/asse
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><path d='M50 5L88.9711 27.5V72.5L50 95L11.0289 72.5V27.5L50 5Z' fill='%230E5A56' stroke='%23F2B705' stroke-width='4'/><text x='50' y='60' fill='white' font-size='30' font-weight='bold' font-family='sans-serif' text-anchor='middle'>I</text></svg>">
 
-  <!-- Three.js Import Map for Hero 3D Cube -->
+  <!-- Three.js Local Import Map for Hero 3D Cube (Self-Contained, No External CDN) -->
   <script type="importmap">
-    {"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.164.1/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.164.1/examples/jsm/"}}
+    {
+      "imports": {
+        "three": "<?= asset_url('assets/js/vendor/three/three.module.js') ?>",
+        "three/addons/": "<?= asset_url('assets/js/vendor/three/addons/') ?>"
+      }
+    }
   </script>
 </head>
 <body id="top">

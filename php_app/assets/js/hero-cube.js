@@ -205,20 +205,61 @@ function build3DLogo() {
   return pivot;
 }
 
+let isInitialized = false;
+
 function initHeroCube() {
   const container = document.getElementById('cube-viewer');
-  if (!container) return;
+  if (!container || isInitialized) return;
+
+  // Prevent duplicate canvas creation if one already exists
+  if (container.querySelector('canvas')) {
+    isInitialized = true;
+    return;
+  }
+
+  // Ensure container has measurable dimensions before WebGL initialization
+  const initialWidth = container.clientWidth;
+  const initialHeight = container.clientHeight;
+
+  if (initialWidth === 0 || initialHeight === 0) {
+    if (typeof ResizeObserver !== 'undefined') {
+      const initObserver = new ResizeObserver((entries, observer) => {
+        for (const entry of entries) {
+          if (entry.contentRect.width > 0 && entry.contentRect.height > 0) {
+            observer.disconnect();
+            initHeroCube();
+            break;
+          }
+        }
+      });
+      initObserver.observe(container);
+      return;
+    } else {
+      requestAnimationFrame(initHeroCube);
+      return;
+    }
+  }
+
+  isInitialized = true;
+
+  let renderer;
+  try {
+    renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true, powerPreference: 'high-performance' });
+  } catch (err) {
+    console.warn('WebGL is not supported or failed to initialize:', err);
+    return;
+  }
 
   const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(34, 1, 0.1, 100);
+  const camera = new THREE.PerspectiveCamera(34, initialWidth / initialHeight, 0.1, 100);
   // 3/4 default viewing angle showcasing extrusion depth & bevels
   camera.position.set(1.55, 0.62, 4.15);
 
-  const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
   renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
   renderer.outputColorSpace = THREE.SRGBColorSpace;
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
   renderer.toneMappingExposure = 1.2;
+  renderer.setSize(initialWidth, initialHeight, false);
   container.appendChild(renderer.domElement);
 
   // Studio environment reflections
@@ -267,11 +308,13 @@ function initHeroCube() {
   });
 
   function resize() {
-    const w = container.clientWidth || 380;
-    const h = container.clientHeight || 360;
-    camera.aspect = w / h;
-    camera.updateProjectionMatrix();
-    renderer.setSize(w, h, false);
+    const w = container.clientWidth;
+    const h = container.clientHeight;
+    if (w > 0 && h > 0) {
+      camera.aspect = w / h;
+      camera.updateProjectionMatrix();
+      renderer.setSize(w, h, false);
+    }
   }
 
   if (typeof ResizeObserver !== 'undefined') {
@@ -279,7 +322,10 @@ function initHeroCube() {
   } else {
     window.addEventListener('resize', resize, { passive: true });
   }
-  resize();
+  window.addEventListener('orientationchange', () => {
+    setTimeout(resize, 100);
+  }, { passive: true });
+  window.addEventListener('resize', resize, { passive: true });
 
   const clock = new THREE.Clock();
   renderer.setAnimationLoop(() => {

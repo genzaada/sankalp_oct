@@ -12,7 +12,11 @@ AddDefaultCharset UTF-8
 # MIME Types
 <IfModule mod_mime.c>
     AddType text/css .css
-    AddType application/javascript .js
+    AddType application/javascript .js .mjs
+    AddType model/gltf-binary .glb
+    AddType model/gltf+json .gltf
+    AddType application/octet-stream .bin
+    AddType image/ktx2 .ktx2
     AddType image/svg+xml .svg
     AddType image/webp .webp
     AddType image/png .png

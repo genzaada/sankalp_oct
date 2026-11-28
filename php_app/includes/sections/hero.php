@@ -79,9 +79,7 @@ if (!empty($conferenceData['dates'])) {
       <!-- Interactive 3D Hollow Cube Viewer -->
       <div class="cube-viewer-wrapper">
         <div class="cube-ambient-glow" aria-hidden="true"></div>
-        <div id="cube-viewer">
-          <div class="cube-hint">Drag to rotate</div>
-        </div>
+        <div id="cube-viewer"></div>
       </div>
 
       <?php if (($currentPage ?? 'home') !== 'abstract-submission'): ?>

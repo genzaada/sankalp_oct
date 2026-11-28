@@ -62,6 +62,12 @@ $navLinks = $conferenceData['nav_links'];
             <span style="color: var(--color-accent-amber); font-weight: bold;">&rsaquo;</span>
             Conference Acknowledgement
           </a>
+          <a href="index.php?page=terms-and-conditions"
+            style="text-align: left; color: #ffffff; display: inline-flex; align-items: center; gap: 0.25rem; transition: color 0.15s; text-decoration: none;"
+            onmouseover="this.style.color='var(--color-accent-amber)';" onmouseout="this.style.color='#ffffff';">
+            <span style="color: var(--color-accent-amber); font-weight: bold;">&rsaquo;</span>
+            Terms &amp; Conditions
+          </a>
         </div>
       </div>
 

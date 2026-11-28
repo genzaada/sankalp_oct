@@ -15,6 +15,7 @@ const TARGET_LABEL_MAP = {
   'speakers': 'Speakers',
   'fees': 'Registration',
   'sponsor': 'Sponsor',
+  'terms-and-conditions': 'Terms & Conditions',
   'venue': 'Venue',
   'contact-section': 'Contact'
 };
@@ -437,6 +438,11 @@ function initScrollSpy() {
 
     if (currentPageParam === 'sponsor') {
       setActiveNav('Sponsor');
+      return;
+    }
+
+    if (currentPageParam === 'terms-and-conditions') {
+      setActiveNav('Terms & Conditions');
       return;
     }
 

@@ -223,6 +223,7 @@ return [
         ['label' => 'Committee',       'target' => 'committee',       'page' => 'home'],
         ['label' => 'Schedule',        'target' => 'dates',           'page' => 'home'],
         ['label' => 'Sponsor',         'target' => 'sponsor',         'page' => 'sponsor'],
+        ['label' => 'Terms & Conditions', 'target' => 'terms-and-conditions', 'page' => 'terms-and-conditions'],
         ['label' => 'Registration',    'target' => 'fees',            'page' => 'abstract-submission'],
         ['label' => 'Venue',           'target' => 'venue',           'page' => 'home'],
     ]

@@ -17,7 +17,7 @@ $navLinks = $conferenceData['nav_links'];
     <!-- Desktop Navigation Links -->
     <div class="nav-desktop-links">
       <?php foreach ($navLinks as $link): ?>
-        <?php $isActive = (($currentPage ?? 'home') === 'sponsor' && $link['label'] === 'Sponsor') || (($currentPage ?? 'home') === 'abstract-submission' && $link['label'] === 'Abstract Submission') || (($currentPage ?? 'home') === 'about' && $link['label'] === 'About') || (($currentPage ?? 'home') === 'home' && $link['label'] === 'Home'); ?>
+        <?php $isActive = (($currentPage ?? 'home') === 'sponsor' && $link['label'] === 'Sponsor') || (($currentPage ?? 'home') === 'terms-and-conditions' && ($link['label'] === 'Terms & Conditions' || $link['label'] === 'Terms and Condition')) || (($currentPage ?? 'home') === 'abstract-submission' && $link['label'] === 'Abstract Submission') || (($currentPage ?? 'home') === 'about' && $link['label'] === 'About') || (($currentPage ?? 'home') === 'home' && $link['label'] === 'Home'); ?>
         <button type="button" class="nav-link <?= $isActive ? 'active' : '' ?>"
           data-nav="<?= e($link['label']) ?>"
           onclick="goToSection('<?= e($link['target']) ?>', '<?= e($link['page']) ?>', '<?= e($link['label']) ?>')">
@@ -51,7 +51,7 @@ $navLinks = $conferenceData['nav_links'];
   <div id="mobile-drawer" class="mobile-drawer" aria-hidden="true" aria-label="Mobile Navigation">
     <div class="mobile-nav-grid">
       <?php foreach ($navLinks as $link): ?>
-        <?php $isActive = (($currentPage ?? 'home') === 'sponsor' && $link['label'] === 'Sponsor') || (($currentPage ?? 'home') === 'abstract-submission' && $link['label'] === 'Abstract Submission') || (($currentPage ?? 'home') === 'about' && $link['label'] === 'About') || (($currentPage ?? 'home') === 'home' && $link['label'] === 'Home'); ?>
+        <?php $isActive = (($currentPage ?? 'home') === 'sponsor' && $link['label'] === 'Sponsor') || (($currentPage ?? 'home') === 'terms-and-conditions' && ($link['label'] === 'Terms & Conditions' || $link['label'] === 'Terms and Condition')) || (($currentPage ?? 'home') === 'abstract-submission' && $link['label'] === 'Abstract Submission') || (($currentPage ?? 'home') === 'about' && $link['label'] === 'About') || (($currentPage ?? 'home') === 'home' && $link['label'] === 'Home'); ?>
         <button type="button" class="mobile-nav-link <?= $isActive ? 'active' : '' ?>"
           data-nav="<?= e($link['label']) ?>"
           onclick="goToSection('<?= e($link['target']) ?>', '<?= e($link['page']) ?>', '<?= e($link['label']) ?>')">

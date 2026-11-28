@@ -31,8 +31,8 @@ return [
     'social_links' => [
         'facebook'  => '',
         'twitter'   => '',
-        'linkedin'  => '',
-        'instagram' => '',
+        'linkedin'  => 'https://www.linkedin.com/company/mgmu-school-of-engineering-and-technology/posts/?feedView=all',
+        'instagram' => 'https://www.instagram.com/mgmu.soet/',
         'youtube'   => ''
     ],
 

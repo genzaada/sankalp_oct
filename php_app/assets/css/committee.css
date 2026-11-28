@@ -2,21 +2,27 @@
 /* Scoped root: .sankalp-committee */
 
 .sankalp-committee .leadership-grid {
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;
   gap: 1.25rem;
 }
 
+.sankalp-committee .leadership-grid .leadership-card {
+  flex: 0 1 100%;
+  height: auto;
+}
+
 @media (min-width: 640px) {
-  .sankalp-committee .leadership-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .sankalp-committee .leadership-grid .leadership-card {
+    flex: 0 1 calc(50% - 0.625rem);
   }
 }
 
 @media (min-width: 1024px) {
-  .sankalp-committee .leadership-grid {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1.25rem;
+  .sankalp-committee .leadership-grid .leadership-card {
+    flex: 0 1 calc(33.333% - 0.85rem);
   }
 }
 

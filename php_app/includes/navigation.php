@@ -9,9 +9,27 @@ $navLinks = $conferenceData['nav_links'];
 <nav class="site-nav">
   <div class="container nav-inner">
 
-    <!-- Brand Logo -->
-    <div class="nav-brand" onclick="navigateTo('home')" role="button" tabindex="0" aria-label="<?= e($config['app_name']) ?> Homepage">
-      <img src="<?= asset_url('assets/images/logo%202%20.png') ?>" alt="<?= e($config['app_name']) ?>" class="brand-logo-img">
+    <!-- Left Brand Group: MGM University Logo + Event Logo -->
+    <div style="display: flex; align-items: center; gap: 0.875rem; flex-shrink: 0;">
+      <!-- MGM University Logo -->
+      <a href="https://mgmu.ac.in" target="_blank" rel="noopener noreferrer" aria-label="MGM University" class="nav-mgm-logo-link">
+        <video
+          src="<?= asset_url('assets/videos/mgm_logo_navbar.mp4') ?>?v=2"
+          autoplay
+          loop
+          muted
+          playsinline
+          preload="auto"
+          aria-label="MGM University"
+          class="nav-mgm-logo"
+          style="height: clamp(48px, 5vw, 68px); width: auto; aspect-ratio: 16 / 9; object-fit: contain;">
+        </video>
+      </a>
+
+      <!-- Brand Logo -->
+      <div class="nav-brand" onclick="navigateTo('home')" role="button" tabindex="0" aria-label="<?= e($config['app_name']) ?> Homepage">
+        <img src="<?= asset_url('assets/images/logo%202%20.png') ?>" alt="<?= e($config['app_name']) ?>" class="brand-logo-img">
+      </div>
     </div>
 
     <!-- Desktop Navigation Links -->
@@ -26,24 +44,16 @@ $navLinks = $conferenceData['nav_links'];
       <?php endforeach; ?>
     </div>
 
-    <!-- Right Header CTAs -->
-    <div style="display: flex; align-items: center; gap: 0.75rem;">
-      <!-- MGM University Logo -->
-      <a href="https://mgmu.ac.in" target="_blank" rel="noopener noreferrer" aria-label="MGM University" class="nav-mgm-logo-link">
-        <img src="<?= asset_url('assets/images/mgm_logo_navbar.png') ?>" alt="MGM University" class="nav-mgm-logo">
-      </a>
-
-      <!-- Mobile Hamburger Toggle -->
-      <button type="button" id="mobile-menu-btn"
-        aria-label="Toggle Navigation Menu"
-        aria-expanded="false"
-        aria-controls="mobile-drawer"
-        style="padding: 0.5rem; border: 1px solid var(--color-border); border-radius: 12px; display: inline-flex; align-items: center; justify-content: center; color: var(--color-text-heading);"
-        class="lg:hidden">
-        <span class="icon-menu"><?= render_icon('menu') ?></span>
-        <span class="icon-x" style="display: none;"><?= render_icon('x') ?></span>
-      </button>
-    </div>
+    <!-- Mobile Hamburger Toggle -->
+    <button type="button" id="mobile-menu-btn"
+      aria-label="Toggle Navigation Menu"
+      aria-expanded="false"
+      aria-controls="mobile-drawer"
+      style="padding: 0.5rem; border: 1px solid var(--color-border); border-radius: 12px; display: inline-flex; align-items: center; justify-content: center; color: var(--color-text-heading);"
+      class="lg:hidden">
+      <span class="icon-menu"><?= render_icon('menu') ?></span>
+      <span class="icon-x" style="display: none;"><?= render_icon('x') ?></span>
+    </button>
 
   </div>
 

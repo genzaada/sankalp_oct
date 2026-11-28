@@ -192,7 +192,7 @@ if (!empty($conferenceData['dates'])) {
         </div>
 
         <p style="font-size: 1rem; line-height: 1.65; color: #111827; margin: 0 0 1.25rem 0;">
-          The conference welcomes original research contributions in the following six approved technical tracks:
+          The conference welcomes original research contributions in the following seven approved technical tracks:
         </p>
 
         <ol style="list-style: none; padding: 0; margin: 0 0 1.5rem 0; display: flex; flex-direction: column; gap: 0.9rem;">

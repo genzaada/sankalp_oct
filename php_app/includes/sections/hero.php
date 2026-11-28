@@ -27,7 +27,7 @@ if (!empty($conferenceData['dates'])) {
 ?>
 <header class="hero-section sankalp-hero" style="overflow: hidden;">
   <!-- Hero Wallpaper Layer (in front of green background, below content) -->
-  <img src="<?= asset_url('assets/images/hero-wallpaper.jpg') ?>" alt="" aria-hidden="true" class="hero-wallpaper-bg">
+  <img src="<?= asset_url('assets/images/hero%20background%20improved.png') ?>" alt="" aria-hidden="true" class="hero-wallpaper-bg">
 
   <!-- Subtle ambient glow background -->
   <div class="ambient-glow" style="position: absolute; right: 0; top: 0; width: 450px; max-width: 100vw; height: 450px; border-radius: 50%; pointer-events: none; background: rgba(18, 124, 111, 0.18); filter: blur(100px); overflow: hidden; z-index: 1;"></div>

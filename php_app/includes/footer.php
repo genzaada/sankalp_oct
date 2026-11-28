@@ -14,11 +14,23 @@ $navLinks = $conferenceData['nav_links'];
     <div class="footer-grid">
 
       <!-- Col 1: Brand & Social -->
-      <div style="display: flex; flex-direction: column; gap: 1rem; text-align: left;">
-        <div class="footer-brand-badge">
-          <img src="<?= asset_url('assets/images/logo%202%20.png') ?>" alt="<?= e($config['app_name']) ?>" class="brand-logo-img">
+      <div style="display: flex; flex-direction: column; gap: 1rem; text-align: left; background: #ffffff; padding: 1.5rem; border-radius: 14px; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.14); height: fit-content;">
+        <div class="footer-brand-badge" style="background: transparent; padding: 0; box-shadow: none; border-radius: 0; width: 100%; display: flex; align-items: center; gap: 0.75rem; flex-wrap: nowrap;">
+          <a href="https://mgmu.ac.in" target="_blank" rel="noopener noreferrer" aria-label="MGM University" style="display: inline-flex; align-items: center; flex-shrink: 0;">
+            <video
+              src="<?= asset_url('assets/videos/mgm_logo_navbar.mp4') ?>?v=2"
+              autoplay
+              loop
+              muted
+              playsinline
+              preload="auto"
+              aria-label="MGM University"
+              style="height: 44px; width: auto; aspect-ratio: 16 / 9; object-fit: contain; display: block;">
+            </video>
+          </a>
+          <img src="<?= asset_url('assets/images/logo%202%20.png') ?>" alt="<?= e($config['app_name']) ?>" class="brand-logo-img" style="height: 38px; width: auto; max-width: 58%; object-fit: contain;">
         </div>
-        <p style="font-size: 0.75rem; line-height: 1.6; color: #ffffff;">
+        <p style="font-size: 0.75rem; line-height: 1.6; color: #1f2937; margin: 0;">
           <?= e($config['app_full_title']) ?>. Organized by School of Engineering and Technology (SOET), MGM University.
         </p>
 

@@ -3,14 +3,14 @@
  * Conference Tracks Component — Wide Editorial Layout
  */
 $conferenceData = $conferenceData ?? require __DIR__ . '/../../config/conference_data.php';
-$tracks = array_slice($conferenceData['tracks'] ?? [], 0, 6);
+$tracks = $conferenceData['tracks'] ?? [];
 ?>
 <section id="tracks" class="section-light sankalp-tracks" style="padding-top: 6rem; padding-bottom: 6rem; scroll-margin-top: 5rem; overflow: hidden;">
   <div class="container">
 
     <!-- Section Heading -->
     <div class="reveal-up tracks-section-header">
-      <span class="tracks-eyebrow font-mono">Technical Program &bull; Six Official Tracks</span>
+      <span class="tracks-eyebrow font-mono">Technical Program &bull; Seven Official Tracks</span>
       <h2 class="font-display font-bold uppercase tracking-tight text-3xl md:text-4xl tracks-heading">
         Conference Tracks
       </h2>
@@ -18,7 +18,7 @@ $tracks = array_slice($conferenceData['tracks'] ?? [], 0, 6);
     </div>
 
     <!-- Wide, Spaced-Out Tracks List -->
-    <div class="tracks-list-wide reveal-up delay-1" role="region" aria-label="ICAIESF 2027 Six Official Conference Tracks">
+    <div class="tracks-list-wide reveal-up delay-1" role="region" aria-label="ICAIESF 2027 Seven Official Conference Tracks">
       <?php foreach ($tracks as $i => $track): ?>
         <?php
         $paddedNum = str_pad((string)($i + 1), 2, '0', STR_PAD_LEFT);

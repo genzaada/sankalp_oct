@@ -33,7 +33,7 @@ $config = $config ?? require __DIR__ . '/../../config/app.php';
             </h2>
           </div>
           <p style="font-size: 1rem; line-height: 1.68; color: #111827; margin: 0;">
-            The <strong style="color: var(--color-primary-700);">Microsoft CMT</strong> service is being used to manage the peer-review process for <strong style="color: var(--color-primary-700);">ICAIESF 2027</strong>. This service is provided free of charge by Microsoft, which bears all expenses, including Azure cloud services, software development, and support.
+            The Microsoft CMT service was used for managing the peer-reviewing process for this conference. This service was provided for free by Microsoft and they bore all expenses, including costs for Azure cloud services as well as for software development and support.
           </p>
         </div>
 

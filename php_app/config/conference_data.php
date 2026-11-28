@@ -8,7 +8,7 @@ return [
     'stats' => [],
     'highlights' => [
         'Interdisciplinary Research Presentation',
-        'Six Thematic Engineering Tracks',
+        'Seven Thematic Engineering Tracks',
         'Peer-Reviewed Technical Submissions',
         'Academic & Industry Knowledge Exchange',
     ],
@@ -29,7 +29,7 @@ return [
         ],
         [
             'trackNum' => 'Track 2',
-            'title' => 'Intelligent Sustainable Manufacturing and Industry 5.0',
+            'title' => 'Intelligent Sustainable Manufacturing, Industrial Automation and Industry 5.0',
             'icon' => '🏭',
             'topics' => [
                 'Industry 5.0 & Human-Centric Manufacturing',
@@ -68,19 +68,6 @@ return [
         ],
         [
             'trackNum' => 'Track 5',
-            'title' => 'Artificial Intelligence and Digital Technologies for Intelligent Engineering',
-            'icon' => '🤖',
-            'topics' => [
-                'Artificial Intelligence & Machine Learning in Engineering',
-                'Predictive Analytics & Data-Driven Modeling',
-                'Deep Learning & Computer Vision for Quality Inspection',
-                'Internet of Things (IoT) & Cyber-Physical Systems',
-                'Cloud, Edge Computing & Digital Infrastructure',
-                'Trustworthy AI, Cybersecurity & Engineering Ethics',
-            ],
-        ],
-        [
-            'trackNum' => 'Track 6',
             'title' => 'Environmental Sustainability, Climate Resilience and Circular Economy',
             'icon' => '🌿',
             'topics' => [
@@ -90,6 +77,32 @@ return [
                 'Air, Water & Soil Quality Engineering',
                 'Carbon Capture, Utilization & Storage (CCUS)',
                 'Ecological Conservation & Environmental Governance',
+            ],
+        ],
+        [
+            'trackNum' => 'Track 6',
+            'title' => 'AI, Machine Learning and Data-Driven Technologies for Sustainable Engineering',
+            'icon' => '🤖',
+            'topics' => [
+                'Artificial Intelligence & Machine Learning in Engineering',
+                'Predictive Analytics & Data-Driven Modeling',
+                'Deep Learning for Sustainable Systems',
+                'Computer Vision & Automated Quality Inspection',
+                'AI for Resource Optimization & Energy Efficiency',
+                'Ethics, Governance & Trustworthy AI in Engineering',
+            ],
+        ],
+        [
+            'trackNum' => 'Track 7',
+            'title' => 'Emerging Computing Technologies, Cybersecurity and Next-Generation Information Systems',
+            'icon' => '💻',
+            'topics' => [
+                'Cybersecurity, Privacy & Critical Infrastructure Protection',
+                'Cloud, Edge & High-Performance Computing',
+                'Internet of Things (IoT) & Smart Connected Systems',
+                'Cyber-Physical Systems & Distributed Networks',
+                'Blockchain, Distributed Ledger & Digital Trust',
+                'Quantum Computing & Next-Generation Computing Architectures',
             ],
         ],
     ],

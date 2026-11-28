@@ -32,14 +32,14 @@ return [
             'org'   => 'Chief Of Examination',
             'image' => 'assets/images/committee/H.H Shinde.png',
         ],
-    ],
-    'Organizing Committee' => [
         [
             'role'  => 'Conference Chair',
             'name'  => 'Dr. Parminder Kaur Dhingra',
             'org'   => 'Deputy Registrar Academics, Director IQAC',
             'image' => 'assets/images/committee/Parminder Kaur.png',
         ],
+    ],
+    'Organizing Committee' => [
         [
             'role'  => 'Convener',
             'name'  => 'Javed Siddiqui',

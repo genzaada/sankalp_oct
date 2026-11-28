@@ -1,6 +1,9 @@
 # Apache configuration for MGMU hosting environment
 # Compatible with Apache 2.4+
 
+# Default Directory Index
+DirectoryIndex index.php index.html
+
 # Prevent directory browsing
 <IfModule mod_autoindex.c>
     Options -Indexes

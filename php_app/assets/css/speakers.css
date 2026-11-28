@@ -29,6 +29,7 @@
 }
 
 .sankalp-speakers .speaker-card {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -119,23 +120,38 @@
   flex-grow: 1;
 }
 
+.sankalp-speakers .card-top-linkedin-btn,
 .sankalp-speakers .speaker-social-btn {
-  width: 2.25rem;
-  height: 2.25rem;
+  position: absolute;
+  top: 0.875rem;
+  right: 0.875rem;
+  z-index: 10;
+  width: 2.125rem;
+  height: 2.125rem;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(18, 124, 111, 0.1);
+  background: rgba(18, 124, 111, 0.08);
   color: var(--color-primary-700);
-  border: 1px solid rgba(18, 124, 111, 0.2);
-  transition: all 0.2s ease;
-  margin-top: auto;
+  border: 1px solid rgba(18, 124, 111, 0.22);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  margin: 0 !important;
+  text-decoration: none;
 }
 
+.sankalp-speakers .card-top-linkedin-btn:hover,
 .sankalp-speakers .speaker-social-btn:hover {
   background: var(--color-primary-700);
   color: #ffffff;
-  transform: translateY(-2px);
+  border-color: var(--color-primary-700);
+  transform: translateY(-1px) scale(1.08);
   box-shadow: 0 4px 10px rgba(18, 124, 111, 0.25);
+}
+
+.sankalp-speakers .card-top-linkedin-btn svg,
+.sankalp-speakers .speaker-social-btn svg {
+  width: 1rem;
+  height: 1rem;
 }

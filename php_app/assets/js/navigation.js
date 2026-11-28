@@ -420,8 +420,8 @@ function initScrollSpy() {
 
   const homeSections = [
     { id: 'about', label: 'About' },
-    { id: 'committee', label: 'Committee' },
     { id: 'tracks', label: 'Tracks' },
+    { id: 'committee', label: 'Committee' },
     { id: 'speakers', label: 'Speakers' },
     { id: 'venue', label: 'Venue' }
   ];

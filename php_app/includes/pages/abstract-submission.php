@@ -259,13 +259,13 @@ if (!empty($conferenceData['dates'])) {
                   <li>Maximum file size: 1 MB</li>
                 </ul>
                 <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem; font-size: 0.9375rem; font-weight: 600;">
-                  <button type="button" onclick="downloadFile('Paper_Guidelines.pdf')" style="color: var(--color-primary-700); text-decoration: underline; text-underline-offset: 3px;">
+                  <a href="<?= asset_url('assets/images/graphical%20abstract/Graphical%20Abstract%20Template.pptx') ?>" download="Graphical_Abstract_Template.pptx" style="color: var(--color-primary-700); text-decoration: underline; text-underline-offset: 3px;">
                     Download Graphical Abstract Template
-                  </button>
+                  </a>
                   <span style="color: #6B7280;">|</span>
-                  <button type="button" onclick="openSubmissionModal()" style="color: var(--color-primary-700); text-decoration: underline; text-underline-offset: 3px;">
+                  <a href="<?= asset_url('assets/images/graphical%20abstract/view%20sample.jpg') ?>" target="_blank" rel="noopener noreferrer" style="color: var(--color-primary-700); text-decoration: underline; text-underline-offset: 3px;">
                     View Sample
-                  </button>
+                  </a>
                 </div>
               </div>
             </div>

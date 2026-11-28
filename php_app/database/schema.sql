@@ -63,3 +63,21 @@ CREATE TABLE IF NOT EXISTS `contact_inquiries` (
   `is_resolved` TINYINT(1) NOT NULL DEFAULT 0,
   `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- 5. Conference Personnel & Committee Registry Table (Architectural Reference)
+CREATE TABLE IF NOT EXISTS `conference_people` (
+  `id` INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  `category` ENUM('patrons_leadership', 'guests_of_honour', 'advisory_committee', 'organising_committee', 'speakers') NOT NULL,
+  `display_order` SMALLINT UNSIGNED NOT NULL DEFAULT 0,
+  `name` VARCHAR(150) NOT NULL,
+  `designation` VARCHAR(255) DEFAULT NULL,
+  `secondary_designation` VARCHAR(255) DEFAULT NULL,
+  `organization` VARCHAR(255) DEFAULT NULL,
+  `image_path` VARCHAR(255) DEFAULT NULL,
+  `linkedin_url` VARCHAR(255) DEFAULT NULL,
+  `is_active` TINYINT(1) NOT NULL DEFAULT 1,
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  INDEX `idx_category` (`category`),
+  INDEX `idx_order` (`display_order`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+

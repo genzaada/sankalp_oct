@@ -17,16 +17,10 @@ $navLinks = $conferenceData['nav_links'];
       <div style="display: flex; flex-direction: column; gap: 1rem; text-align: left; background: #ffffff; padding: 1.5rem; border-radius: 14px; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.14); height: fit-content;">
         <div class="footer-brand-badge" style="background: transparent; padding: 0; box-shadow: none; border-radius: 0; width: 100%; display: flex; align-items: center; gap: 0.75rem; flex-wrap: nowrap;">
           <a href="https://mgmu.ac.in" target="_blank" rel="noopener noreferrer" aria-label="MGM University" style="display: inline-flex; align-items: center; flex-shrink: 0;">
-            <video
-              src="<?= asset_url('assets/videos/mgm_logo_navbar.mp4') ?>?v=2"
-              autoplay
-              loop
-              muted
-              playsinline
-              preload="auto"
-              aria-label="MGM University"
-              style="height: 44px; width: auto; aspect-ratio: 16 / 9; object-fit: contain; display: block;">
-            </video>
+            <img
+              src="<?= asset_url('assets/images/LogoMGM.svg') ?>"
+              alt="MGM University"
+              style="height: 44px; width: auto; aspect-ratio: 1913 / 1093; object-fit: contain; display: block;">
           </a>
           <img src="<?= asset_url('assets/images/logo%202%20.png') ?>" alt="<?= e($config['app_name']) ?>" class="brand-logo-img" style="height: 38px; width: auto; max-width: 58%; object-fit: contain;">
         </div>
@@ -90,15 +84,23 @@ $navLinks = $conferenceData['nav_links'];
         </h4>
         <div style="display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.75rem;">
           <div style="display: flex; gap: 0.625rem; color: #ffffff; font-weight: 600;">
-            <span><?= e($config['conference_chair'] ?? 'Dr. Parminder Kaur Dhingra') ?></span>
+            <span><?= e($config['enquiry_contact_name'] ?? 'Anuj Domale') ?></span>
           </div>
           <div style="font-size: 0.75rem; color: #ffffff; line-height: 1.5;">
-            Conference Chair, <?= e($config['app_name']) ?><br>
-            Professor &amp; Director<br>
+            <?= e($config['enquiry_contact_role'] ?? 'Co-convener, ' . $config['app_name']) ?><br>
+            <?= e($config['enquiry_contact_dept'] ?? 'HOD Civil') ?><br>
             School of Engineering and Technology
           </div>
+          <div style="display: flex; gap: 0.625rem; color: #ffffff; align-items: center;">
+            <span style="flex-shrink: 0; color: var(--color-accent-amber);"><?= render_icon('phone') ?></span>
+            <a href="tel:<?= preg_replace('/[^0-9+]/', '', $config['contact_phone'] ?? '7588091381') ?>" style="color: #ffffff; text-decoration: none;" onmouseover="this.style.color='var(--color-accent-amber)';" onmouseout="this.style.color='#ffffff';"><?= e($config['contact_phone'] ?? '7588091381') ?></a>
+          </div>
+          <div style="display: flex; gap: 0.625rem; color: #ffffff; align-items: center;">
+            <span style="flex-shrink: 0; color: var(--color-accent-amber);"><?= render_icon('mail') ?></span>
+            <a href="mailto:<?= e($config['contact_email'] ?? 'icaiesf@mgmu.ac.in') ?>" style="color: #ffffff; text-decoration: none;" onmouseover="this.style.color='var(--color-accent-amber)';" onmouseout="this.style.color='#ffffff';"><?= e($config['contact_email'] ?? 'icaiesf@mgmu.ac.in') ?></a>
+          </div>
           <div style="display: flex; gap: 0.625rem; color: #ffffff;">
-            <span style="flex-shrink: 0; margin-top: 0.125rem;"><?= render_icon('map-pin') ?></span>
+            <span style="flex-shrink: 0; margin-top: 0.125rem; color: var(--color-accent-amber);"><?= render_icon('map-pin') ?></span>
             <span>MGM University, Chhatrapati Sambhajinagar &ndash; 431003, Maharashtra, India</span>
           </div>
         </div>
@@ -163,6 +165,7 @@ $navLinks = $conferenceData['nav_links'];
 <script src="<?= asset_url('assets/js/navigation.js') ?>"></script>
 <script src="<?= asset_url('assets/js/modals.js') ?>"></script>
 <script src="<?= asset_url('assets/js/main.js') ?>"></script>
+<script src="<?= asset_url('assets/js/heritage-carousel.js') ?>"></script>
 <script type="module" src="<?= asset_url('assets/js/hero-cube.js') ?>"></script>
 </body>
 </html>

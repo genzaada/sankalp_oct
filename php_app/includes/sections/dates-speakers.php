@@ -39,6 +39,17 @@ $speakers = $conferenceData['speakers'] ?? [];
             $imgUrl = $hasPhoto ? asset_url(implode('/', array_map('rawurlencode', explode('/', $speaker['image'])))) : '';
           ?>
           <div class="speaker-card">
+            <?php if (!empty($speaker['linkedin'])): ?>
+              <a href="<?= e($speaker['linkedin']) ?>"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 class="card-top-linkedin-btn"
+                 aria-label="<?= e($speaker['name']) ?> on LinkedIn"
+                 title="View <?= e($speaker['name']) ?> on LinkedIn">
+                <?= render_icon('linkedin') ?>
+              </a>
+            <?php endif; ?>
+
             <div style="display: flex; flex-direction: column; align-items: center; width: 100%; flex-grow: 1;">
               <div class="speaker-avatar">
                 <?php if ($hasPhoto): ?>
@@ -54,17 +65,6 @@ $speakers = $conferenceData['speakers'] ?? [];
               <p class="speaker-role"><?= e($speaker['designation']) ?></p>
               <p class="speaker-org"><?= e($speaker['organization']) ?></p>
             </div>
-
-            <?php if (!empty($speaker['linkedin'])): ?>
-              <a href="<?= e($speaker['linkedin']) ?>"
-                 target="_blank"
-                 rel="noopener noreferrer"
-                 class="speaker-social-btn"
-                 aria-label="<?= e($speaker['name']) ?> on LinkedIn"
-                 title="View <?= e($speaker['name']) ?> on LinkedIn">
-                <?= render_icon('linkedin') ?>
-              </a>
-            <?php endif; ?>
           </div>
         <?php endforeach; ?>
       </div>

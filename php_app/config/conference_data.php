@@ -116,7 +116,9 @@ return [
         ['label' => 'Conference Dates',          'date' => '9–10 April 2027',  'type' => 'event',    'status' => 'Official'],
     ],
 
-    // Keynote & Invited Speakers (Official Confirmed Lineup)
+    // Keynote & Invited Speakers (Remaining Confirmed Lineup - 6 Speakers)
+    // Note: Milind Rane, Ashish Rakheja, Nishant Gupta, Prasad Kokil, and Pankaj Dharkar
+    // are now showcased under 'Guests of Honour' within Conference Leadership & Committees.
     'speakers_confirmed' => true,
     'speakers' => [
         [
@@ -125,6 +127,7 @@ return [
             'organization' => 'Centre for Advanced Research in Building Science and Energy (CARBSE), CRDF, CEPT University',
             'linkedin' => 'https://www.linkedin.com/in/yash-shukla-55587b107',
             'image' => 'assets/images/speakers/Yash Shukla.jpeg',
+            'category' => 'speaker',
             'confirmed' => true,
         ],
         [
@@ -133,6 +136,7 @@ return [
             'organization' => 'Malaviya National Institute of Technology (MNIT), Jaipur',
             'linkedin' => 'https://www.linkedin.com/in/jyotirmay-mathur-7488903',
             'image' => 'assets/images/speakers/Jyoutirmay Mathur.jpeg',
+            'category' => 'speaker',
             'confirmed' => true,
         ],
         [
@@ -141,6 +145,7 @@ return [
             'organization' => 'COEP Technological University, Pune',
             'linkedin' => 'https://www.linkedin.com/in/dr-shantipal-ohol-8547b620',
             'image' => 'assets/images/speakers/Shantipal Ohol.jpeg',
+            'category' => 'speaker',
             'confirmed' => true,
         ],
         [
@@ -149,6 +154,7 @@ return [
             'organization' => 'Endurance Technologies Ltd.',
             'linkedin' => 'https://www.linkedin.com/in/sahastrarashmi-pund-3b6784a',
             'image' => 'assets/images/speakers/Sahastrarashmi Pund.jpeg',
+            'category' => 'speaker',
             'confirmed' => true,
         ],
         [
@@ -157,38 +163,7 @@ return [
             'organization' => 'Indian Institute of Technology Bombay (IIT Bombay)',
             'linkedin' => 'https://www.linkedin.com/in/sandeep-kumar-4ab72714',
             'image' => 'assets/images/speakers/Sandeep Kumar.jpeg',
-            'confirmed' => true,
-        ],
-        [
-            'name' => 'Milind Rane',
-            'designation' => 'Institute Chair Professor',
-            'organization' => 'Indian Institute of Technology Bombay (IIT Bombay)',
-            'linkedin' => 'https://www.linkedin.com/in/milind-rane-85a1a314b',
-            'image' => 'assets/images/speakers/Milind Rane.jpeg',
-            'confirmed' => true,
-        ],
-        [
-            'name' => 'Ashish Rakheja',
-            'designation' => 'Managing Partner',
-            'organization' => 'AEON Integrated Building Design Consultants LLP',
-            'linkedin' => 'https://www.linkedin.com/in/ashish-rakheja-81a615105',
-            'image' => 'assets/images/speakers/Ashish Rakheja.jpeg',
-            'confirmed' => true,
-        ],
-        [
-            'name' => 'Pankaj Dharkar',
-            'designation' => 'President',
-            'organization' => 'Pankaj Dharkar & Associates',
-            'linkedin' => 'https://www.linkedin.com/in/pankaj-dharkar-5407989b',
-            'image' => 'assets/images/speakers/Pankaj Dharkar.jpeg',
-            'confirmed' => true,
-        ],
-        [
-            'name' => 'Nishant Gupta',
-            'designation' => 'Managing Director',
-            'organization' => 'Degree Day Private Limited',
-            'linkedin' => 'https://www.linkedin.com/in/nishant-gupta-bb17478',
-            'image' => 'assets/images/speakers/Nishant Gupta.jpeg',
+            'category' => 'speaker',
             'confirmed' => true,
         ],
         [
@@ -197,14 +172,7 @@ return [
             'organization' => 'International Institute of Refrigeration',
             'linkedin' => 'https://www.linkedin.com/in/anna-pacak-baa451108',
             'image' => 'assets/images/speakers/default user profile icon.jpg',
-            'confirmed' => true,
-        ],
-        [
-            'name' => 'Prasad Kokil',
-            'designation' => 'Owner',
-            'organization' => 'Sanjay Technoplast Pvt. Ltd.',
-            'linkedin' => 'https://www.linkedin.com/in/prasad-kokil-8363a019',
-            'image' => 'assets/images/speakers/default user profile icon.jpg',
+            'category' => 'speaker',
             'confirmed' => true,
         ],
     ],
@@ -271,8 +239,8 @@ return [
         ['label' => 'About',           'target' => 'about',           'page' => 'home'],
         ['label' => 'Tracks',          'target' => 'tracks',          'page' => 'home'],
         ['label' => 'Abstract Submission', 'target' => 'abstract-submission', 'page' => 'abstract-submission'],
-        ['label' => 'Speakers',        'target' => 'speakers',        'page' => 'home'],
         ['label' => 'Committee',       'target' => 'committee',       'page' => 'home'],
+        ['label' => 'Speakers',        'target' => 'speakers',        'page' => 'home'],
         ['label' => 'Sponsor',         'target' => 'sponsor',         'page' => 'sponsor'],
         ['label' => 'Terms & Conditions', 'target' => 'terms-and-conditions', 'page' => 'terms-and-conditions'],
         ['label' => 'Registration',    'target' => 'fees',            'page' => 'abstract-submission'],

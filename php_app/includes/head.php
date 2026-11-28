@@ -136,6 +136,7 @@ $ogImageUrl = !empty($productionDomain) ? rtrim($productionDomain, '/') . '/asse
   <link rel="stylesheet" href="<?= asset_url('assets/css/committee.css') ?>?v=2027.1">
   <link rel="stylesheet" href="<?= asset_url('assets/css/sponsorship.css') ?>?v=2027.1">
   <link rel="stylesheet" href="<?= asset_url('assets/css/venue.css') ?>?v=2027.1">
+  <link rel="stylesheet" href="<?= asset_url('assets/css/heritage.css') ?>?v=2027.1">
 
   <!-- Favicons (All Devices) -->
   <link rel="apple-touch-icon" sizes="180x180" href="<?= asset_url('assets/images/favicon/apple-touch-icon.png') ?>">

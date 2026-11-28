@@ -13,17 +13,11 @@ $navLinks = $conferenceData['nav_links'];
     <div style="display: flex; align-items: center; gap: 0.875rem; flex-shrink: 0;">
       <!-- MGM University Logo -->
       <a href="https://mgmu.ac.in" target="_blank" rel="noopener noreferrer" aria-label="MGM University" class="nav-mgm-logo-link">
-        <video
-          src="<?= asset_url('assets/videos/mgm_logo_navbar.mp4') ?>?v=2"
-          autoplay
-          loop
-          muted
-          playsinline
-          preload="auto"
-          aria-label="MGM University"
+        <img
+          src="<?= asset_url('assets/images/LogoMGM.svg') ?>"
+          alt="MGM University"
           class="nav-mgm-logo"
-          style="height: clamp(48px, 5vw, 68px); width: auto; aspect-ratio: 16 / 9; object-fit: contain;">
-        </video>
+          style="height: clamp(48px, 5vw, 68px); width: auto; aspect-ratio: 1913 / 1093; object-fit: contain;">
       </a>
 
       <!-- Brand Logo -->
